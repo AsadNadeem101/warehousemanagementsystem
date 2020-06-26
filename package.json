@@ -22,5 +22,11 @@
         "sass-loader": "^8.0.0",
         "vue": "^2.5.17",
         "vue-template-compiler": "^2.6.10"
+    },
+    "dependencies": {
+        "datatables.net-bs": "^1.10.21",
+        "datatables.net-bs4": "^1.10.21",
+        "datatables.net-buttons-bs": "^1.6.2",
+        "datatables.net-buttons-bs4": "^1.6.2"
     }
 }

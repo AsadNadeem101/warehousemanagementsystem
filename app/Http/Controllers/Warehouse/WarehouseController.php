@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Warehouse;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Warehouse;
 
 class WarehouseController extends Controller
 {
@@ -35,7 +36,10 @@ class WarehouseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Warehouse::create($input);
+
+        return view('index');
     }
 
     /**

@@ -11,6 +11,14 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+	require( 'datatables.net-bs' )();
+	require( 'datatables.net-buttons-bs' )();
+	require( 'datatables.net-buttons/js/buttons.colVis.js' )();
+	require( 'datatables.net-buttons/js/buttons.flash.js' )();
+	require( 'datatables.net-buttons/js/buttons.html5.js' )();
+	require( 'datatables.net-buttons/js/buttons.print.js' )();
+
+	
 } catch (e) {}
 
 /**
@@ -39,3 +47,4 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
+

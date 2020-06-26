@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Employee;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Employee;
+
+use App\DataTables\EmployeeDataTable;
 
 class EmployeeController extends Controller
 {
@@ -12,9 +15,9 @@ class EmployeeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(EmployeeDataTable $dataTable)
     {
-        //
+        return $dataTable->render('Employee.index');
     }
 
     /**
@@ -24,7 +27,7 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        return view('Employee.create');
     }
 
     /**
@@ -35,7 +38,10 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Employee::create($input);
+
+        return redirect()->route('employee.index');
     }
 
     /**
