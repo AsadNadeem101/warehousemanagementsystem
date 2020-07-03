@@ -18,7 +18,20 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function (){
 	Route::get('/', 'HomeController@index');
+
+
+	//Attendance
+    Route::get('markAttendancePage','Attendance\AttendanceController@markAttendance');
+    Route::get('mark/{attStatus}/{id}','Attendance\AttendanceController@mark');
+    Route::get('viewattendance/{days}','Attendance\AttendanceController@view');
+    Route::get('createattendancesheet','Attendance\AttendanceController@createsheet'); 
+    Route::get('viewattendancedetail/{id}', 'Attendance\AttendanceController@viewattendancedetail');
+
+    //Warehouse
+    Route::resource('warehouse', 'Warehouse\WarehouseController');
+	
+    //Employee
+	Route::resource('employee', 'Employee\EmployeeController');
+
 });
 
-Route::resource('warehouse', 'Warehouse\WarehouseController');
-Route::resource('employee', 'Employee\EmployeeController');
