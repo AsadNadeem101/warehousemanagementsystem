@@ -14,7 +14,8 @@ class Product extends Model
     protected $fillable = [
         'name', 
         'description', 
-        'manufacturer'
+        'manufacturer',
+        'warehouse_id',
     ];
 
     public $table = "products";

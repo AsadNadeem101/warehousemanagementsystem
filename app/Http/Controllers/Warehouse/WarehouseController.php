@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Warehouse;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Warehouse;
+use App\DataTables\WarehouseDataTable;
+use Illuminate\Database\QueryException;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class WarehouseController extends Controller
 {
@@ -13,9 +16,9 @@ class WarehouseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(WarehouseDataTable $dataTable)
     {
-        //
+        return $dataTable->render('warehouse.index');
     }
 
     /**
@@ -25,7 +28,7 @@ class WarehouseController extends Controller
      */
     public function create()
     {
-        //
+        return view('warehouse.create');
     }
 
     /**
@@ -38,8 +41,8 @@ class WarehouseController extends Controller
     {
         $input = $request->all();
         Warehouse::create($input);
-
-        return view('index');
+        Alert::success('Warehouse', 'Data successfully created');
+        return redirect()->route('warehouse.index');
     }
 
     /**
@@ -50,7 +53,8 @@ class WarehouseController extends Controller
      */
     public function show($id)
     {
-        //
+        $warehouse = Warehouse::find($id);
+        return view('warehouse.show',compact('warehouse'));
     }
 
     /**
@@ -61,7 +65,8 @@ class WarehouseController extends Controller
      */
     public function edit($id)
     {
-        //
+        $warehouse = Warehouse::find($id);
+        return view('warehouse.edit',compact('warehouse'));
     }
 
     /**
@@ -73,7 +78,10 @@ class WarehouseController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->only('name','description','location','marla','room','renter_id','status');
+        Warehouse::find($id)->update($input);
+        Alert::success('Warehouse', 'Data successfully updated');
+        return redirect()->route('warehouse.index');
     }
 
     /**
@@ -84,6 +92,22 @@ class WarehouseController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            $warehouse = Warehouse::find($id)->delete();
+            if($warehouse)
+            {
+                return redirect()->route('warehouse.index');
+                Alert::success('Warehouse', 'Data successfully deleted');
+            }
+        } catch (QueryException $e){
+            if($e->getCode() == "23000")
+            {
+                Alert::error('Warehouse', 'Other data exist against this warehouse. Please delete other data first');
+                return redirect()->route('warehouse.index');
+            }
+        } catch (PDOException $e) {
+            Alert::error('Warehouse', 'Something went wrong. Please contact admin');
+            return redirect()->route('warehouse.index');
+        }
     }
 }

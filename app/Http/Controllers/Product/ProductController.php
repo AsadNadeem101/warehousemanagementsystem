@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Model\Product;
+use App\DataTables\ProductDataTable;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ProductController extends Controller
 {
@@ -12,9 +15,9 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(ServiceDataTable $dataTable)
     {
-        //
+        return $dataTable->render('product.index');
     }
 
     /**
@@ -24,7 +27,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+        return view('product.create');
     }
 
     /**
@@ -35,7 +38,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+        Product::create($input);
+        Alert::success('Product', 'Data successfully created');
+        return redirect()->route('product.index');
     }
 
     /**
@@ -46,7 +52,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+        return view('product.show',compact('product'));
     }
 
     /**
@@ -57,7 +64,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('product.edit',compact('product'));
     }
 
     /**
@@ -69,7 +77,10 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = $request->only('name','description','manufacturer','quantity','warehouse_id');
+        Product::find($id)->update($input);
+        Alert::success('Product', 'Data successfully updated');
+        return redirect()->route('product.index');
     }
 
     /**
@@ -80,6 +91,22 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try{
+            $product = Product::find($id)->delete();
+            if($product)
+            {
+                return redirect()->route('product.index');
+                Alert::success('Product', 'Data successfully deleted');
+            }
+        } catch (QueryException $e){
+            if($e->getCode() == "23000")
+            {
+                Alert::error('Product', 'Other data exist against this product. Please delete other data first');
+                return redirect()->route('product.index');
+            }
+        } catch (PDOException $e) {
+            Alert::error('Product', 'Something went wrong. Please contact admin');
+            return redirect()->route('product.index');
+        } 
     }
 }

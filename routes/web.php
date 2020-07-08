@@ -33,5 +33,17 @@ Route::group(['middleware' => 'auth'], function (){
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');
 
+    //Service
+    Route::resource('service', 'Service\ServiceController');
+
+    //Plan
+    Route::resource('plan', 'Plan\PlanController');
+
+    //Product
+    Route::resource('product', 'Product\ProductController');
+
+    //Warehouse
+    Route::resource('product', 'Product\ProductController');
+
 });
 
