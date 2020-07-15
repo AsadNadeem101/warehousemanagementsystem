@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Model\Warehouse;
+use App\Payroll;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class WarehouseDataTable extends DataTable
+class PayrollDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,16 +21,16 @@ class WarehouseDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'warehouse.action');
+            ->addColumn('action', 'payroll.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Warehouse $model
+     * @param \App\Payroll $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Warehouse $model)
+    public function query(Payroll $model)
     {
         return $model->newQuery();
     }
@@ -43,7 +43,7 @@ class WarehouseDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('warehouse-table')
+                    ->setTableId('payroll-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -65,20 +65,15 @@ class WarehouseDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            
-            Column::make('id'),
-            Column::make('name'),
-            Column::make('description'),
-            Column::make('location'),
-            Column::make('marla'),
-            Column::make('room'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(120)
+                  ->width(60)
                   ->addClass('text-center'),
+            Column::make('id'),
+            Column::make('add your columns'),
+            Column::make('created_at'),
+            Column::make('updated_at'),
         ];
     }
 
@@ -89,6 +84,6 @@ class WarehouseDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Warehouse_' . date('YmdHis');
+        return 'Payroll_' . date('YmdHis');
     }
 }

@@ -5,10 +5,13 @@ namespace App\Http\Controllers\Employee;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Employee;
+use App\User;
 
 use App\DataTables\EmployeeDataTable;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
+use Auth;
+
 class EmployeeController extends Controller
 {
     /**
@@ -28,7 +31,9 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        return view('Employee.create');
+        $id = Auth::user()->id;
+        $warehouses = User::find($id)->warehouses()->pluck('name','id');
+        return view('Employee.create',compact('warehouses'));
     }
 
     /**

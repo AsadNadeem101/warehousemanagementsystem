@@ -35,12 +35,8 @@
 	    	<div class="col-md-6">
 	    		<h6>Room</h6>
 	    		{!! Form::text('room',null,['class' => 'form-control','placeholder' => 'ROOM']); !!}
-	    	</div>
-	    	<div class="col-md-6">
-	    		<h6>Renter</h6>
-				{!! Form::number('renter_id',null,['class' => 'form-control','placeholder' => 'RENTER']); !!}
-	    	</div>	    	
-	    </div>		
+	    	</div>    	
+	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-12" style="text-align: center">

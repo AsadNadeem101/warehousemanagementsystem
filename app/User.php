@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -38,4 +39,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    /**
+     * Relationship for user_warehouses.
+     *
+     * @return \App\Model\Warehouse     
+     */
+    public function warehouses()
+    {
+        return $this->hasMany('App\Model\Warehouse','renter_id');
+    }
 }

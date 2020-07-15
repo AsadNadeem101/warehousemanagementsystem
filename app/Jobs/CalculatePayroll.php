@@ -52,7 +52,6 @@ class CalculatePayroll implements ShouldQueue
                 'payable'       => $payable,
                 'deduction'     => $deduction,
                 'status'        => 'pending',
-                'paid_at'       => Carbon::now()
             ]
 
             EmployerPayroll::create($employer_payroll);

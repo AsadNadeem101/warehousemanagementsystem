@@ -27,7 +27,7 @@ class CreateEmployerPayrollsTable extends Migration
 
             $table->enum('status',['pending','paid','partially-paid']);
 
-            $table->dateTime('paid_at');
+            $table->dateTime('paid_at')->nullable();
 
             $table->timestamps();
         });
