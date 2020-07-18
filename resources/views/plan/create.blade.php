@@ -23,11 +23,11 @@
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Duration</h6>
-	    		{!! Form::text('duration',null,['class' => 'form-control','placeholder' => 'DURATION']); !!}
+	    		{!! Form::number('duration',null,['class' => 'form-control','placeholder' => 'DURATION IN DAYS']); !!}
 	    	</div>	    	
 	    	<div class="col-md-6">
 	    		<h6>Price</h6>
-	    		{!! Form::text('price',null,['class' => 'form-control','placeholder' => 'PRICE']); !!}
+	    		{!! Form::number('price',null,['class' => 'form-control','placeholder' => 'PRICE IN RS']); !!}
 	    	</div>	    	
 	    </div>		
 	    <br>

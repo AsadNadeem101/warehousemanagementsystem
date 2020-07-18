@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Model\Service;
 use App\DataTables\ServiceDataTable;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Model\WarehouseServiceSubscription;
 
 class ServiceController extends Controller
 {
@@ -40,7 +41,7 @@ class ServiceController extends Controller
     {
         $input = $request->all();
         Service::create($input);
-        Alert::success('Employee', 'Data successfully created');
+        Alert::success('Service', 'Data successfully created');
         return redirect()->route('service.index');
     }
 
@@ -108,5 +109,14 @@ class ServiceController extends Controller
             Alert::error('Service', 'Something went wrong. Please contact admin');
             return redirect()->route('employee.index');
         } 
+    }
+
+    public function subscribeService(Request $request)
+    {
+        $input = $request->all();
+        WarehouseServiceSubscription::create($input);
+
+        Alert::success('Service', 'Service subscribed against warehouse');
+        return redirect()->route('warehouse.index');
     }
 }
