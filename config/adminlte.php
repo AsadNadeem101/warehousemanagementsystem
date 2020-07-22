@@ -313,6 +313,7 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ],
+
     ],
 
     /*
@@ -352,24 +353,25 @@ return [
 
     'plugins' => [
         [
-            'name' => 'Datatables',
-            'active' => false,
+            'name' => 'datatables',
+            'active' => true,
             'files' => [
-                [
-                    'type' => 'js',
+               [
+                    'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
-                ],
-                [
-                    'type' => 'js',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'location' => 'https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css',
                 ],
                 [
                     'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'location' => 'https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css',
                 ],
+                [
+                    'type' => 'css',
+                    'asset' => false,
+                    'location' => 'https://cdn.datatables.net/responsive/2.2.5/css/responsive.dataTables.min.css',
+                ],
+
             ],
         ],
         [
