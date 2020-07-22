@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Model\Plan;
+use App\Payroll;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class PlanDataTable extends DataTable
+class PayrollDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,16 +21,16 @@ class PlanDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'plan.action');
+            ->addColumn('action', 'payroll.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Plan $model
+     * @param \App\Payroll $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Plan $model)
+    public function query(Payroll $model)
     {
         return $model->newQuery();
     }
@@ -43,7 +43,7 @@ class PlanDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('plan-table')
+                    ->setTableId('payroll-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -65,19 +65,15 @@ class PlanDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('id'),
-            Column::make('name'),
-            Column::make('description'),
-            Column::make('duration'),
-            Column::make('price'),
-            Column::make('status'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
+            Column::make('id'),
+            Column::make('add your columns'),
+            Column::make('created_at'),
+            Column::make('updated_at'),
         ];
     }
 
@@ -88,6 +84,6 @@ class PlanDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Plan_' . date('YmdHis');
+        return 'Payroll_' . date('YmdHis');
     }
 }

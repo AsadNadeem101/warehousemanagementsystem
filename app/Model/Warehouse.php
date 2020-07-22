@@ -17,7 +17,8 @@ class Warehouse extends Model
         'location',
         'marla',
         'room',
-        'status'
+        'status',
+        'renter_id'
     ];
 
     public $table = "warehouses";

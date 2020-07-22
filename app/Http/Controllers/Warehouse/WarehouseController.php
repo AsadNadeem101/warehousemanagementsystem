@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Warehouse;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Warehouse;
+use App\Model\Service;
 use App\DataTables\WarehouseDataTable;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
+use Auth;
 
 class WarehouseController extends Controller
 {
@@ -40,6 +42,7 @@ class WarehouseController extends Controller
     public function store(Request $request)
     {
         $input = $request->all();
+        $input['renter_id'] = Auth::user()->id;
         Warehouse::create($input);
         Alert::success('Warehouse', 'Data successfully created');
         return redirect()->route('warehouse.index');
@@ -54,7 +57,8 @@ class WarehouseController extends Controller
     public function show($id)
     {
         $warehouse = Warehouse::find($id);
-        return view('warehouse.show',compact('warehouse'));
+        $services = Service::all();
+        return view('warehouse.show',compact('warehouse','services'));
     }
 
     /**

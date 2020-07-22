@@ -37,12 +37,19 @@
 	    	<div class="col-md-6">
 	    		{!! Form::number('salary',null,['class' => 'form-control','placeholder' => 'salary']); !!}
 	    	</div>
-	    	<div class="col-md-6">
-	    		{!! Form::submit('Save', ['class'=>'btn btn-success']); !!}
-	    	</div>    	
+
+			<div class="col-md-6">
+	    		{!! Form::select('warehouse_id',$warehouses,null,['class' => 'form-control']); !!}
+	    	</div> 
+
+   	
 	    </div>
 	    
-	   
+	   	<div class="row">
+	    	<div class="col-md-6">
+	    		{!! Form::submit('Save', ['class'=>'btn btn-success']); !!}
+	    	</div> 	   	
+	    </div>
 	{!! Form::close() !!}
 @stop
 

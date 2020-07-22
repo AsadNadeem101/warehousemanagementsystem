@@ -22,6 +22,10 @@ class CreateEmployersTable extends Migration
             $table->string('cnic');
             $table->string('phone');
             $table->integer('salary');
+
+            $table->unsignedBigInteger('warehouse_id');
+            $table->foreign('warehouse_id')->references('id')->on('warehouses');
+
             $table->boolean('status')->default(1);
             $table->timestamps();
         });

@@ -14,6 +14,7 @@ class UserSeeder extends Seeder
         $super_admin = User::create([
             'name' => 'Super Admin',
             'email' => 'super_admin@wms.com',
+            'type'  => 'super_admin',
             'password' => Hash::make('12345678'),
         ]);
 
@@ -22,6 +23,7 @@ class UserSeeder extends Seeder
         $warehouse_admin = User::create([
             'name' => 'Warehouse Admin',
             'email' => 'warehouse_admin@wms.com',
+            'type'  =>  'warehouse_admin',
             'password' => Hash::make('12345678'),
         ]);
 
@@ -30,6 +32,7 @@ class UserSeeder extends Seeder
         $tenant = User::create([
             'name' => 'Tenant 1',
             'email' => 'tenant1@wms.com',
+            'type'  =>  'tenant',
             'password' => Hash::make('12345678'),
         ]);
 
@@ -38,6 +41,7 @@ class UserSeeder extends Seeder
         $renter = User::create([
             'name' => 'Renter 1',
             'email' => 'renter1@wms.com',
+            'type'  => 'renter',
             'password' => Hash::make('12345678'),
         ]);
 

@@ -34,16 +34,22 @@ Route::group(['middleware' => 'auth'], function (){
 	Route::resource('employee', 'Employee\EmployeeController');
 
     //Service
-    Route::resource('service', 'Service\ServiceController');
+    Route::group(['prefix' => 'service'], function (){
+        Route::resource('/', 'Service\ServiceController');
+        Route::post('subscribe_service','Service\ServiceController@subscribeService')->name('subscribe_service');
+    });
+
+    //Report
+    Route::group(['prefix' => 'report'], function (){
+        Route::get('/admin', 'Report\ReportController@adminReport');
+        Route::get('/tenant', 'Report\ReportController@tenantReport');
+        Route::get('/renter', 'Report\ReportController@renterReport');
+    });    
 
     //Plan
     Route::resource('plan', 'Plan\PlanController');
 
     //Product
     Route::resource('product', 'Product\ProductController');
-
-    //Warehouse
-    Route::resource('product', 'Product\ProductController');
-
 });
 

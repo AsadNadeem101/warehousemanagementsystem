@@ -237,17 +237,40 @@ return [
             'topnav' => true,
         ],
         [
-            'text' => 'blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text' => 'Warehouse',
+            'url'  => 'warehouse',
         ],
         [
-            'text'        => 'pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'far fa-fw fa-file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text' => 'Employee',
+            'url'  => 'employee',
         ],
+        [
+            'text' => 'Plan',
+            'url'  => 'plan',
+        ],
+        [
+            'text' => 'Services',
+            'url'  => 'service',
+        ],                  
+        [
+            'text'    => 'Reports',
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Admin',
+                    'url'  => '/report/admin',
+                ],
+                [
+                    'text' => 'Renter',
+                    'url'  => '/report/renter',
+                ],
+                [
+                    'text' => 'Tenant',
+                    'url'  => '/report/tenant',
+                ]
+            ]
+        ],
+
         ['header' => 'account_settings'],
         [
             'text' => 'profile',
