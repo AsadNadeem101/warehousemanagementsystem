@@ -18,6 +18,9 @@ class RolesAndPermissionsSeeder extends Seeder
 
 		$permissionsByRole = [
 		    'super_admin' => [
+		    	['name'=>'super_admin_dashboard'],
+				['name'=>'super_admin_report'],
+
 			    ['name'=>'warehouse_list'],
 			    ['name'=>'warehouse_create'],
 			    ['name'=>'warehouse_edit'],
@@ -44,6 +47,9 @@ class RolesAndPermissionsSeeder extends Seeder
 		    ],
 		    
 		    'warehouse_admin' => [
+				['name'=>'warehouse_admin_dashboard'],
+				['name'=>'warehouse_admin_report'],
+
 				['name'=>'product_list'],
 			    ['name'=>'product_create'],
 			    ['name'=>'product_edit'],
@@ -55,14 +61,30 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'employee_edit'],
 			    ['name'=>'employee_show'],
 			    ['name'=>'employee_delete'],
+
+			    ['name'=>'mark_attendance'],
 		    ],
 		    
 		    'tenant' => [
 				['name'=>'tenant_dashboard'],
+				['name'=>'tenant_report'],
 		    ],
 
 		    'renter' => [
 				['name'=>'renter_dashboard'],
+				['name'=>'renter_report'],
+
+				['name'=>'warehouse_list'],
+			    ['name'=>'warehouse_create'],
+			    ['name'=>'warehouse_edit'],
+			    ['name'=>'warehouse_show'],
+			    ['name'=>'warehouse_delete'],
+
+				['name'=>'employee_list'],
+			    ['name'=>'employee_create'],
+			    ['name'=>'employee_edit'],
+			    ['name'=>'employee_show'],
+			    ['name'=>'employee_delete'],
 		    ]		    
 		];
 

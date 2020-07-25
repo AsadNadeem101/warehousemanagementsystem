@@ -34,8 +34,8 @@ Route::group(['middleware' => 'auth'], function (){
 	Route::resource('employee', 'Employee\EmployeeController');
 
     //Service
+    Route::resource('service', 'Service\ServiceController');
     Route::group(['prefix' => 'service'], function (){
-        Route::resource('/', 'Service\ServiceController');
         Route::post('subscribe_service','Service\ServiceController@subscribeService')->name('subscribe_service');
     });
 
@@ -51,5 +51,27 @@ Route::group(['middleware' => 'auth'], function (){
 
     //Product
     Route::resource('product', 'Product\ProductController');
+    Route::group(['prefix' => 'product'], function (){
+        Route::get('add/warehouse/{id}','Product\ProductController@create');
+    });
+
+    //Profile
+    Route::group(['prefix' => 'profile'], function (){
+        Route::get('',function(){
+            return view('profile.index');
+        });
+        Route::get('change-password',function(){
+            return view('profile.change-password');
+        });
+        Route::post('change_password','Auth\ForgotPasswordController@changePassword')->name('change_password');
+
+    });
+
+    Route::group(['prefix' => 'users'], function (){
+        Route::get('/','HomeController@getUserIndex');
+    });
+
+
+    Route::get('logout','Auth\LoginController@logout');
 });
 

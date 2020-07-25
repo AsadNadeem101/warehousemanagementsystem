@@ -35,6 +35,11 @@ class ReportController extends Controller
     	return view('report.admin',compact('tenants','renters','total_users','warehouses','sales_by_service','sales_by_plan','sales_by_commission','total_sales'));
     }
 
+    public function warehouseAdminReport()
+    {
+        dd("under working");
+    }
+
     public function tenantReport()
     {
         dd("under working");

@@ -39,7 +39,7 @@
 	    	</div>
 
 			<div class="col-md-6">
-	    		{!! Form::select('warehouse_id',$warehouses,null,['class' => 'form-control']); !!}
+	    		{!! Form::hidden('warehouse_id',Auth::user()->warehouse_id) !!}
 	    	</div> 
 
    	

@@ -24,11 +24,16 @@
 	    	<div class="col-md-6">
 	    		<h6>Manufacturer</h6>
 	    		{!! Form::text('manufacturer',null,['class' => 'form-control','placeholder' => 'MANUFACTURER']); !!}
+	    	</div>
+	    	<div class="col-md-6">
+	    		<h6>Quantity</h6>
+	    		{!! Form::number('quantity',null,['class' => 'form-control','placeholder' => 'Quantity']); !!}
 	    	</div>	  
 	    </div>  	
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-12" style="text-align: center">
+	    		{!! Form::hidden('warehouse_id',$warehouse_id,['class' => 'form-control','placeholder' => 'warehouse_id']); !!}
 	    		{!! Form::submit('Save', ['class'=>'btn btn-success']); !!}
 	    	</div>
 	    </div>

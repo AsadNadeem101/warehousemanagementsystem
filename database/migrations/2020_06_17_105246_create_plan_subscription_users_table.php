@@ -29,6 +29,8 @@ class CreatePlanSubscriptionUsersTable extends Migration
             $table->date('end_date');
 
             $table->integer('paid')->default(0);
+
+            $table->boolean('status')->default(1);
             
             $table->dateTime('paid_at')->nullable();
 

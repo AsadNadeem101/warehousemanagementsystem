@@ -239,102 +239,89 @@ return [
         [
             'text' => 'Warehouse',
             'url'  => 'warehouse',
+            'can'  => 'warehouse_list',
+            'icon' => 'fas fa-home'
         ],
         [
             'text' => 'Employee',
             'url'  => 'employee',
+            'can'  => 'employee_list',
+            'icon' => 'fas fa-user-tie'
         ],
         [
             'text' => 'Plan',
             'url'  => 'plan',
+            'can'  => 'plan_list'
         ],
         [
             'text' => 'Services',
             'url'  => 'service',
+            'can'  => 'service_list'
         ],                  
         [
             'text'    => 'Reports',
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fas fa-file-pdf',
             'submenu' => [
                 [
-                    'text' => 'Admin',
+                    'text' => 'Summary',
                     'url'  => '/report/admin',
+                    'can'  => 'super_admin_report',
+                    'icon' => 'fas fa-fw fa-share',
                 ],
                 [
-                    'text' => 'Renter',
+                    'text' => 'Summary',
+                    'url'  => '/report/warehouse-admin',
+                    'can'  => 'warehouse_admin_report',
+                    'icon' => 'fas fa-fw fa-share',
+                ],                
+                [
+                    'text' => 'Summary',
                     'url'  => '/report/renter',
+                    'can'  => 'renter_report',
+                    'icon' => 'fas fa-fw fa-share',
                 ],
                 [
-                    'text' => 'Tenant',
+                    'text' => 'Summary',
                     'url'  => '/report/tenant',
+                    'can'  => 'tenant_report',
+                    'icon' => 'fas fa-fw fa-share',
                 ]
             ]
         ],
+        ['header' => 'User management'],
+        [
+            'text' => 'Users',
+            'url'  => 'users',
+            'icon' => 'fas fa-user-friends',
+        ],
+        [
+            'text' => 'Mark Attendance',
+            'url'  => 'markAttendancePage',
+            'icon' => 'far fa-calendar-check',
+            'can'  => 'mark_attendance'
+        ],
+        [
+            'text' => 'View Today Attendance',
+            'url'  => 'viewattendance/today',
+            'icon' => 'fas fa-list',
+            'can'  => 'mark_attendance'
+        ],        
 
         ['header' => 'account_settings'],
         [
-            'text' => 'profile',
-            'url'  => 'admin/settings',
+            'text' => 'Profile',
+            'url'  => 'profile',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
+            'text' => 'Change password',
+            'url'  => 'profile/change-password',
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'multilevel',
-            'icon'    => 'fas fa-fw fa-share',
-            'submenu' => [
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-                [
-                    'text'    => 'level_one',
-                    'url'     => '#',
-                    'submenu' => [
-                        [
-                            'text' => 'level_two',
-                            'url'  => '#',
-                        ],
-                        [
-                            'text'    => 'level_two',
-                            'url'     => '#',
-                            'submenu' => [
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                                [
-                                    'text' => 'level_three',
-                                    'url'  => '#',
-                                ],
-                            ],
-                        ],
-                    ],
-                ],
-                [
-                    'text' => 'level_one',
-                    'url'  => '#',
-                ],
-            ],
-        ],
-        ['header' => 'labels'],
-        [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text' => 'Logout',
+            'url'  => 'logout',
+            'icon' => 'fas fa-sign-out-alt',
         ],
     ],
 
@@ -375,8 +362,8 @@ return [
 
     'plugins' => [
         [
-            'name' => 'Datatables',
-            'active' => false,
+            'name' => 'datatables',
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -389,9 +376,9 @@ return [
                     'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
                 ],
                 [
-                    'type' => 'css',
-                    'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css',
+                    'type'      => 'css',
+                    'asset'     => true,
+                    'location'  => 'https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css',
                 ],
             ],
         ],
@@ -424,12 +411,12 @@ return [
         ],
         [
             'name' => 'Sweetalert2',
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdn.jsdelivr.net/npm/sweetalert2@8',
+                    'location' => 'https://cdn.jsdelivr.net/npm/sweetalert2@9',
                 ],
             ],
         ],
