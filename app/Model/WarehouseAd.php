@@ -14,6 +14,9 @@ class WarehouseAd extends Model
     	'description',
     	'img_path',
     	'marla',
-    	'status'
+    	'room',
+    	'status',
+    	'duration',
+    	'rent',
     ];
 }
