@@ -49,7 +49,6 @@ class ProductDataTable extends DataTable
                     ->dom('Bfrtip')
                     ->orderBy(1)
                     ->buttons(
-                        Button::make('create'),
                         Button::make('export'),
                         Button::make('print'),
                         Button::make('reset'),
@@ -69,6 +68,7 @@ class ProductDataTable extends DataTable
             Column::make('name'),
             Column::make('description'),
             Column::make('manufacturer'),
+            Column::make('quantity'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')

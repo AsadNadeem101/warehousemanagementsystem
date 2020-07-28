@@ -8,7 +8,8 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
-
+use Auth;
+use App\User;
 class WarehouseDataTable extends DataTable
 {
     /**
@@ -32,7 +33,16 @@ class WarehouseDataTable extends DataTable
      */
     public function query(Warehouse $model)
     {
-        return $model->newQuery();
+        if(Auth::user()->type == 'super_admin')
+        {
+            return $model->newQuery();
+        }
+        if(Auth::user()->type == 'renter')
+        {
+            $model = Warehouse::where('renter_id',Auth::user()->id);
+            return $model->newQuery();            
+        }
+
     }
 
     /**
@@ -77,7 +87,7 @@ class WarehouseDataTable extends DataTable
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(120)
+                  ->width(240)
                   ->addClass('text-center'),
         ];
     }

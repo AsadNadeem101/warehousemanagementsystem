@@ -20,7 +20,13 @@
 	<tr>
 		<td>{{$attendance->employee_id}}</td>
 		<td>{{$attendance->employee_name}}</td>
-		<td>{{$attendance->status}}</td>
+		<td>
+			@if($attendance->status == 0)
+				<span style="color: red">Absent</span>
+			@elseif($attendance->status == 1)
+				<span style="color: green">Present</span>
+			@endif
+		</td>
 		@if($attendance->updated_at->gt($attendance->created_at))
 			<td>{{$attendance->updated_at}}</td>			
 		@endif

@@ -19,7 +19,8 @@ class Employee extends Model
         'cnic',
         'phone',
         'salary',
-        'status'
+        'status',
+        'warehouse_id'
     ];
 
     public $table = "employers";

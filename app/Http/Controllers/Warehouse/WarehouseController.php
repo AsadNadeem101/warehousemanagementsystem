@@ -114,4 +114,5 @@ class WarehouseController extends Controller
             return redirect()->route('warehouse.index');
         }
     }
+
 }

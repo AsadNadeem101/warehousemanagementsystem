@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Model\Employee;
+use App\User;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
-use Auth;
-class EmployeeDataTable extends DataTable
+
+class UserDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,16 +21,16 @@ class EmployeeDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'Employee.action');
+            ->addColumn('action', 'user.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Employee $model
+     * @param \App\User $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Employee $model)
+    public function query(User $model)
     {
         return $model->newQuery();
     }
@@ -42,25 +42,8 @@ class EmployeeDataTable extends DataTable
      */
     public function html()
     {
-        if(Auth::user()->type=='warehouse_admin')
-        {
-            return $this->builder()
-                    ->setTableId('employee-table')
-                    ->columns($this->getColumns())
-                    ->minifiedAjax()
-                    ->dom('Bfrtip')
-                    ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
-                        Button::make('export'),
-                        Button::make('print'),
-                        Button::make('reload')
-                    );            
-        }
-        else
-        {
-            return $this->builder()
-                    ->setTableId('employee-table')
+        return $this->builder()
+                    ->setTableId('user-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -68,10 +51,9 @@ class EmployeeDataTable extends DataTable
                     ->buttons(
                         Button::make('export'),
                         Button::make('print'),
+                        Button::make('reset'),
                         Button::make('reload')
-                    );            
-        }
-
+                    );
     }
 
     /**
@@ -85,17 +67,14 @@ class EmployeeDataTable extends DataTable
             Column::make('id'),
             Column::make('name'),
             Column::make('email'),
-            Column::make('bio'),
-            Column::make('type'),
             Column::make('cnic'),
-            Column::make('phone'),
-            Column::make('salary'),
+            Column::make('type'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
                 ->exportable(false)
                 ->printable(false)
-                ->width(150)
+                ->width(60)
                 ->addClass('text-center'),
         ];
     }
@@ -107,6 +86,6 @@ class EmployeeDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Employee_' . date('YmdHis');
+        return 'User_' . date('YmdHis');
     }
 }

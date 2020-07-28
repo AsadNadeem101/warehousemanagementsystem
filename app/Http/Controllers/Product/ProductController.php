@@ -15,7 +15,7 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(ServiceDataTable $dataTable)
+    public function index(ProductDataTable $dataTable)
     {
         return $dataTable->render('product.index');
     }
@@ -25,9 +25,10 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('product.create');
+        $warehouse_id = $request->id;
+        return view('product.create',compact('warehouse_id'));
     }
 
     /**
