@@ -26,6 +26,12 @@ class CreateWarehouseAdsTable extends Migration
 
             $table->string('marla');
 
+            $table->string('room');
+
+            $table->integer('duration');
+
+            $table->integer('rent');
+
             $table->boolean('status')->default(1);
 
             $table->timestamps();

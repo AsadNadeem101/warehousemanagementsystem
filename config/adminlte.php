@@ -323,6 +323,7 @@ return [
             'url'  => 'logout',
             'icon' => 'fas fa-sign-out-alt',
         ],
+
     ],
 
     /*
@@ -365,21 +366,22 @@ return [
             'name' => 'datatables',
             'active' => true,
             'files' => [
-                [
-                    'type' => 'js',
+               [
+                    'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js',
+                    'location' => 'https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css',
                 ],
                 [
-                    'type' => 'js',
+                    'type' => 'css',
                     'asset' => false,
-                    'location' => '//cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js',
+                    'location' => 'https://cdn.datatables.net/buttons/1.6.2/css/buttons.dataTables.min.css',
                 ],
                 [
                     'type'      => 'css',
                     'asset'     => true,
                     'location'  => 'https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css',
                 ],
+
             ],
         ],
         [
