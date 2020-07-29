@@ -11,6 +11,7 @@
 		{!! Form::token(); !!}
 	    <div class="row">
 	    	<div class="col-md-6">
+	    	<h5><b>Name</b></h5>
 	    		{!! Form::text('name',null,['class' => 'form-control','placeholder' => 'Name']); !!}
 	    	</div>
 	    	<div class="col-md-6">

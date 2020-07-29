@@ -52,7 +52,7 @@ class CalculatePayroll implements ShouldQueue
                 'payable'       => $payable,
                 'deduction'     => $deduction,
                 'status'        => 'pending',
-            ]
+            ];
 
             EmployerPayroll::create($employer_payroll);
         }
