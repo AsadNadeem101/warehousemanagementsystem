@@ -4,8 +4,13 @@ namespace App\Http\Controllers\Warehouse\Ad;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\WarehouseAd;
+use App\WarehouseAd;
 use App\Model\Warehouse;
+use App\DataTables\AdDataTable;
+use App\DataTables\WarehouseAdDataTable;
+use Illuminate\Database\QueryException;
+use RealRashid\SweetAlert\Facades\Alert;
+use Auth;
 
 class AdController extends Controller
 {
@@ -14,9 +19,9 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( WarehouseAdDataTable $dataTable)
     {
-        //
+        return $dataTable->render('warehousead.index');    
     }
 
     /**
@@ -26,8 +31,8 @@ class AdController extends Controller
      */
     public function create()
     {
-        $warehouses = Warehouse::where('renter_id',Auth::user()->id)->get();
-        // return view('',compact('warehouses')); uncomment this line and write your view name here
+        $warehouses = Warehouse::where('renter_id',Auth::user()->id)->pluck('id');
+         return view('warehousead.create',compact('warehouses'));// uncomment this line and write your view name here
     }
 
     /**
@@ -40,7 +45,7 @@ class AdController extends Controller
     {
         $input = $request->all();
         $warehouse_ad = WarehouseAd::create($input);
-        // return view(''); return your ad index page here
+         return view('warehousead.index'); //return your ad index page here
     }
 
     /**
@@ -52,7 +57,8 @@ class AdController extends Controller
     public function show($id)
     {
         $ad = WarehouseAd::find($id);
-        // return view('',compact('ad')); write name of your ad show page
+        //dd($ad);
+        return view('warehousead.show',compact('ad'));// write name of your ad show page
     }
 
     /**
@@ -63,8 +69,9 @@ class AdController extends Controller
      */
     public function edit($id)
     {
+        $warehouses = Warehouse::where('renter_id',Auth::user()->id)->pluck('id');
         $ad = WarehouseAd::find($id);
-        // return view('',compact('ad')); write your ad edit page name here
+         return view('warehousead.edit',compact('ad','warehouses'));// write your ad edit page name here
     }
 
     /**
@@ -94,18 +101,18 @@ class AdController extends Controller
             $warehouse_ad = WarehouseAd::find($id)->delete();
             if($warehouse_ad)
             {
-                // return redirect()->route(''); write your warehouse ad index route here
+                return redirect()->route('warehousead.index');// write your warehouse ad index route here
                 Alert::success('Warehouse Ad', 'Data successfully deleted');
             }
         } catch (QueryException $e){
             if($e->getCode() == "23000")
             {
                 Alert::error('Warehouse Ad', 'Other data exist against this warehouse ad. Please delete other data first');
-                // return redirect()->route(''); write your warehouse ad index route here
+                 return redirect()->route('warehousead.index');// write your warehouse ad index route here
             }
         } catch (PDOException $e) {
             Alert::error('Warehouse ad', 'Something went wrong. Please contact admin');
-            // return redirect()->route(''); write your warehouse ad index route here
+             return redirect()->route('warehousead.index'); //write your warehouse ad index route here
         }
     }
 }

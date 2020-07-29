@@ -80,6 +80,7 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'warehouse_show'],
 			    ['name'=>'warehouse_delete'],
 
+
 				['name'=>'employee_list'],
 			    ['name'=>'employee_create'],
 			    ['name'=>'employee_edit'],

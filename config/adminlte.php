@@ -243,6 +243,12 @@ return [
             'icon' => 'fas fa-home'
         ],
         [
+            'text' => 'Warehouse Ads',
+            'url'  => 'warehousead',
+            // 'can'  => 'warehousead_list',
+            'icon' => 'fas fa-home'
+        ],
+        [
             'text' => 'Employee',
             'url'  => 'employee',
             'can'  => 'employee_list',

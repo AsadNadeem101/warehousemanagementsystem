@@ -30,6 +30,11 @@ Route::group(['middleware' => 'auth'], function (){
     //Warehouse
     Route::resource('warehouse', 'Warehouse\WarehouseController');
 	
+    //WarehouseAds
+    Route::resource('warehousead', 'Warehouse\Ad\AdController');
+    //WarehouseAdBid
+    Route::resource('warehousebid', 'Warehouse\Ad\Bid\BidController');
+    
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');
 
