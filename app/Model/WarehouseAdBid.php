@@ -4,7 +4,7 @@ namespace App\Model;
 
 use Illuminate\Database\Eloquent\Model;
 
-class WarehouseBid extends Model
+class WarehouseAdBid extends Model
 {
     public $table = "warehouse_bids";
 

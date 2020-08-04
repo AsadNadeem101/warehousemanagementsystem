@@ -4,7 +4,8 @@ namespace App\Http\Controllers\Warehouse\Ad\Bid;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Model\WarehouseBid;
+use App\Model\WarehouseAdBid;
+use App\DataTables\WarehouseAdBidDataTable;
 
 class BidController extends Controller
 {
@@ -13,9 +14,9 @@ class BidController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index( WarehouseAdBidDataTable $dataTable)
     {
-       //
+        return $dataTable->render('warehouseadbid.index');    
     }
 
     /**
@@ -25,7 +26,7 @@ class BidController extends Controller
      */
     public function create()
     {
-         return view('bid.create');
+         return view('warehouseadbid.create');
     }
 
     /**
@@ -47,7 +48,9 @@ class BidController extends Controller
      */
     public function show($id)
     {
-        //
+        $bid = WarehouseAdBid::find($id);
+        //dd($ad);
+        return view('warehouseadbid.show',compact('bid'));
     }
 
     /**
@@ -58,7 +61,7 @@ class BidController extends Controller
      */
     public function edit($id)
     {
-        //
+         return view('warehouseadbid.edit');
     }
 
     /**

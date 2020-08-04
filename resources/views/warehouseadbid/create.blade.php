@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-	{!! Form::open(['route' => 'warehousebid.store','method' => 'post']) !!}
+	{!! Form::open(['route' => 'warehouseadbid.store','method' => 'post']) !!}
 		{!! Form::token(); !!}
 	    <div class="row">
 	    	<div class="col-md-6">

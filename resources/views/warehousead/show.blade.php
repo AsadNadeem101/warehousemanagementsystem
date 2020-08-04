@@ -42,7 +42,7 @@
             </tr>
             <tr>
                 <th>Bid Create</th>
-                <td><a href="{{ route('warehousebid.create') }}"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#add_service">Create Bid</button></a></td>
+                <td><a href="{{ route('warehouseadbid.create') }}"><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#add_service">Create Bid</button></a></td>
             </tr>
             <tr>
                 <th>TimeStamp</th>

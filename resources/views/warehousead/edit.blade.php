@@ -1,13 +1,13 @@
 @extends('adminlte::page')
 
-@section('title', 'Create')
+@section('title', 'Edit')
 
 @section('content_header')
-    <h1>Create</h1>
+    <h1>Edit</h1>
 @stop
 
 @section('content')	
-	{!! Form::open(['route' => ['warehousebid.update',$ad->id],'method' => 'PATCH' , 'enctype' => 'multipart/form-data']) !!}
+	{!! Form::open(['route' => ['warehousead.update',$ad->id],'method' => 'PATCH' , 'enctype' => 'multipart/form-data']) !!}
 		{!! Form::token(); !!}
 	    <div class="row">
 	    	<div class="col-md-6">
