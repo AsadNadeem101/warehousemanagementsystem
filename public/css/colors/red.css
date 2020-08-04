@@ -1,0 +1,104 @@
+a , a:hover {
+	color: #e74c3c;
+}
+.box h4 a:hover, .category-grid-box .short-description h3 a:hover, .category-grid-box .view-details:hover, .ad-listing .content-area h3 a:hover, .car-details h4:hover, .post-title a:hover, .post-info a:hover, .popular-categories li a:hover, .font-color, .ad-location-gird .location-title-disc h5:hover, .ad-location-gird .location-title-disc h5 a:hover, .footer-content .footer-widget .contact-info li:hover, .footer-content .footer-widget.links-widget li a:hover, .footer-content .news-widget .news-post a:hover, ul.category-list-style li a:hover, .funfacts h4 span, .single-ad .ad-box .short-history li b, .single-ad .ad-box .short-history li b a, .ad-box i, .share-ad .modal-body p a, .item-date a, .blog-sidebar .widget .widget-content .tagcloud a:hover, .blog-sidebar .widget .widget-content ul li a:hover, .comming-soon-grid .count-down #clock > span, .features .features-text h3:hover, .features .features-text h3 a:hover, .site-map-list li a:hover , .header-top ul li a:hover, .ad-archive-desc h3:hover, .ad-archive-desc h3 a:hover , .footer-area .contact-info li .icon , .heading-color  , .ad-preview-details .overview-price span , .ad-listing .content-area .price , .category-grid-box-1 a:hover, .category-grid i , .hero .content p:first-child b , ul.category-list-data li:hover::before, ul.category-list-data li:hover a , ul.category-list-data li:hover a span , .category-list-title h5 > a:hover , .view-more a:hover , .category-grid-box .short-description .price , .ad-price, ul.category-list-style li:hover a i , .sidebar .side-menu nav .nav > li > a:hover , .filter-brudcrums-sort ul li a:hover , .skin-minimal .list li label:hover , .advertising .banner .submit  , .recent-ads .recent-ads-list-price , .bread-3.page-header-area .small-breadcrumb .breadcrumb-link ul li a.active , .ad .content-zone .short-description-1 h3 a:hover , .user-profile ul li:hover a, .user-profile ul li.active a , .dashboard-menu-container ul li.active .menu-name , .dashboard-menu-container ul li:hover .menu-name , .tags-share .tags ul li a , .comment-list .comment .comment-info .author-desc .author-title li a:hover , .why-us:hover i, .why-us:hover h5 , .card .nav-tabs > li.active > a, .card .nav-tabs > li > a:hover , .accordion-title a:hover , .usefull-info .info-content h3:hover , .mega-menu .drop-down a:hover, .mega-menu .drop-down-tab-bar a:hover , .recent-ads .recent-ads-list-title a:hover  , .singleContadds i  , .white.category-grid-box-1 .ad-info-1 ul li:hover, .white.category-grid-box-1 .ad-info-1 ul li a:hover{
+	color: #e74c3c !important;
+}
+.featured-slider .owl-controls .owl-nav .owl-next:hover, .featured-slider .owl-controls .owl-nav .owl-prev:hover .ms-layer.btn3:hover, .home-category-slider .category-slider .owl-controls .owl-nav .owl-next:hover, .home-category-slider .category-slider .owl-controls .owl-nav .owl-prev:hover, .subscribe button:hover , .featured-slider-1 .owl-controls .owl-nav .owl-next:hover, .featured-slider-1 .owl-controls .owl-nav .owl-prev:hover , .sticky-post-button:hover , .btn-light:hover , .featured-slider-3 .owl-controls .owl-nav .owl-next:hover, .featured-slider-3 .owl-controls .owl-nav .owl-prev:hover   , .hero-form-sub li a:hover {
+	background-color: #cf4436 !important;
+}
+.app-download-button.hover, .app-download-button:hover, .app-download-button.focus, .app-download-button:focus, .app-download-button:active, .app-download-button.active, .ms-layer.btn3, .minimal-footer-1 .widget .social-links a:hover, .subscribe button, .social-area-share > a:hover , .search-section .search-options > li .btn.btn-danger:hover , .featured-slider-1 .owl-controls .owl-nav .owl-next, .featured-slider-1 .owl-controls .owl-nav .owl-prev , .featured-slider .owl-controls .owl-nav .owl-next, .featured-slider .owl-controls .owl-nav .owl-prev, .category-grid-box-1 .price-tag .price span , .featured-slider-3 .owl-controls .owl-nav .owl-next, .featured-slider-3 .owl-controls .owl-nav .owl-prev  , .small-breadcrumb .breadcrumb-link ul li a::after , .user-profile .badge , .ps-container > .ps-scrollbar-y-rail > .ps-scrollbar-y , .sticky-post-button , .select2-container--default .select2-results__option--highlighted[aria-selected] ,  .mega-menu .menu-links > li.activeTriggerMobile , .dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus{
+	background-color: #e74c3c !important;
+}
+.btn-success {
+    background-color: #e74c3c !important;
+    border-color: #e95d4f !important;
+}
+.btn-success:hover {
+  background-color: #cf4436 !important;
+  border-color: #e95d4f !important;
+}
+span.app-store-btn:hover, .social-links-two a:hover , .search-section .search-options > li .btn.btn-danger:hover  {
+	border: 1px solid #e74c3c !important;
+}
+.slide-thumbnail .flex-active-slide img {
+	border-color: #e74c3c !important;
+}
+.pagination > .active > a:hover, .pagination li:hover > a, .pagination > .active > a , .category-grid a:hover , .pricing .featured a.btn-theme:hover , .btn-orange {
+	background-color: #e74c3c;
+	border-color: #cf4436;
+	color: #fff !important;
+}
+.small-breadcrumb .breadcrumb-link ul li a.active {
+    border-bottom: 4px solid #e74c3c;
+    color: #e74c3c;
+    font-weight: 600;
+}
+.popup-cls.close::before {
+	border-color: rgba(0, 0, 0, 0) #e74c3c;
+	border-style: solid;
+	border-width: 0 70px 70px 0;
+	content: "";
+	display: block;
+	height: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 0;
+	z-index: -1;
+}
+.grid-panel .location-icon i , .widget-newsletter .fieldset form .submit-btn , .ad-listing .content-area .additional-info li a:hover , .noUi-connect , .card .nav-tabs > li > a::after , .ad-listing-price p , .mega-menu .drop-down-multilevel li.activeTriggerMobile , .mega-menu .drop-down-multilevel li:hover{
+	background: #e74c3c none repeat scroll 0 0 !important;
+}
+.cd-top {
+	background: #e74c3c url(../../images/cd-top-arrow.svg) no-repeat center 50%;
+}
+.heading-panel h3.main-title {
+    border-bottom: 2px solid #e74c3c;
+}
+.mega-menu .drop-down a, .mega-menu .drop-down-tab-bar a  {
+	color:#232323;	
+}
+.mega-menu .menu-search-bar li .btn:hover{
+	color:#fff;	
+}
+.btn-theme , .btn-light {
+	color: #ffffff;
+	background-color: #e74c3c;
+	border-color: #e95d4f;
+}
+.btn-theme:hover, .btn-theme:focus, .btn-theme:active, .btn-theme.active, .open .dropdown-toggle.btn-theme , .btn-orange:hover{
+	color: #ffffff;
+	background-color: #cf4436;
+	border-color: #e95d4f;
+}
+.btn-theme:active, .btn-theme.active, .open .dropdown-toggle.btn-theme {
+	background-image: none;
+}
+.btn-theme.disabled, .btn-theme[disabled], fieldset[disabled] .btn-theme, .btn-theme.disabled:hover, .btn-theme[disabled]:hover, fieldset[disabled] .btn-theme:hover, .btn-theme.disabled:focus, .btn-theme[disabled]:focus, fieldset[disabled] .btn-theme:focus, .btn-theme.disabled:active, .btn-theme[disabled]:active, fieldset[disabled] .btn-theme:active, .btn-theme.disabled.active, .btn-theme[disabled].active, fieldset[disabled] .btn-theme.active {
+	background-color: #e74c3c;
+	border-color: #e95d4f;
+}
+.btn-theme .badge {
+	color: #e74c3c;
+	background-color: #ffffff;
+}
+
+.form-control:focus {
+	border-color: #e74c3c;
+	outline: 0;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(231, 76, 60, 0.6);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(231, 76, 60, 0.6);
+}
+.country-box:hover .country-description {
+	background-color: rgba(231, 76, 60, 0.8);
+}
+.profile-tabs .nav-tabs {
+	border-color: -moz-use-text-color -moz-use-text-color #e74c3c ;
+}
+.user-profile ul li.active a::before {
+	border-left: 9px solid #e74c3c;
+}
+.user-profile ul li.active a {
+	border-left: 3px solid #e74c3c;
+}
