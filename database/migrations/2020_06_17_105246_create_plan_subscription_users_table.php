@@ -17,13 +17,13 @@ class CreatePlanSubscriptionUsersTable extends Migration
             $table->id();
             
             $table->unsignedBigInteger('renter_id');
-            $table->foreign('renter_id')->references('id')->on('users');
+            $table->foreign('renter_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->unsignedBigInteger('warehouse_id');
-            $table->foreign('warehouse_id')->references('id')->on('warehouses');
+            $table->foreign('warehouse_id')->references('id')->on('warehouses')->onDelete('cascade');
 
             $table->unsignedBigInteger('plan_id');
-            $table->foreign('plan_id')->references('id')->on('plans');
+            $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
 
             $table->date('start_date');
             $table->date('end_date');

@@ -22,7 +22,7 @@ class CreateWarehousesTable extends Migration
             $table->integer('room');
 
             $table->unsignedBigInteger('renter_id');
-            $table->foreign('renter_id')->references('id')->on('users');
+            $table->foreign('renter_id')->references('id')->on('users')->onDelete('cascade');
 
             $table->boolean('status')->default(1);
             $table->timestamps();

@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Warehouse\Ad;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\WarehouseAd;
+use App\Model\WarehouseAd;
 use App\Model\Warehouse;
+use App\Model\AdImage;
 use App\DataTables\AdDataTable;
 use App\DataTables\WarehouseAdDataTable;
 use Illuminate\Database\QueryException;
@@ -32,7 +33,8 @@ class AdController extends Controller
     public function create()
     {
         $warehouses = Warehouse::where('renter_id',Auth::user()->id)->pluck('name','id');
-         return view('warehousead.create',compact('warehouses'));// uncomment this line and write your view name here
+        
+        return view('warehousead.create',compact('warehouses'));// uncomment this line and write your view name here
     }
 
     /**
@@ -45,18 +47,26 @@ class AdController extends Controller
     {
 
         $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images.*' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $imageName = time().'.'.$request->image->extension(); 
-        $request->image->move(public_path('ad-images'), $imageName);
-
-        $input = $request->all();
-        
-        $input['img_path'] = '/public/ad-images'.$imageName;
-        
+        $input = $request->all();        
         
         $warehouse_ad = WarehouseAd::create($input);
+
+        if($request->hasfile('images'))
+        {
+            foreach($request->file('images') as $image)
+            {
+                $imageName = time().'.'.$image->extension(); 
+                $image->move(public_path('ad-images'), $imageName);
+                $ad_image = AdImage::create([
+                    'warehouse_ad_id' => $warehouse_ad->id,
+                    'path'            => '/ad-images/'.$imageName
+                ]);
+            }
+        }
+
         return redirect()->route('warehousead.index'); //return your ad index page here
     }
 
@@ -82,8 +92,8 @@ class AdController extends Controller
     public function edit($id)
     {
         $warehouses = Warehouse::where('renter_id',Auth::user()->id)->pluck('id');
-        $ad = WarehouseAd::find($id);
-         return view('warehousead.edit',compact('ad','warehouses'));// write your ad edit page name here
+        $admin = WarehouseAd::find($id);
+        return view('warehousead.edit',compact('ad','warehouses'));// write your ad edit page name here
     }
 
     /**
@@ -98,7 +108,7 @@ class AdController extends Controller
         $input = $request->all();
         WarehouseAd::find($id)->update($input);
         Alert::success('Warehouse Ad', 'Data successfully updated');
-        // return redirect()->route(''); write your warehouse ad index route here
+        return redirect()->route('warehousead.index');
     }
 
     /**

@@ -12,49 +12,43 @@
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Select Warehouse</h6>
-	    		{!! Form::select('warehouse_id', $warehouses, null, ['class'=>'form-control']) !!}
+	    		{!! Form::text('warehouse_id', $ad->warehouse_id, ['readonly','class'=>'form-control']) !!}
 	    		
 	    	</div>
 	    	<div class="col-md-6">
 	    		<h6>Title</h6>
-	    		{!! Form::text('title',null,['class' => 'form-control','placeholder' => 'TITLE']); !!}
+	    		{!! Form::text('title',$ad->title,['class' => 'form-control','placeholder' => 'TITLE']); !!}
 	    	</div>	    	
 	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Marla</h6>
-	    		{!! Form::text('marla',null,['class' => 'form-control','placeholder' => 'MARLA']); !!}
+	    		{!! Form::text('marla',$ad->marla,['class' => 'form-control','placeholder' => 'MARLA']); !!}
 	    	</div>	
 	    	<div class="col-md-6">
 	    		<h6>Room</h6>
-	    		{!! Form::text('room',null,['class' => 'form-control','placeholder' => 'ROOM']); !!}
+	    		{!! Form::text('room',$ad->room,['class' => 'form-control','placeholder' => 'ROOM']); !!}
 	    	</div>    	
 	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
-	    		<h6>Duration</h6>
-	    		{!! Form::text('duration',null,['class' => 'form-control','placeholder' => 'DURATION']); !!}
+	    		<h6>Duration <small>(Month)</small></h6>
+	    		{!! Form::text('duration',$ad->duration,['class' => 'form-control','placeholder' => 'DURATION']); !!}
 	    	</div>	
 	    	<div class="col-md-6">
 	    		<h6>Rent</h6>
-	    		{!! Form::text('rent',null,['class' => 'form-control','placeholder' => 'RENT']); !!}
+	    		{!! Form::text('rent',$ad->rent,['class' => 'form-control','placeholder' => 'RENT']); !!}
 	    	</div>    	
 	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Description</h6>
-	    		{!! Form::textarea('description',null,['class' => 'form-control','placeholder' => 'DESCRIPTION']); !!}
+	    		{!! Form::textarea('description',$ad->description,['class' => 'form-control','placeholder' => 'DESCRIPTION']); !!}
 	    	</div>	    	
-    		<div class="col-md-6">
-                 <div class="form-group">
-                  <label>Upload Ads Images</label>
-                  <input id="img_path" type="file" multiple class="form-control @error('img_path') is-invalid @enderror" name="img_path[]" required>
-                 </div>
-             </div>
-	    	</div>	
+	    </div>	
 	    	
 	    <br>
 	    <div class="row">

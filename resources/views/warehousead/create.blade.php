@@ -52,7 +52,7 @@
     		<div class="col-md-6">
                  <div class="form-group">
                   <label>Upload Ads Images</label>
-                  {!! Form::file('image') !!}
+                  {!! Form::file('images[]',array('multiple'=>true,'class'=>'send-btn')) !!}
                  </div>
              </div>
 	    	</div>	

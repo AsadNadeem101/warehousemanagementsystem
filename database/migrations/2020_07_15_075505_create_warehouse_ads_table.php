@@ -18,11 +18,9 @@ class CreateWarehouseAdsTable extends Migration
             $table->string('title');
 
             $table->unsignedBigInteger('warehouse_id');
-            $table->foreign('warehouse_id')->references('id')->on('warehouses');
+            $table->foreign('warehouse_id')->references('id')->on('warehouses')->onDelete('cascade');
 
             $table->string('description');
-
-            $table->string('img_path');
 
             $table->string('marla');
 

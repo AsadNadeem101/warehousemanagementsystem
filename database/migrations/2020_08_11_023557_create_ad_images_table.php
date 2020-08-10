@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAttendancesTable extends Migration
+class CreateAdImagesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreateAttendancesTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendances', function (Blueprint $table) {
+        Schema::create('ad_images', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('warehouse_ad_id');
+            $table->foreign('warehouse_ad_id')->references('id')->on('warehouse_ads')->onDelete('cascade');
 
-            $table->unsignedBigInteger('employee_id');
-            $table->foreign('employee_id')->references('id')->on('employers')->onDelete('cascade');
-            $table->string('employee_name');    
-            $table->boolean('status')->default(0);
+            $table->string('path');
+
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreateAttendancesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendances');
+        Schema::dropIfExists('ad_images');
     }
 }
