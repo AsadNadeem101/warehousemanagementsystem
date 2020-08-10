@@ -65,6 +65,10 @@ Route::group(['middleware' => 'auth'], function (){
         Route::get('add/warehouse/{id}','Product\ProductController@create');
     });
 
+    //Ad
+    Route::resource('ad', 'Warehouse\Ad\AdController');
+    
+
     //Profile
     Route::group(['prefix' => 'profile'], function (){
         Route::get('',function(){

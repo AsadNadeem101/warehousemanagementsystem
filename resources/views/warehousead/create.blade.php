@@ -8,7 +8,7 @@
 
 @section('content')	
 
-	{!! Form::open(['route' => 'warehouse.store','method' => 'post' , 'enctype' => 'multipart/form-data']) !!}
+	{!! Form::open(['route' => 'warehousead.store','method' => 'post' , 'enctype' => 'multipart/form-data']) !!}
 		{!! Form::token(); !!}
 	    <div class="row">
 	    	<div class="col-md-6">
@@ -52,7 +52,7 @@
     		<div class="col-md-6">
                  <div class="form-group">
                   <label>Upload Ads Images</label>
-                  <input id="img_path" type="file" multiple class="form-control @error('img_path') is-invalid @enderror" name="img_path[]" required>
+                  {!! Form::file('image') !!}
                  </div>
              </div>
 	    	</div>	

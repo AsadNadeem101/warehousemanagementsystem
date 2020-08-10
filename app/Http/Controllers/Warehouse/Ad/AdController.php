@@ -19,7 +19,7 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index( WarehouseAdDataTable $dataTable)
+    public function index(WarehouseAdDataTable $dataTable)
     {
         return $dataTable->render('warehousead.index');    
     }
@@ -31,7 +31,7 @@ class AdController extends Controller
      */
     public function create()
     {
-        $warehouses = Warehouse::where('renter_id',Auth::user()->id)->pluck('id');
+        $warehouses = Warehouse::where('renter_id',Auth::user()->id)->pluck('name','id');
          return view('warehousead.create',compact('warehouses'));// uncomment this line and write your view name here
     }
 
@@ -43,9 +43,21 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $imageName = time().'.'.$request->image->extension(); 
+        $request->image->move(public_path('ad-images'), $imageName);
+
         $input = $request->all();
+        
+        $input['img_path'] = '/public/ad-images'.$imageName;
+        
+        
         $warehouse_ad = WarehouseAd::create($input);
-         return view('warehousead.index'); //return your ad index page here
+        return redirect()->route('warehousead.index'); //return your ad index page here
     }
 
     /**
