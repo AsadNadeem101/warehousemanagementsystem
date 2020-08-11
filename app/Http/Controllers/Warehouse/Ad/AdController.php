@@ -12,6 +12,7 @@ use App\DataTables\WarehouseAdDataTable;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Auth;
+use DB;
 
 class AdController extends Controller
 {
@@ -136,5 +137,11 @@ class AdController extends Controller
             Alert::error('Warehouse ad', 'Something went wrong. Please contact admin');
              return redirect()->route('warehousead.index'); //write your warehouse ad index route here
         }
+    }
+    public function adIndex()
+    {
+       $ads=WarehouseAd::get();
+         
+        return view('website.index',compact('ads'));
     }
 }

@@ -26,7 +26,7 @@ class BidController extends Controller
      */
     public function create()
     {
-         return view('warehouseadbid.create');
+         return view('website.bid.create');
     }
 
     /**

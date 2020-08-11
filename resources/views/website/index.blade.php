@@ -575,6 +575,7 @@
                                  </div>
                               </div>
                               <div class="col-md-9 col-sm-7 col-xs-12">
+                                 @foreach($ads as $ad)
                                  <!-- Ad Content-->
                                  <div class="row">
                                     <div class="content-area">
@@ -582,7 +583,7 @@
                                           <!-- Category Title -->
                                           <div class="category-title"> <span><a href="#">Car & Bikes</a></span> </div>
                                           <!-- Ad Title -->
-                                          <h3><a>Honda Civic 2017 Sports Edition</a></h3>
+                                          <h3><a>{{$ad->title}}</a></h3>
                                           <!-- Info Icons -->
                                           <ul class="additional-info pull-right">
                                              <li>
@@ -615,272 +616,18 @@
                                           <!-- Price -->
                                           <div class="price"> <span>$18,640</span> </div>
                                           <!-- Ad View Button -->
+                                          <a href="/ad_detail">
                                           <button class="btn btn-block btn-success"><i class="fa fa-eye" aria-hidden="true"></i> View Ad.</button>
+                                          </a>
                                        </div>
                                     </div>
                                  </div>
                                  <!-- Ad Content End -->
+                                 @endforeach
                               </div>
                            </div>
                         </li>
-                        <!-- Listing Grid -->
-                        <li>
-                           <div class="well ad-listing clearfix">
-                              <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
-                                 <!-- Image Box -->
-                                 <div class="img-box">
-                                    <img src="images/posting/list-2.jpg" class="img-responsive" alt="">
-                                    <div class="total-images"><strong>4</strong> photos </div>
-                                    <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
-                                 </div>
-                                 <!-- Ad Status --><span class="ad-status"> Featured </span>
-                                 <!-- User Preview -->
-                                 <div class="user-preview">
-                                    <a href="#"> <img src="images/users/6.jpg" class="avatar avatar-small" alt=""> </a>
-                                 </div>
-                              </div>
-                              <div class="col-md-9 col-sm-7 col-xs-12">
-                                 <!-- Ad Content-->
-                                 <div class="row">
-                                    <div class="content-area">
-                                       <div class="col-md-9 col-sm-12 col-xs-12">
-                                          <!-- Category Title -->
-                                          <div class="category-title"> <span><a href="#">Car & Bikes</a></span> </div>
-                                          <!-- Ad Title -->
-                                          <h3><a>Honda CBR 1000RR  for Sale</a></h3>
-                                          <!-- Info Icons -->
-                                          <ul class="additional-info pull-right">
-                                             <li>
-                                                <a data-toggle="tooltip" title="Send Message" href="#" class="fa fa-envelope"></a>
-                                             </li>
-                                             <li>
-                                                <a data-toggle="tooltip" title="+92-4567-123" href="#" class="fa fa-phone"></a>
-                                             </li>
-                                             <li>
-                                                <a data-toggle="tooltip" title="Bookmark" href="#" class="fa fa-heart"></a>
-                                             </li>
-                                          </ul>
-                                          <!-- Ad Meta Info -->
-                                          <ul class="ad-meta-info">
-                                             <li> <i class="fa fa-map-marker"></i><a href="#">London</a> </li>
-                                             <li> <i class="fa fa-clock-o"></i>15 minutes ago </li>
-                                          </ul>
-                                          <!-- Ad Description-->
-                                          <div class="ad-details">
-                                             <p>Lorem ipsum dolor sit amet consectetur adiscing das elited ultricies facilisis lacinia pell das elited ultricies facilisis ... </p>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3 col-xs-12 col-sm-12">
-                                          <!-- Ad Stats -->
-                                          <div class="short-info">
-                                             <div class="ad-stats hidden-xs"><span>Condition  : </span>Used</div>
-                                             <div class="ad-stats hidden-xs"><span>Warranty : </span>7 Days</div>
-                                             <div class="ad-stats hidden-xs"><span>Sub Category : </span>Mobiles</div>
-                                          </div>
-                                          <!-- Price -->
-                                          <div class="price"> <span>$900</span> </div>
-                                          <!-- Ad View Button -->
-                                          <button class="btn btn-block btn-success"><i class="fa fa-eye" aria-hidden="true"></i> View Ad.</button>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <!-- Ad Content End -->
-                              </div>
-                           </div>
-                        </li>
-                        <!-- Listing Grid -->
-                        <li>
-                           <div class="well ad-listing clearfix">
-                              <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
-                                 <!-- Image Box -->
-                                 <div class="img-box">
-                                    <img src="images/posting/12.jpg" class="img-responsive" alt="">
-                                    <div class="total-images"><strong>5</strong> photos </div>
-                                    <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
-                                 </div>
-                                 <!-- User Preview -->
-                                 <div class="user-preview">
-                                    <a href="#"> <img src="images/users/5.jpg" class="avatar avatar-small" alt=""> </a>
-                                 </div>
-                              </div>
-                              <div class="col-md-9 col-sm-7 col-xs-12">
-                                 <!-- Ad Content-->
-                                 <div class="row">
-                                    <div class="content-area">
-                                       <div class="col-md-9 col-sm-12 col-xs-12">
-                                          <!-- Category Title -->
-                                          <div class="category-title"> <span><a href="#">Art & Toys</a></span> </div>
-                                          <!-- Ad Title -->
-                                          <h3><a> Xbox 360 + Games + Accessories </a></h3>
-                                          <!-- Info Icons -->
-                                          <ul class="additional-info pull-right">
-                                             <li>
-                                                <a data-toggle="tooltip" title="Send Message" href="#" class="fa fa-envelope"></a>
-                                             </li>
-                                             <li>
-                                                <a data-toggle="tooltip" title="+92-4567-123" href="#" class="fa fa-phone"></a>
-                                             </li>
-                                             <li>
-                                                <a data-toggle="tooltip" title="Bookmark" href="#" class="fa fa-heart"></a>
-                                             </li>
-                                          </ul>
-                                          <!-- Ad Meta Info -->
-                                          <ul class="ad-meta-info">
-                                             <li> <i class="fa fa-map-marker"></i><a href="#">London</a> </li>
-                                             <li> <i class="fa fa-clock-o"></i>15 minutes ago </li>
-                                          </ul>
-                                          <!-- Ad Description-->
-                                          <div class="ad-details">
-                                             <p>Lorem ipsum dolor sit amet consectetur adiscing das elited ultricies facilisis lacinia pell das elited ultricies facilisis ... </p>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3 col-xs-12 col-sm-12">
-                                          <!-- Ad Stats -->
-                                          <div class="short-info">
-                                             <div class="ad-stats hidden-xs"><span>Condition  : </span>Used</div>
-                                             <div class="ad-stats hidden-xs"><span>Warranty : </span>7 Days</div>
-                                             <div class="ad-stats hidden-xs"><span>Sub Category : </span>Mobiles</div>
-                                          </div>
-                                          <!-- Price -->
-                                          <div class="price"> <span>$120</span> </div>
-                                          <!-- Ad View Button -->
-                                          <button class="btn btn-block btn-success"><i class="fa fa-eye" aria-hidden="true"></i> View Ad.</button>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <!-- Ad Content End -->
-                              </div>
-                           </div>
-                        </li>
-                        <!-- Listing Grid -->
-                        <li>
-                           <div class="well ad-listing clearfix">
-                              <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
-                                 <!-- Image Box -->
-                                 <div class="img-box">
-                                    <img src="images/posting/lap-4.jpg" class="img-responsive" alt="">
-                                    <div class="total-images"><strong>3</strong> photos </div>
-                                    <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
-                                 </div>
-                                 <!-- User Preview -->
-                                 <div class="user-preview">
-                                    <a href="#"> <img src="images/users/3.jpg" class="avatar avatar-small" alt=""> </a>
-                                 </div>
-                              </div>
-                              <div class="col-md-9 col-sm-7 col-xs-12">
-                                 <!-- Ad Content-->
-                                 <div class="row">
-                                    <div class="content-area">
-                                       <div class="col-md-9 col-sm-12 col-xs-12">
-                                          <!-- Category Title -->
-                                          <div class="category-title"> <span><a href="#">Laptops</a></span> </div>
-                                          <!-- Ad Title -->
-                                          <h3><a> Sony VAIO Duo Convertible 13.3" i7 </a></h3>
-                                          <!-- Info Icons -->
-                                          <ul class="additional-info pull-right">
-                                             <li>
-                                                <a data-toggle="tooltip" title="Send Message" href="#" class="fa fa-envelope"></a>
-                                             </li>
-                                             <li>
-                                                <a data-toggle="tooltip" title="+92-4567-123" href="#" class="fa fa-phone"></a>
-                                             </li>
-                                             <li>
-                                                <a data-toggle="tooltip" title="Bookmark" href="#" class="fa fa-heart"></a>
-                                             </li>
-                                          </ul>
-                                          <!-- Ad Meta Info -->
-                                          <ul class="ad-meta-info">
-                                             <li> <i class="fa fa-map-marker"></i><a href="#">London</a> </li>
-                                             <li> <i class="fa fa-clock-o"></i>15 minutes ago </li>
-                                          </ul>
-                                          <!-- Ad Description-->
-                                          <div class="ad-details">
-                                             <p>Lorem ipsum dolor sit amet consectetur adiscing das elited ultricies facilisis lacinia pell das elited ultricies facilisis ... </p>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3 col-xs-12 col-sm-12">
-                                          <!-- Ad Stats -->
-                                          <div class="short-info">
-                                             <div class="ad-stats hidden-xs"><span>Condition  : </span>Used</div>
-                                             <div class="ad-stats hidden-xs"><span>Warranty : </span>7 Days</div>
-                                             <div class="ad-stats hidden-xs"><span>Sub Category : </span>Mobiles</div>
-                                          </div>
-                                          <!-- Price -->
-                                          <div class="price"> <span>$1,129</span> </div>
-                                          <!-- Ad View Button -->
-                                          <button class="btn btn-block btn-success"><i class="fa fa-eye" aria-hidden="true"></i> View Ad.</button>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <!-- Ad Content End -->
-                              </div>
-                           </div>
-                        </li>
-                        <!-- Listing Grid -->
-                        <li>
-                           <div class="well ad-listing clearfix">
-                              <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
-                                 <!-- Image Box -->
-                                 <div class="img-box">
-                                    <img src="images/posting/list-10.jpg" class="img-responsive" alt="">
-                                    <div class="total-images"><strong>4</strong> photos </div>
-                                    <div class="quick-view"> <a href="#ad-preview" data-toggle="modal" class="view-button"><i class="fa fa-search"></i></a> </div>
-                                 </div>
-                                 <!-- Ad Status --><span class="ad-status"> Featured </span>
-                                 <!-- User Preview -->
-                                 <div class="user-preview">
-                                    <a href="#"> <img src="images/users/4.jpg" class="avatar avatar-small" alt=""> </a>
-                                 </div>
-                              </div>
-                              <div class="col-md-9 col-sm-7 col-xs-12">
-                                 <!-- Ad Content-->
-                                 <div class="row">
-                                    <div class="content-area">
-                                       <div class="col-md-9 col-sm-12 col-xs-12">
-                                          <!-- Category Title -->
-                                          <div class="category-title"> <span><a href="#">Mobiles</a></span> </div>
-                                          <!-- Ad Title -->
-                                          <h3><a>Sony Xperia Z5 Waterproof</a></h3>
-                                          <!-- Info Icons -->
-                                          <ul class="additional-info pull-right">
-                                             <li>
-                                                <a data-toggle="tooltip" title="Send Message" href="#" class="fa fa-envelope"></a>
-                                             </li>
-                                             <li>
-                                                <a data-toggle="tooltip" title="+92-4567-123" href="#" class="fa fa-phone"></a>
-                                             </li>
-                                             <li>
-                                                <a data-toggle="tooltip" title="Bookmark" href="#" class="fa fa-heart"></a>
-                                             </li>
-                                          </ul>
-                                          <!-- Ad Meta Info -->
-                                          <ul class="ad-meta-info">
-                                             <li> <i class="fa fa-map-marker"></i><a href="#">London</a> </li>
-                                             <li> <i class="fa fa-clock-o"></i>15 minutes ago </li>
-                                          </ul>
-                                          <!-- Ad Description-->
-                                          <div class="ad-details">
-                                             <p>Lorem ipsum dolor sit amet consectetur adiscing das elited ultricies facilisis lacinia pell das elited ultricies facilisis ... </p>
-                                          </div>
-                                       </div>
-                                       <div class="col-md-3 col-xs-12 col-sm-12">
-                                          <!-- Ad Stats -->
-                                          <div class="short-info">
-                                             <div class="ad-stats hidden-xs"><span>Condition  : </span>Used</div>
-                                             <div class="ad-stats hidden-xs"><span>Warranty : </span>7 Days</div>
-                                             <div class="ad-stats hidden-xs"><span>Sub Category : </span>Mobiles</div>
-                                          </div>
-                                          <!-- Price -->
-                                          <div class="price"> <span>$350</span> </div>
-                                          <!-- Ad View Button -->
-                                          <button class="btn btn-block btn-success"><i class="fa fa-eye" aria-hidden="true"></i> View Ad.</button>
-                                       </div>
-                                    </div>
-                                 </div>
-                                 <!-- Ad Content End -->
-                              </div>
-                           </div>
-                        </li>
+                      
                      </ul>
                      <div class="text-center">
                         <ul class="pagination ">
@@ -937,10 +684,3 @@
          <!-- =-=-=-=-=-=-= Featured Ad Parallex End =-=-=-=-=-=-= -->
          
 @endsection
-
-         
-
-<!-- 
-
- <link rel="stylesheet" href="{{asset('css/forest-menu.css')}}" type="text/css">
-<script src="{{asset('js/color-switcher.js')}}"></script> -->
