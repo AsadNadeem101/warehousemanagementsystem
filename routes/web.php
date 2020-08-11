@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
     Route::get('/index', 'Warehouse\Ad\AdController@adIndex');
     
-    Route::get('/ad_detail', function () {
-    return view('website.ad_detail');
-});
+    Route::get('/ad_detail/{ad_id}', 'Warehouse\Ad\AdController@showOnWeb');
 
     
 Auth::routes();
@@ -38,8 +36,11 @@ Route::group(['middleware' => 'auth'], function (){
 	
     //WarehouseAds
     Route::resource('warehousead', 'Warehouse\Ad\AdController');
+
     //WarehouseAdBid
     Route::resource('warehouseadbid', 'Warehouse\Ad\Bid\BidController');
+    Route::get('ad_detail/warehouseadbid/create/{ad_id}','Warehouse\Ad\Bid\BidController@create');
+    Route::get('warehouseadbid/{id}/reject','Warehouse\Ad\Bid\BidController@rejectBid');
     
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');

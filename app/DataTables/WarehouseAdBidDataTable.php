@@ -23,6 +23,21 @@ class WarehouseAdBidDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('status', function ($query){
+                if($query->status == 'pending')
+                { 
+                    return "pending--"; 
+                }
+                else if ($query->status == 'approved')
+                {  
+                    return '<span style="color:green"><b>Approved</b></span>';
+                }
+                else if ($query->status == 'rejected')
+                {  
+                    return '<span style="color:red"><b>Rejected</b></span>';
+                }
+            })
+            ->escapeColumns([])
             ->addColumn('action', 'warehouseadbid.action');
     }
 

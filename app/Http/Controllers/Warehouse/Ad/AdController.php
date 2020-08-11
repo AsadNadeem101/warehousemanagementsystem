@@ -135,13 +135,18 @@ class AdController extends Controller
             }
         } catch (PDOException $e) {
             Alert::error('Warehouse ad', 'Something went wrong. Please contact admin');
-             return redirect()->route('warehousead.index'); //write your warehouse ad index route here
+            return redirect()->route('warehousead.index'); //write your warehouse ad index route here
         }
     }
     public function adIndex()
     {
-       $ads=WarehouseAd::get();
-         
+        $ads=WarehouseAd::get();
         return view('website.index',compact('ads'));
+    }
+
+    public function showOnWeb(Request $request)
+    {
+        $ad = WarehouseAd::find($request->ad_id);
+        return view('website.ad_detail',compact('ad'));
     }
 }

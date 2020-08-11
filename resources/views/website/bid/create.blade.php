@@ -35,15 +35,24 @@
                <!-- Row -->
                <div class="row">
                   <!-- Middle Content Area -->
-                  <div class="col-md-5 col-md-push-7 col-sm-6 col-xs-12">
+                  <div class="col-md-">
                      <!--  Form -->
                      <div class="form-grid">
-                        <form>
+                        <form method="POST" action="{{route('warehouseadbid.store')}}">
+                           @csrf
+                           <div class="form-group">
+                              <label>Ad title</label>
+                              <input placeholder="" class="form-control" value="{{$ad->title}}" type="text" readonly>
+                           </div>
                            <div class="form-group">
                               <label>Bid Amount</label>
-                              <input placeholder="" class="form-control" type="text">
+                              <input placeholder="" name="bid_amount" class="form-control" type="number">
                            </div>
                           
+                           <input type="hidden" name="warehouse_ad_id" value="{{$ad->id}}">
+
+                           <input type="hidden" name="renter_id" value="{{$renter_id}}">
+                           <input type="hidden" name="tenant_id" value="{{$tenant_id}}">
                           
                            <button class="btn btn-theme btn-lg btn-block">Submit</button>
                         </form>

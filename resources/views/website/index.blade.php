@@ -616,7 +616,7 @@
                                           <!-- Price -->
                                           <div class="price"> <span>$18,640</span> </div>
                                           <!-- Ad View Button -->
-                                          <a href="/ad_detail">
+                                          <a href="/ad_detail/{{$ad['id']}}">
                                           <button class="btn btn-block btn-success"><i class="fa fa-eye" aria-hidden="true"></i> View Ad.</button>
                                           </a>
                                        </div>

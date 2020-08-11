@@ -195,7 +195,7 @@
                         <div class="ad-listing-price">
                            <p>Rs. 22,000</p>
                         </div><hr>
-                        <a href="{{ route('warehouseadbid.create') }}">
+                        <a href="warehouseadbid/create/{{$ad->id}}">
                         <div class="ad-listing-price">
                            <p>Bid Request</p>
                         </div>
