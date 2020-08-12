@@ -254,6 +254,12 @@ return [
             // 'can'  => 'warehousead_list',
             'icon' => 'fas fa-home'
         ],
+         [
+            'text' => 'My Bids',
+            'url'  => 'mybid',
+            // 'can'  => 'warehousead_list',
+            'icon' => 'fas fa-home'
+        ],
         [
             'text' => 'Employee',
             'url'  => 'employee',

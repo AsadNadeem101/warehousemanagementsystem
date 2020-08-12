@@ -195,11 +195,14 @@
                         <div class="ad-listing-price">
                            <p>Rs. 22,000</p>
                         </div><hr>
+                        
+                        @if(Auth::user()->type == 'tenant')
                         <a href="warehouseadbid/create/{{$ad->id}}">
                         <div class="ad-listing-price">
                            <p>Bid Request</p>
                         </div>
                         </a>
+                        @endif
                         <!-- User Info -->
                         <div class="white-bg user-contact-info">
                            <div class="user-info-card">

@@ -37,6 +37,9 @@ Route::group(['middleware' => 'auth'], function (){
     //WarehouseAds
     Route::resource('warehousead', 'Warehouse\Ad\AdController');
 
+    //My bids
+    Route::resource('mybid', 'Warehouse\Ad\Bid\MyBidController');
+    
     //WarehouseAdBid
     Route::resource('warehouseadbid', 'Warehouse\Ad\Bid\BidController');
     Route::get('ad_detail/warehouseadbid/create/{ad_id}','Warehouse\Ad\Bid\BidController@create');
