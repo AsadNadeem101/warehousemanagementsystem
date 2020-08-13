@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\Model\WarehouseAdBid;
 use App\Model\WarehouseAd;
 use App\Model\Warehouse;
+use App\Model\TenantWarehouse;
+use App\Model\TenantWarehouseSection;
 use App\DataTables\WarehouseAdBidDataTable;
 use RealRashid\SweetAlert\Facades\Alert;
+use Carbon\Carbon;
 use Auth;
 class BidController extends Controller
 {
@@ -106,5 +109,25 @@ class BidController extends Controller
 
         Alert::success('Warehouse Bid Rejected', 'Data successfully Rejected');
         return redirect()->route('warehouseadbid.index');
+    }
+
+    public function acceptBid(Request $request)
+    {
+        $id = $request->id;
+        $warehouse_ad_bid = WarehouseAdBid::find($id);
+        $warehouse_ad = WarehouseAd::find($warehouse_ad_bid->warehouse_ad_id); 
+        \Log::info($warehouse_ad);
+        $tenant_warehouse = new TenantWarehouse;
+        $tenant_warehouse->warehouse_id = $warehouse_ad->warehouse_id;
+        $tenant_warehouse->renter_id = $warehouse_ad_bid->renter_id;
+        $tenant_warehouse->tenant_id = $warehouse_ad_bid->tenant_id;
+        $start_date = Carbon::now();
+        $end_date = Carbon::now();
+        $end_date = $end_date->add($warehouse_ad->duration, 'month');
+        $tenant_warehouse->start_date = $start_date;
+        $tenant_warehouse->end_date = $end_date;
+        $tenant_warehouse->duration = $warehouse_ad->duration;
+        $tenant_warehouse->rent = $warehouse_ad_bid->bid_amount;
+        $tenant_warehouse->save();
     }
 }

@@ -115,4 +115,9 @@ class WarehouseController extends Controller
         }
     }
 
+    public function checkRemainingMarla(Request $request)
+    {
+        $warehouse_id = $request->warehouse_id;
+        
+    }
 }

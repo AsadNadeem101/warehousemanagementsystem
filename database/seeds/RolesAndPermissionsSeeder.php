@@ -68,6 +68,7 @@ class RolesAndPermissionsSeeder extends Seeder
 		    'tenant' => [
 				['name'=>'tenant_dashboard'],
 				['name'=>'tenant_report'],
+				['name'=>'my_bid']
 		    ],
 
 		    'renter' => [
@@ -86,6 +87,8 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'employee_edit'],
 			    ['name'=>'employee_show'],
 			    ['name'=>'employee_delete'],
+
+			    ['name'=>'warehouse_ad_bid']
 		    ]		    
 		];
 

@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-    Route::get('/index', 'Warehouse\Ad\AdController@adIndex');
-    
-    Route::get('/ad_detail/{ad_id}', 'Warehouse\Ad\AdController@showOnWeb');
+
 
     
 Auth::routes();
@@ -22,7 +20,9 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function (){
 	Route::get('/', 'HomeController@index');
 
-
+    Route::get('/index', 'Warehouse\Ad\AdController@adIndex');
+    
+    Route::get('/ad_detail/{ad_id}', 'Warehouse\Ad\AdController@showOnWeb');
 
 	//Attendance
     Route::get('markAttendancePage','Attendance\AttendanceController@markAttendance');
@@ -44,6 +44,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::resource('warehouseadbid', 'Warehouse\Ad\Bid\BidController');
     Route::get('ad_detail/warehouseadbid/create/{ad_id}','Warehouse\Ad\Bid\BidController@create');
     Route::get('warehouseadbid/{id}/reject','Warehouse\Ad\Bid\BidController@rejectBid');
+    Route::get('warehouseadbid/{id}/accept','Warehouse\Ad\Bid\BidController@acceptBid');
     
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');

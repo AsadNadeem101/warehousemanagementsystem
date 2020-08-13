@@ -245,19 +245,19 @@ return [
         [
             'text' => 'Warehouse Ads',
             'url'  => 'warehousead',
-            // 'can'  => 'warehousead_list',
+            'can'  => 'warehouse_ad_bid',
             'icon' => 'fas fa-home'
         ],
         [
             'text' => 'Warehouse Ad Bids',
             'url'  => 'warehouseadbid',
-            // 'can'  => 'warehousead_list',
+            'can'  => 'warehouse_ad_bid',
             'icon' => 'fas fa-home'
         ],
          [
             'text' => 'My Bids',
             'url'  => 'mybid',
-            // 'can'  => 'warehousead_list',
+            'can'  => 'my_bid',
             'icon' => 'fas fa-home'
         ],
         [
