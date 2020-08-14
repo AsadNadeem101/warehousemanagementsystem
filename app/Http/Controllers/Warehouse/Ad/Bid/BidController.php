@@ -116,7 +116,7 @@ class BidController extends Controller
         $id = $request->id;
         $warehouse_ad_bid = WarehouseAdBid::find($id);
         $warehouse_ad = WarehouseAd::find($warehouse_ad_bid->warehouse_ad_id); 
-        \Log::info($warehouse_ad);
+      
         $tenant_warehouse = new TenantWarehouse;
         $tenant_warehouse->warehouse_id = $warehouse_ad->warehouse_id;
         $tenant_warehouse->renter_id = $warehouse_ad_bid->renter_id;
@@ -129,5 +129,25 @@ class BidController extends Controller
         $tenant_warehouse->duration = $warehouse_ad->duration;
         $tenant_warehouse->rent = $warehouse_ad_bid->bid_amount;
         $tenant_warehouse->save();
+
+        $tenant_warehouse_section = new TenantWarehouseSection;
+
+        $section_name = "W".$warehouse_ad->warehouse_id."-R".$warehouse_ad->room."-M".$warehouse_ad->marla;
+        $section_description = "Warehouse".$warehouse_ad->warehouse_id."-Room".$warehouse_ad->room."-Marla".$warehouse_ad->marla;
+
+        $tenant_warehouse_section->name = $section_name;
+        $tenant_warehouse_section->description = $section_description;
+        $tenant_warehouse_section->room = $warehouse_ad->room;
+        $tenant_warehouse_section->marla = $warehouse_ad->marla;
+        $tenant_warehouse_section->tenant_warehouse_id = $tenant_warehouse->id;
+        $tenant_warehouse_section->warehouse_id = $warehouse_ad->warehouse_id;
+        $tenant_warehouse_section->save();
+        
+        $accepted_bid = WarehouseAdBid::where('id',$id)->update([
+            'status' => 'approved'
+        ]);
+
+        Alert::success('Warehouse Bid Accepted', 'Data successfully Accepted');
+        return redirect()->route('warehouseadbid.index');
     }
 }

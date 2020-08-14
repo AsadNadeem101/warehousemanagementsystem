@@ -26,7 +26,7 @@ class WarehouseAdBidDataTable extends DataTable
             ->editColumn('status', function ($query){
                 if($query->status == 'pending')
                 { 
-                    return "pending--"; 
+                    return '<span style="color:orange"><b>Pending</b></span>'; 
                 }
                 else if ($query->status == 'approved')
                 {  

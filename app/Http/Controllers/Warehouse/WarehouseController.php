@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Warehouse;
 use App\Model\Service;
+use App\Model\TenantWarehouseSection;
 use App\DataTables\WarehouseDataTable;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -118,6 +119,16 @@ class WarehouseController extends Controller
     public function checkRemainingMarla(Request $request)
     {
         $warehouse_id = $request->warehouse_id;
-        
+        $warehouse = Warehouse::find($warehouse_id);
+        $marla_ramaining = $warehouse->marla;
+        $tenant_warehouse_sections = TenantWarehouseSection::where('warehouse_id',$warehouse_id)->get();
+        foreach ($tenant_warehouse_sections as $key => $tenant_warehouse_section) 
+        {
+            $marla_ramaining = $marla_ramaining - $tenant_warehouse_section->marla;
+        }
+
+        return response()->json([
+            'marla' => $marla_ramaining
+        ]);
     }
 }

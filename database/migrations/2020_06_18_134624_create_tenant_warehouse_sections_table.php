@@ -20,6 +20,9 @@ class CreateTenantWarehouseSectionsTable extends Migration
             $table->string('room');
             $table->integer('marla');
 
+            $table->unsignedBigInteger('warehouse_id');
+            $table->foreign('warehouse_id')->references('id')->on('warehouses')->onDelete('cascade');
+
             $table->unsignedBigInteger('tenant_warehouse_id');
             $table->foreign('tenant_warehouse_id')->references('id')->on('tenant_warehouses');
             

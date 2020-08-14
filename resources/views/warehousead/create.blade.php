@@ -24,7 +24,7 @@
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
-	    		<h6>Marla</h6>
+	    		<h6>Marla <span style="color: red" id="remaining-marla"></span></h6>
 	    		{!! Form::number('marla',null,['class' => 'form-control','placeholder' => 'MARLA']); !!}
 	    	</div>	
 	    	<div class="col-md-6">
@@ -75,7 +75,16 @@
 @stop
 
 @section('js')
-    <script> 
+    <script>
+    	var warehouse_id = $(".warehouse_id").val();
+	    console.log(warehouse_id)
+
+	    $.ajax({
+		  url  : "{{route('check-remaining-marla')}}",
+		  data : {'warehouse_id':warehouse_id}
+		}).done(function(result) {
+		  $("#remaining-marla").text("Remaining marla : "+result.marla)
+		});
     	$(".warehouse_id").change(function(){
     		var warehouse_id = $(".warehouse_id").val();
     	    console.log(warehouse_id)
@@ -83,10 +92,10 @@
     	    $.ajax({
 			  url  : "{{route('check-remaining-marla')}}",
 			  data : {'warehouse_id':warehouse_id}
-			}).done(function() {
-			  $( this ).addClass( "done" );
+			}).done(function(result) {
+			   console.log(result)
+			   $("#remaining-marla").val(result.remaining_marla)
 			});
     	})
-    	
 	</script>
 @stop
