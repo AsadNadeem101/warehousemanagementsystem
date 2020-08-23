@@ -24,8 +24,8 @@
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
-	    		<h6>Marla <span style="color: red" id="remaining-marla"></span></h6>
-	    		{!! Form::number('marla',null,['class' => 'form-control','placeholder' => 'MARLA']); !!}
+	    		<h6>Marla (Remaining <span style="color: red" id="remaining-marla"></span> )</h6>
+	    		{!! Form::number('marla',null,['class' => 'form-control entered-marla','placeholder' => 'MARLA']); !!}
 	    	</div>	
 	    	<div class="col-md-6">
 	    		<h6>Room #</h6>
@@ -60,7 +60,7 @@
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-12" style="text-align: center">
-	    		{!! Form::submit('Save', ['class'=>'btn btn-success']); !!}
+	    		<input type="submit" class="btn btn-success" onclick="return doValidate()">
 	    	</div>
 	    </div>
 	    
@@ -78,12 +78,12 @@
     <script>
     	var warehouse_id = $(".warehouse_id").val();
 	    console.log(warehouse_id)
-
+	    remaining_marla = 0;
 	    $.ajax({
 		  url  : "{{route('check-remaining-marla')}}",
 		  data : {'warehouse_id':warehouse_id}
 		}).done(function(result) {
-		  $("#remaining-marla").text("Remaining marla : "+result.marla)
+		  $("#remaining-marla").text(result.marla)
 		});
     	$(".warehouse_id").change(function(){
     		var warehouse_id = $(".warehouse_id").val();
@@ -95,7 +95,30 @@
 			}).done(function(result) {
 			   console.log(result)
 			   $("#remaining-marla").val(result.remaining_marla)
+			   remaining_marla = result.remaining_marla;
+			   
 			});
     	})
+
+    	function doValidate()
+    	{
+    		
+    		var entered_marla = $('.entered-marla').val();
+    		var remaining_marla = $('#remaining-marla').text();
+    		console.log(remaining_marla)
+    		console.log(entered_marla)
+    		debugger
+    		var temp = remaining_marla - entered_marla;
+    		if (temp >= 0)
+    		{
+    			return true;
+    		}
+    		else
+    		{
+    			Swal.fire("Please enter less than or equal to "+remaining_marla+"Marla");
+    			return false;	
+    		}
+    		
+    	}
 	</script>
 @stop

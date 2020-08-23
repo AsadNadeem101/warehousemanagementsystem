@@ -14,7 +14,8 @@ class TenantRent extends Model
     protected $fillable = [
         'tenant_warehouse_id', 
         'month',
-        'paid', 
+        'paid',
+        'rent',
         'paid_at',
     ];
 

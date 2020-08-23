@@ -146,7 +146,9 @@ class AdController extends Controller
 
     public function showOnWeb(Request $request)
     {
-        $ad = WarehouseAd::find($request->ad_id);
+        $ad = DB::table('warehouse_ads')
+                ->join('warehouses', 'warehouse_ads.warehouse_id', '=', 'warehouses.id')
+                ->get();
         return view('website.ad_detail',compact('ad'));
     }
 }

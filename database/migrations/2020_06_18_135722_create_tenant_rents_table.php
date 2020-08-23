@@ -20,6 +20,7 @@ class CreateTenantRentsTable extends Migration
             $table->foreign('tenant_warehouse_id')->references('id')->on('tenant_warehouses');
 
             $table->string('month');
+            $table->integer('rent');
             $table->boolean('paid');
             $table->dateTime('paid_at')->nullable();
             
