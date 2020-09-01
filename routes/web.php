@@ -13,14 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-    
+Route::get('/index', 'Warehouse\Ad\AdController@adIndex');
+Route::get('/', 'Warehouse\Ad\AdController@adIndex')->name('website');  
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function (){
-	Route::get('/', 'HomeController@index');
 
-    Route::get('/index', 'Warehouse\Ad\AdController@adIndex');
+	Route::get('/home', 'HomeController@index');
+
+    
     
     Route::get('/ad_detail/{ad_id}', 'Warehouse\Ad\AdController@showOnWeb');
 
