@@ -31480,7 +31480,10 @@ if ( document.readyState === "complete" ||
 
 	// A fallback to window.onload, that will always work
 	window.addEventListener( "load", completed );
+
 }
+
+
 
 
 
