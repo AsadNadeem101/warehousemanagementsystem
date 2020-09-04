@@ -9,7 +9,9 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Model\ServiceSubscriptionCharges;
 use App\Model\WarehouseServiceSubscription;
+use App\Model\Warehouse;
 use App\User;
+use Carbon\Carbon;
 
 class CalculateServiceCharges implements ShouldQueue
 {
@@ -36,15 +38,14 @@ class CalculateServiceCharges implements ShouldQueue
 
         foreach ($warehouse_subscriptions as $key => $warehouse_subscription) {
             $warehouse_id = $warehouse_subscription['warehouse_id'];
-            $service_id = $warehouse_subscription['service_id'];
-            $ = Warehouse::where('id',$warehouse_id)->value('renter_id');
+            $service_id   = $warehouse_subscription['service_id'];
+            $renter_id    = Warehouse::where('id',$warehouse_id)->value('renter_id');
 
             $warehouse_subscription_charges = [
-                'warehouse_id'   => $warehouse_id,
                 'month'          => Carbon::now()->month,
                 'service_id'     => $service_id,
                 'renter_id'      => $renter_id,
-            ]
+            ];
 
             ServiceSubscriptionCharges::create($warehouse_subscription_charges);
         }

@@ -110,6 +110,32 @@ class BidController extends Controller
         Alert::success('Warehouse Bid Rejected', 'Data successfully Rejected');
         return redirect()->route('warehouseadbid.index');
     }
+    
+    public function withdrawBid(Request $request)
+    {
+        $id = $request->id;
+        $withdrawn_bid = WarehouseAdBid::where('id',$id)->update([
+            'status' => 'withdrawn'
+        ]);
+
+        Alert::success('Warehouse Bid withdrawn', 'Data successfully withdrawn');
+        return redirect()->route('mybid.index');
+    }
+
+
+    public function checkRemainingMarla($warehouse_id)
+    {
+        $warehouse_id = $warehouse_id;
+        $warehouse = Warehouse::find($warehouse_id);
+        $marla_ramaining = $warehouse->marla;
+        $tenant_warehouse_sections = TenantWarehouseSection::where('warehouse_id',$warehouse_id)->get();
+        foreach ($tenant_warehouse_sections as $key => $tenant_warehouse_section) 
+        {
+            $marla_ramaining = $marla_ramaining - $tenant_warehouse_section->marla;
+        }
+
+        return $marla_ramaining;
+    }
 
     public function acceptBid(Request $request)
     {
@@ -146,6 +172,12 @@ class BidController extends Controller
         $accepted_bid = WarehouseAdBid::where('id',$id)->update([
             'status' => 'approved'
         ]);
+
+        $warehouse_marla_remaining = $this->checkRemainingMarla($warehouse_ad->warehouse_id);
+
+        $warehouse_ads_delete = WarehouseAd::where('marla','>',$warehouse_marla_remaining)->pluck('id');
+
+        WarehouseAd::whereIn('id',$warehouse_ads_delete)->delete(); 
 
         Alert::success('Warehouse Bid Accepted', 'Data successfully Accepted');
         return redirect()->route('warehouseadbid.index');
