@@ -1,0 +1,1 @@
+<a href="tenantrent/{{$id}}/payment"><button type="button" class="btn btn-primary">Paid</button></a>

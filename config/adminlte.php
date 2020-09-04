@@ -275,6 +275,11 @@ return [
             'text' => 'Services',
             'url'  => 'service',
             'can'  => 'service_list'
+        ],
+        [
+            'text' => 'Tenant Rent',
+            'url'  => 'tenantrent',
+            'can'  => 'tenantrent_list'
         ],                  
         [
             'text'    => 'Reports',

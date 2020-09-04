@@ -583,7 +583,7 @@
                                           <!-- Category Title -->
                                           <div class="category-title"> <span><a href="#">Car & Bikes</a></span> </div>
                                           <!-- Ad Title -->
-                                          <h3><a>{{ $ad->title }}</a></h3>
+                                          <h3><a>{{$ad->title}}</a></h3>
                                           <!-- Info Icons -->
                                           <ul class="additional-info pull-right">
                                              <li>
