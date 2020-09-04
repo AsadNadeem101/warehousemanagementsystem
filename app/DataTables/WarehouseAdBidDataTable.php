@@ -36,6 +36,10 @@ class WarehouseAdBidDataTable extends DataTable
                 {  
                     return '<span style="color:red"><b>Rejected</b></span>';
                 }
+                else if ($query->status == 'withdrawn')
+                {  
+                    return '<span style="color:brown"><b>Withdrawn</b></span>';
+                }
             })
             ->escapeColumns([])
             ->addColumn('action', 'warehouseadbid.action');

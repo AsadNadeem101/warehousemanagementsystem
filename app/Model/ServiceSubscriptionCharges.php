@@ -15,7 +15,8 @@ class ServiceSubscriptionCharges extends Model
         'renter_id', 
         'month', 
         'paid',
-        'paid_at'
+        'paid_at',
+        'service_id'
     ];
 
     public $table = "service_subscription_charges";

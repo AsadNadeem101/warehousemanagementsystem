@@ -27,7 +27,7 @@ class CreateWarehouseBidsTable extends Migration
 
             $table->unsignedBigInteger('bid_amount');
 
-            $table->enum('status',['pending','approved','rejected']);
+            $table->enum('status',['pending','approved','rejected','withdrawn']);
 
             $table->timestamps();
         });

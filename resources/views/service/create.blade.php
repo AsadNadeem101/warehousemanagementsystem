@@ -17,10 +17,10 @@
 	    	<div class="col-md-6">
 	    		<h6>Description</h6>
 	    		{!! Form::text('description',null,['class' => 'form-control','placeholder' => 'DESCRIPTION']); !!}
-	    	</div>	
+	    	</div>
 	    	<div class="col-md-6">
 	    		<h6>Charges</h6>
-	    		{!! Form::text('charges',null,['class' => 'form-control','placeholder' => 'charges']); !!}
+	    		{!! Form::number('charges',null,['class' => 'form-control','placeholder' => 'Charges']); !!}
 	    	</div>	    	
 	    </div>	
 	    <br>

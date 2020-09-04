@@ -13,9 +13,9 @@ class Service extends Model
      */
     protected $fillable = [
         'name', 
-        'description',
-        'charges', 
-        'status'
+        'description', 
+        'status',
+        'charges'
     ];
 
     public $table = "services";

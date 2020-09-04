@@ -107,7 +107,6 @@
     		var remaining_marla = $('#remaining-marla').text();
     		console.log(remaining_marla)
     		console.log(entered_marla)
-    		debugger
     		var temp = remaining_marla - entered_marla;
     		if (temp >= 0)
     		{

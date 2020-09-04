@@ -47,8 +47,12 @@ Route::group(['middleware' => 'auth'], function (){
     //WarehouseAdBid
     Route::resource('warehouseadbid', 'Warehouse\Ad\Bid\BidController');
     Route::get('ad_detail/warehouseadbid/create/{ad_id}','Warehouse\Ad\Bid\BidController@create');
+
     Route::get('warehouseadbid/{id}/reject','Warehouse\Ad\Bid\BidController@rejectBid');
+
     Route::get('warehouseadbid/{id}/accept','Warehouse\Ad\Bid\BidController@acceptBid');
+
+    Route::get('warehouseadbid/{id}/withdraw','Warehouse\Ad\Bid\BidController@withdrawBid');
     
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');
