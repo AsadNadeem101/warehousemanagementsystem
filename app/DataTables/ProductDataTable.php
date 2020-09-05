@@ -68,7 +68,6 @@ class ProductDataTable extends DataTable
             Column::make('name'),
             Column::make('description'),
             Column::make('manufacturer'),
-            Column::make('quantity'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')

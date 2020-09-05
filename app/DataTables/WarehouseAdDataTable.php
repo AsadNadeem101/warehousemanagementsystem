@@ -21,6 +21,17 @@ class WarehouseAdDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('status', function($warehouseAd){
+                if($warehouseAd->status == 1)
+                {
+                    return "<span style='background-color:green; color:white; padding:5px '>Active</span>";
+                }
+                else if($warehouseAd->status == 0)
+                {
+                    return "<span style='background-color:red; color:white; padding:5px '>Inactive</span>";
+                }
+            })
+            ->escapeColumns([])
             ->addColumn('action', 'warehousead.action');
     }
 
@@ -71,6 +82,7 @@ class WarehouseAdDataTable extends DataTable
             Column::make('description'),
             Column::make('marla'),
             Column::make('room'),
+            Column::make('status'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
