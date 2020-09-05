@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Create')
+@section('title', 'Product Create')
 
 @section('content_header')
-    <h1>Create</h1>
+    <h1>Product Create</h1>
 @stop
 
 @section('content')
@@ -24,11 +24,7 @@
 	    	<div class="col-md-6">
 	    		<h6>Manufacturer</h6>
 	    		{!! Form::text('manufacturer',null,['class' => 'form-control','placeholder' => 'MANUFACTURER']); !!}
-	    	</div>
-	    	<div class="col-md-6">
-	    		<h6>Quantity</h6>
-	    		{!! Form::number('quantity',null,['class' => 'form-control','placeholder' => 'Quantity']); !!}
-	    	</div>	  
+	    	</div>  
 	    </div>  	
 	    <br>
 	    <div class="row">

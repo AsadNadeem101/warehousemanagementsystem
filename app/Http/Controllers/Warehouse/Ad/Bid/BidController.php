@@ -175,9 +175,25 @@ class BidController extends Controller
 
         $warehouse_marla_remaining = $this->checkRemainingMarla($warehouse_ad->warehouse_id);
 
+        \Log::info($warehouse_marla_remaining);
+
         $warehouse_ads_delete = WarehouseAd::where('marla','>',$warehouse_marla_remaining)->pluck('id');
 
-        WarehouseAd::whereIn('id',$warehouse_ads_delete)->delete(); 
+        \Log::info($warehouse_ads_delete);
+
+        $warehouse_ad_deactive = WarehouseAd::where('id',$warehouse_ad->id)->update([
+            'status' => 0
+        ]);
+
+        WarehouseAdBid::where('warehouse_ad_id',$warehouse_ad->id)
+            ->where('status', '!=', 'approved')
+            ->delete();
+
+        WarehouseAd::whereIn('id',$warehouse_ads_delete)
+            ->where('status',1)
+            ->delete(); 
+
+
 
         Alert::success('Warehouse Bid Accepted', 'Data successfully Accepted');
         return redirect()->route('warehouseadbid.index');
