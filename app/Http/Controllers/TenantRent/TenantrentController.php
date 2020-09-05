@@ -4,12 +4,11 @@ namespace App\Http\Controllers\TenantRent;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+
 use App\Model\TenantRent;
 use App\DataTables\TenantRentDataTable;
-use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
-
-class TenantrentController extends Controller
+class TenantRentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -64,15 +63,6 @@ class TenantrentController extends Controller
         //
     }
 
-    public function payment(Request $request)
-    {
-        $id = $request->id;
-        $tenantrent = TenantRent::find($id);
-        return view('tenantrent.payment',compact('tenantrent'));
-
-        //return view('tenantrent.payment');
-    }
-
     /**
      * Update the specified resource in storage.
      *
@@ -82,7 +72,36 @@ class TenantrentController extends Controller
      */
     public function update(Request $request, $id)
     {
-            }
+        //
+
+      //  dd($request);
+
+       // $input = $request->only('name','description','location','marla','room','renter_id','status');
+       //  Warehouse::find($id)->update($input);
+       //  Alert::success('Warehouse', 'Data successfully updated');
+       //  return redirect()->route('warehouse.index');
+
+
+
+
+        //     $this->validate($request, [
+        //     'name' => 'required',
+        // ]);
+
+
+        $tenantrent = TenantRent::find($id);
+        
+        $tenantrent->account_number = $request->input('account_number');
+        $tenantrent->paid_at = $request->input('paid_at');
+        $tenantrent->paid = 1;
+        $tenantrent->save();
+
+        Alert::success('TenantRent', 'Payment is in verfication process');
+         return redirect()->route('tenantrent.index');
+
+        // return redirect()->route('plants.index')
+        //                 ->with('success','Plant updated successfully');
+    }
 
     /**
      * Remove the specified resource from storage.
@@ -94,4 +113,27 @@ class TenantrentController extends Controller
     {
         //
     }
+
+    public function payment(Request $request)
+    {
+        $id = $request->id;
+        $tenantrent = TenantRent::find($id);
+        return view('tenantrent.payment',compact('tenantrent'));
+    }
+
+     public function paymentupdate(Request $request)
+    {
+        $id = $request->id;
+        $tenantrent = TenantRent::find($id);
+        return view('tenantrent.payment',compact('tenantrent'));
+    }
 }
+
+
+// $id = $request->id;
+
+//         $tenantrent = TenantRent::find($id);
+//         dd($tenantrent);
+//         return view('tenantrent.payment',compact('tenantrent'));
+
+//         return view('tenantrent.payment');

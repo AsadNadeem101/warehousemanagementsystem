@@ -58,9 +58,9 @@ Route::group(['middleware' => 'auth'], function (){
 	Route::resource('employee', 'Employee\EmployeeController');
 
     //TenantRent
-    Route::resource('tenantrent', 'TenantRent\TenantRentController');
-    Route::get('tenantrent/{id}/payment', 'TenantRent\TenantRentController@payment');
-    Route::post('tenantrent/paymentupdate', 'TenantRent\TenantRentController@paymentupdate');
+    Route::resource('tenantrent', 'TenantRent\TenantrentController');
+    Route::get('tenantrent/{id}/payment', 'TenantRent\TenantrentController@payment');
+    //Route::patch('tenantrent/paymentupdate', 'TenantRent\TenantrentController@paymentupdate');
 
     //Service
     Route::resource('service', 'Service\ServiceController');

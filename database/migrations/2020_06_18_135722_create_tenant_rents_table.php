@@ -22,7 +22,9 @@ class CreateTenantRentsTable extends Migration
             $table->string('month');
             $table->integer('rent');
             $table->boolean('paid');
-            $table->dateTime('paid_at')->nullable();
+            $table->unsignedBigInteger('account_number')->default(0);
+            $table->string('system_verification')->default(0);
+            $table->date('paid_at')->nullable();
             
             $table->timestamps();
         });

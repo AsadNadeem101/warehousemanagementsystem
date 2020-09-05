@@ -41,6 +41,8 @@ class GenerateMonthlyTenantBill implements ShouldQueue
                     'month' => Carbon::now()->month,
                     'rent'  => $warehouse_rent['rent'],
                     'paid'  => 0,
+                    'system_verification' =>0,
+                    'account_number' => 0,
                 ]);
             }
         }

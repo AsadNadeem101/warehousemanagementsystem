@@ -15,6 +15,9 @@ class TenantRent extends Model
         'tenant_warehouse_id', 
         'month',
         'paid',
+        'account_no',
+        'account_number',
+        'system_verification',
         'rent',
         'paid_at',
     ];
