@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Model\Attendence;
+use App\Model\Attendance;
 use App\Model\Employee;
 use App\Model\EmployerPayroll;
 use Carbon\Carbon;
@@ -36,7 +36,7 @@ class CalculatePayroll implements ShouldQueue
         $employees = Employee::all();
 
         foreach ($employees as $key => $employee) {
-            $absents = Attendence::whereMonth('created_at',Carbon::now()->month)
+            $absents = Attendance::whereMonth('created_at',Carbon::now()->month)
                         ->where('employee_id',$employee['id'])
                         ->where('status',0)
                         ->count();

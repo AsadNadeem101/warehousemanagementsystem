@@ -38,7 +38,7 @@ class CalculateServiceCharges implements ShouldQueue
 
         foreach ($warehouse_subscriptions as $key => $warehouse_subscription) {
             $warehouse_id = $warehouse_subscription['warehouse_id'];
-            $service_id   = $warehouse_subscription['service_id'];
+            $service_id = $warehouse_subscription['service_id'];
             $renter_id    = Warehouse::where('id',$warehouse_id)->value('renter_id');
 
             $warehouse_subscription_charges = [

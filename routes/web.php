@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/index', 'Warehouse\Ad\AdController@adIndex');
 Route::get('/', 'Warehouse\Ad\AdController@adIndex')->name('website');  
+Route::get('/termsandconditions', function () {
+    return view('website/termsandconditions');
+});
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function (){
@@ -53,6 +56,11 @@ Route::group(['middleware' => 'auth'], function (){
     
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');
+
+    //TenantRent
+    Route::resource('tenantrent', 'TenantRent\TenantRentController');
+    Route::get('tenantrent/{id}/payment', 'TenantRent\TenantRentController@payment');
+    Route::post('tenantrent/paymentupdate', 'TenantRent\TenantRentController@paymentupdate');
 
     //Service
     Route::resource('service', 'Service\ServiceController');

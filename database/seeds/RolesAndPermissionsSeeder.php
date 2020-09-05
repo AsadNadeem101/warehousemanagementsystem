@@ -68,7 +68,8 @@ class RolesAndPermissionsSeeder extends Seeder
 		    'tenant' => [
 				['name'=>'tenant_dashboard'],
 				['name'=>'tenant_report'],
-				['name'=>'my_bid']
+				['name'=>'my_bid'],
+				['name'=>'tenantrent_list'],
 		    ],
 
 		    'renter' => [
