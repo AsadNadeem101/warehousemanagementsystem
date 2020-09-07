@@ -21,11 +21,12 @@ class CreateTenantRentsTable extends Migration
 
             $table->string('month');
             $table->integer('rent');
-            $table->boolean('paid');
+            $table->enum('payment_status', ['pending', 'paid', 'nopaid'])->default('pending');
             $table->unsignedBigInteger('account_number')->default(0);
-            $table->string('system_verification')->default(0);
+            $table->enum('system_verification',['pending', 'verified',])->default('pending');
             $table->date('paid_at')->nullable();
-            
+      
+
             $table->timestamps();
         });
     }

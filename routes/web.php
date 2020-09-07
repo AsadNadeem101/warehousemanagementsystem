@@ -54,13 +54,24 @@ Route::group(['middleware' => 'auth'], function (){
 
     Route::get('warehouseadbid/{id}/withdraw','Warehouse\Ad\Bid\BidController@withdrawBid');
     
+    //Tenant dashboard
+
+    Route::get('tenantdashboard','TenantDashboard\TenantDashboardController@index');
+    Route::get('tenantsection/{id}','TenantDashboard\TenantDashboardController@tenantsection');
+    Route::get('tenantsectiondetail/{id}','TenantDashboard\TenantDashboardController@tenantsectiondetail');
+
+
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');
 
     //TenantRent
     Route::resource('tenantrent', 'TenantRent\TenantrentController');
     Route::get('tenantrent/{id}/payment', 'TenantRent\TenantrentController@payment');
-    //Route::patch('tenantrent/paymentupdate', 'TenantRent\TenantrentController@paymentupdate');
+    
+    //TenantRentVerification
+    Route::resource('tenantrentverification', 'TenantRent\TenantrentverificationController');
+     Route::get('tenantrent/{id}/detail', 'TenantRent\TenantrentverificationController@show');
+     Route::get('tenantrent/{id}/verification', 'TenantRent\TenantrentverificationController@update');
 
     //Service
     Route::resource('service', 'Service\ServiceController');

@@ -17,7 +17,7 @@
 	    		{!! Form::number('account_number',null,['class' => 'form-control','placeholder' => 'Account Number']); !!}
 	    	</div>
 	    	<div class="col-md-6">
-	    		<h6>Paid time</h6>
+	    		<h6>Paid date</h6>
 	    		{!! Form::date('paid_at',null,['class' => 'form-control','placeholder' => 'PAIDTIME']); !!}
 	    	</div>	    	
 	    </div>

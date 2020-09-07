@@ -248,6 +248,7 @@ return [
             'can'  => 'warehouse_ad_bid',
             'icon' => 'fas fa-home'
         ],
+
         [
             'text' => 'Warehouse Ad Bids',
             'url'  => 'warehouseadbid',
@@ -260,6 +261,13 @@ return [
             'can'  => 'my_bid',
             'icon' => 'fas fa-home'
         ],
+        [
+            'text' => 'Tenant Rent verification',
+            'url'  => 'tenantrentverification',
+            'can'  => 'tenantrentverification',
+            'icon' => 'fas fa-home'
+        ],
+        
         [
             'text' => 'Employee',
             'url'  => 'employee',

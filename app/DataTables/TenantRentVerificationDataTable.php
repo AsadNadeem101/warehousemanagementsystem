@@ -9,7 +9,7 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class TenantRentDataTable extends DataTable
+class TenantRentVerificationDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,13 +21,13 @@ class TenantRentDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'tenantrent.action');
+            ->addColumn('action', 'tenantrentverification.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\TenantRent $model
+     * @param \App\TenantRentVerification $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(TenantRent $model)
@@ -43,7 +43,7 @@ class TenantRentDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('tenantrent-table')
+                    ->setTableId('tenantrentverification-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
@@ -64,7 +64,7 @@ class TenantRentDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            Column::make('id'),
+             Column::make('id'),
             Column::make('tenant_warehouse_id'),
             Column::make('month'), 
             Column::make('rent'), 
@@ -87,6 +87,6 @@ class TenantRentDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'TenantRent_' . date('YmdHis');
+        return 'TenantRentVerification_' . date('YmdHis');
     }
 }

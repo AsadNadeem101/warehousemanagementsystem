@@ -93,7 +93,7 @@ class TenantRentController extends Controller
         
         $tenantrent->account_number = $request->input('account_number');
         $tenantrent->paid_at = $request->input('paid_at');
-        $tenantrent->paid = 1;
+        $tenantrent->payment_status = 'paid';
         $tenantrent->save();
 
         Alert::success('TenantRent', 'Payment is in verfication process');

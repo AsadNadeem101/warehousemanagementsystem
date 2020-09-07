@@ -44,6 +44,9 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'plan_edit'],
 			    ['name'=>'plan_show'],
 			    ['name'=>'plan_delete'],
+
+			    ['name'=>'tenantrentverification'],
+			    
 		    ],
 		    
 		    'warehouse_admin' => [
