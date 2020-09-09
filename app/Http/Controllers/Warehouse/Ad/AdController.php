@@ -141,11 +141,11 @@ class AdController extends Controller
     public function adIndex()
     {
         $ads=WarehouseAd::get();
-        // $data  =DB::table('warehouse_ads')
+         // $data  =DB::table('warehouse_ads')
         //     ->join('warehouses' , 'warehouse_ads.warehouse_id','=','warehouses.id')
+        //     ->join('ad_images' , 'warehouse_ads.id','=','ad_images.warehouse_id')
         //     ->select('warehouse_ads.*','warehouses.location')->get();
-        //     $ads = json_decode($data, true);
-        //     dd($ads);
+        
         return view('website.index',compact('ads'));
     }
 

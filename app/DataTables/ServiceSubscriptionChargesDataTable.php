@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\ServiceSubscriptionCharge;
+use App\Model\ServiceSubscriptionCharges;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
@@ -30,7 +30,7 @@ class ServiceSubscriptionChargesDataTable extends DataTable
      * @param \App\ServiceSubscriptionCharge $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(ServiceSubscriptionCharge $model)
+    public function query(ServiceSubscriptionCharges $model)
     {
         return $model->newQuery();
     }
@@ -49,7 +49,6 @@ class ServiceSubscriptionChargesDataTable extends DataTable
                     ->dom('Bfrtip')
                     ->orderBy(1)
                     ->buttons(
-                        Button::make('create'),
                         Button::make('export'),
                         Button::make('print'),
                         Button::make('reset'),
@@ -66,7 +65,10 @@ class ServiceSubscriptionChargesDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('add your columns'),
+            Column::make('renter_id'),
+            Column::make('service_id'),
+            Column::make('month'),
+            Column::make('payment_status'),
             Column::make('created_at'),
             Column::make('updated_at'),
             Column::computed('action')
@@ -74,6 +76,7 @@ class ServiceSubscriptionChargesDataTable extends DataTable
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
+            
         ];
     }
 

@@ -45,8 +45,8 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'plan_show'],
 			    ['name'=>'plan_delete'],
 
-			    ['name'=>'tenantrentverification'],
-			    
+			    ['name'=>'tenantrentverification'],  
+			    ['name'=>'servicechargesverification'], 
 		    ],
 		    
 		    'warehouse_admin' => [
@@ -73,6 +73,7 @@ class RolesAndPermissionsSeeder extends Seeder
 				['name'=>'tenant_report'],
 				['name'=>'my_bid'],
 				['name'=>'tenantrent_list'],
+				['name'=>'tenantdashboard'],
 		    ],
 
 		    'renter' => [
@@ -92,7 +93,9 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'employee_show'],
 			    ['name'=>'employee_delete'],
 
-			    ['name'=>'warehouse_ad_bid']
+			    ['name'=>'warehouse_ad_bid'],
+			    ['name'=>'servicesubscriptioncharges'],
+			    ['name'=>'renterdashboard']
 		    ]		    
 		];
 

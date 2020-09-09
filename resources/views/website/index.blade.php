@@ -575,7 +575,7 @@
                                  </div>
                               </div>
                               <div class="col-md-9 col-sm-7 col-xs-12">
-                                 @foreach($ads as $ad)
+                                 @foreach($data as $ad)
                                  <!-- Ad Content-->
                                  <div class="row">
                                     <div class="content-area">
@@ -616,7 +616,7 @@
                                           <!-- Price -->
                                           <div class="price"> <span>$18,640</span> </div>
                                           <!-- Ad View Button -->
-                                          <a href="/ad_detail/{{$ad['id']}}">
+                                          <a href="/ad_detail/{{$ad->id}}">
                                           <button class="btn btn-block btn-success"><i class="fa fa-eye" aria-hidden="true"></i> View Ad.</button>
                                           </a>
                                        </div>

@@ -60,6 +60,10 @@
                 <th>End Date</th>
                 <td>{{ $object->end_date }}</td>
             </tr>
+            <tr>
+                <th>Add Inventory</th>
+                <td><a><button type="button" class="btn btn-primary">Add Inventory</button></a></td>
+            </tr>
             
             @endforeach
         </table>

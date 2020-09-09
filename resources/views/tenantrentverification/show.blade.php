@@ -33,7 +33,7 @@
                 <td>{{ $tenantrentverification->payment_status }}</td>
             </tr>
             <tr>
-                <th>Paid Time</th>
+                <th>Paid Date</th>
                 <td>{{ $tenantrentverification->paid_at }}</td>
             </tr>
             <tr>
@@ -41,7 +41,7 @@
                 @if($system_verification == 'pending')
                 {!! Form::model($tenantrentverification, ['method' => 'PATCH','route' => ['tenantrentverification.update', $tenantrentverification->id]]) !!}
             
-                <td><a href="/tenantrent/{{$id}}/verification"><button type="button" class="btn btn-primary">Yes</button></a></td>
+                <td><a href="/tenantrent/{{$id}}/verification"><button type="button" class="btn btn-primary">Yes</button></a> <a href="/tenantrent/{{$id}}/verifications"><button type="button" class="btn btn-primary">No</button></a></td>
 
                 {!! Form::close() !!}
                 @else

@@ -42,7 +42,7 @@ class ProductController extends Controller
         $input = $request->all();
         Product::create($input);
         Alert::success('Product', 'Data successfully created');
-        return redirect()->route('product.index');
+        return redirect()->route('warehouse.index');
     }
 
     /**

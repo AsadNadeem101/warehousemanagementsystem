@@ -17,7 +17,7 @@ class TenantDashboardController extends Controller
     {	
     	$id = Auth::user()->id;
     	$data = TenantWarehouse::where('tenant_id',$id)->get();
-
+    	
     	foreach ($data as $key => $value) 
     	{
             $data[$key]['warehouse_id']= Helper::warehouseIdToName($value['warehouse_id']);
@@ -38,22 +38,12 @@ class TenantDashboardController extends Controller
     }
     public function tenantsectiondetail($id)
     {	
+        $tenant_warehouse_section_id = $id;
 
     	$details = DB::table('tenant_warehouse_sections')->where('tenant_warehouse_sections.id',$id)
     	->join('tenant_warehouses', 'tenant_warehouse_sections.tenant_warehouse_id', '=', 'tenant_warehouses.id')
     	->select('tenant_warehouse_sections.*','tenant_warehouses.warehouse_id','tenant_warehouses.renter_id','tenant_warehouses.tenant_id','tenant_warehouses.start_date','tenant_warehouses.end_date','tenant_warehouses.duration','tenant_warehouses.rent')
-          ->get();
-
-       
-    	return view('tenantdashboard.show',compact('details'));
+          ->get();     
+    	return view('tenantdashboard.show',compact('details','tenant_warehouse_section_id'));
     }
 }
-
-//$result = DB::Table('Student')->select('subject','class')->where('id',1)->get();  
-    	//dd($currentuser);
-    	// $current_tenant = DB::tenant_warehouses
-    	// $current_tenant = TenantWarehouse::find($tenant_id);
-    	// dd($current_tenant);
-
-    	//$tenant_warehouse = TenantWarehouse::where()
-    	//return view('tenantdashboard.index');

@@ -237,6 +237,12 @@ return [
             'topnav' => true,
         ],
         [
+            'text' => 'Renter Dashboard',
+            'url'  => 'renterdashboard',
+            'can'  => 'renterdashboard'
+            
+        ],
+        [
             'text' => 'Warehouse',
             'url'  => 'warehouse',
             'can'  => 'warehouse_list',
@@ -280,6 +286,18 @@ return [
             'can'  => 'plan_list'
         ],
         [
+            'text' => 'Service Subscription Charges',
+            'url'  => 'servicesubscriptioncharges',
+            'can'  => 'servicesubscriptioncharges'
+        ],
+        [
+            'text' => 'Service Charges Verification',
+            'url'  => 'servicechargesverification',
+            'can'  => 'servicechargesverification'
+        ],
+
+
+        [
             'text' => 'Services',
             'url'  => 'service',
             'can'  => 'service_list'
@@ -288,7 +306,12 @@ return [
             'text' => 'Tenant Rent',
             'url'  => 'tenantrent',
             'can'  => 'tenantrent_list'
-        ],                  
+        ], 
+        [
+            'text' => 'Tenant Dashboard',
+            'url'  => 'tenantdashboard',
+            'can'  => 'tenantdashboard'
+        ],                   
         [
             'text'    => 'Reports',
             'icon'    => 'fas fa-file-pdf',

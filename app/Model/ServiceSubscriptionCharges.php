@@ -14,9 +14,11 @@ class ServiceSubscriptionCharges extends Model
     protected $fillable = [
         'renter_id', 
         'month', 
-        'paid',
+        'service_id',
+        'payment_status',
+        'account_number',
+        'system_verification',
         'paid_at',
-        'service_id'
     ];
 
     public $table = "service_subscription_charges";

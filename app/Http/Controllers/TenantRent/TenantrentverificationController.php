@@ -4,7 +4,6 @@ namespace App\Http\Controllers\TenantRent;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
 use App\Model\TenantRent;
 use App\DataTables\TenantRentVerificationDataTable;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -52,9 +51,6 @@ class TenantrentverificationController extends Controller
         $tenantrentverification = TenantRent::find($id);
         $id = $tenantrentverification->id;
         $system_verification = $tenantrentverification->system_verification;
-        //dd($system_verification);
-        //dd($tenantrentverificaton);
-        // $services = Service::all();
         return view('tenantrentverification.show',compact('tenantrentverification','id','system_verification'));
     }
 
@@ -79,6 +75,17 @@ class TenantrentverificationController extends Controller
     public function update(Request $request, $id)
     {
         $tenantrent = TenantRent::find($id);
+        $tenantrent->system_verification = 'verified';
+        $tenantrent->save();
+
+        Alert::success('TenantRentPayment', 'Payment verfication process completed');
+         return redirect()->route('tenantrentverification.index');
+    }
+
+    public function update1(Request $request, $id)
+    {
+        $tenantrent = TenantRent::find($id);
+        $tenantrent->payment_status = 'nopaid';
         $tenantrent->system_verification = 'verified';
         $tenantrent->save();
 

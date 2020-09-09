@@ -45,6 +45,9 @@ class CalculateServiceCharges implements ShouldQueue
                 'month'          => Carbon::now()->month,
                 'service_id'     => $service_id,
                 'renter_id'      => $renter_id,
+                'payment_status'  => 'pending',
+                'system_verification' =>'pending',
+                'account_number' => '0',
             ];
 
             ServiceSubscriptionCharges::create($warehouse_subscription_charges);

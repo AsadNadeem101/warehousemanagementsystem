@@ -11,6 +11,7 @@ use App\DataTables\WarehouseDataTable;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Auth;
+use App\User;
 
 class WarehouseController extends Controller
 {
@@ -58,8 +59,11 @@ class WarehouseController extends Controller
     public function show($id)
     {
         $warehouse = Warehouse::find($id);
+        $id = $warehouse->id;
         $services = Service::all();
-        return view('warehouse.show',compact('warehouse','services'));
+        $user = User::where('warehouse_id',$id)->first();
+        
+        return view('warehouse.show',compact('warehouse','services','id','user'));
     }
 
     /**

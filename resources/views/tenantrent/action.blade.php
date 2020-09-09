@@ -1,4 +1,4 @@
-@if($payment_status == 'pending')
+@if($payment_status != 'paid')
 <a href="tenantrent/{{$id}}/payment"><button type="button" class="btn btn-primary">Paid</button></a>
 @elseif($payment_status == 'paid' && $system_verification == 'pending')
 <p style='background-color:orange; color:white; padding:5px'>VERIFING</p>
