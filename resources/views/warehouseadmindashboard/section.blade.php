@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Sections')
+@section('title', 'Warehouse Section')
 
 @section('content_header')
     
@@ -11,7 +11,7 @@
 	<div class="col-md-12">
 
 		<div class="container-fluid">                    
- 			<h1 style="margin-bottom:-10px;color:#f58936"><b>Renter Dashboard</b></h1>  
+ 			<h1 style="margin-bottom:-10px;color:#f58936"><b>Warehouse Admin Dashboard</b></h1>  
  			<hr class="divider" style="border: 3px solid #272d47;width: 100%;">
         </div>
 		<div class="row">
@@ -22,12 +22,12 @@
         	</div>
         	@if($data->isEmpty())
 
-        		<h4 style="font-weight:600;font-size: 20px;margin-left: 30px">You warehouse currently have no section</h4>
+        		<h4 style="font-weight:600;font-size: 20px;margin-left: 30px">Your warehouse currently have no section</h4>
 
         		@else    
       		@foreach($data as $index => $warehouse_section)
 			<div class="col-md-4">
-				<a href="/rentersectiondetail/{{$warehouse_section->id}}" data-toggle="tooltip" title="# of open workorders">          
+				<a href="/warehouseadminsectiondetail/{{$warehouse_section->id}}" data-toggle="tooltip" title="# of open workorders">          
 			        <div class="box hvr-grow hvr-shutter-out-vertical"style="background-color: #cee9ef;">
 			          <h3 style="font-weight:600;font-size: 20px;text-align: center">Click to view the Detail</h3>
 			          <h2 style="font-size: 3.0vw;text-align: center">{{$warehouse_section->name}}</h2>

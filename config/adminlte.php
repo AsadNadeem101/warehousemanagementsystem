@@ -243,6 +243,12 @@ return [
             
         ],
         [
+            'text' => 'Warehouse Admin Dashboard',
+            'url'  => 'warehouseadmindashboard',
+            'can'  => 'warehouseadmindashboard',
+            
+        ],
+        [
             'text' => 'Warehouse',
             'url'  => 'warehouse',
             'can'  => 'warehouse_list',

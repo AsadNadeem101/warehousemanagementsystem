@@ -15,7 +15,7 @@ class Product extends Model
         'name', 
         'description', 
         'manufacturer',
-        'warehouse_id',
+        'warehouse_ad_id',
     ];
 
     public $table = "products";

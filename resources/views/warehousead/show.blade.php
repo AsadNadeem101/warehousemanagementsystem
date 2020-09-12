@@ -44,6 +44,10 @@
                 <th>TimeStamp</th>
                 <td>{{ $ad->created_at }}</td>
             </tr>
+            <tr>
+                <th>Subscription Plans</th>
+                <td><a href="/selectplan/{{$ad->id}}"><button type="button" class="btn btn-primary">Select Plan</button></a></td>
+            </tr>
         </table>
     </div>
 </div>

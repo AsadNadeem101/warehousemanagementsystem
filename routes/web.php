@@ -44,7 +44,8 @@ Route::group(['middleware' => 'auth'], function (){
     
     //Add Inventory
     Route::get('/addinventory/{id}/add', 'Inventory\InventoryController@addinventory');
-    
+    //Route::get('/storeinventory', 'Inventory\InventoryController@store');
+    Route::resource('inventory', 'Inventory\InventoryController');
     
 
      Route::resource('warehouse', 'Warehouse\WarehouseController');
@@ -76,6 +77,13 @@ Route::group(['middleware' => 'auth'], function (){
      Route::get('rentersection/{id}','RenterDashboard\RenterDashboardController@rentersection');
      Route::get('rentersectiondetail/{id}','RenterDashboard\RenterDashboardController@rentersectiondetail');
 
+    //WarehouseAdminDashobard
+    
+    Route::get('warehouseadmindashboard','WarehouseAdminDashboard\WarehouseAdminDashboardController@index'); 
+
+    Route::get('warehouseadminsection/{id}','WarehouseAdminDashboard\WarehouseAdminDashboardController@warehouseadminsection');
+
+    Route::get('warehouseadminsectiondetail/{id}','WarehouseAdminDashboard\WarehouseAdminDashboardController@warehouseadminsectiondetail');
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');
 
@@ -83,6 +91,11 @@ Route::group(['middleware' => 'auth'], function (){
     Route::resource('tenantrent', 'TenantRent\TenantrentController');
     Route::get('tenantrent/{id}/payment', 'TenantRent\TenantrentController@payment');
     
+    //Select Plan
+    Route::get('selectplan/{id}', 'Plan\PlanController@selectplan');
+
+
+
     //TenantRentVerification
     Route::resource('tenantrentverification', 'TenantRent\TenantrentverificationController');
      Route::get('tenantrent/{id}/detail', 'TenantRent\TenantrentverificationController@show');

@@ -12,7 +12,8 @@ class TenantWarehouse extends Model
      * @var array
      */
     protected $fillable = [
-        'warehouse_id', 
+        'warehouse_id',
+        'warehouse_ad_id',
         'renter_id', 
         'tenant_id',
         'start_date',

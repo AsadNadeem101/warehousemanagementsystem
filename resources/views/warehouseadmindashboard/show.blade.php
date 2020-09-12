@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Tenant') 
+@section('title', 'Warehouse Section') 
 
 @section('content_header')
     <h1>Warehouse Section Details</h1>
@@ -44,25 +44,10 @@
                 <th>Tenant Name</th>
                 <td>{{App\Helpers\Helper::userIdToName($object->tenant_id)}}</td>
             </tr>
-            <tr>
-                <th>Duration in months</th>
-                <td>{{ $object->duration }}</td>
-            </tr>
-            <tr>
-                <th>Rent</th>
-                <td>{{ $object->rent }}</td>
-            </tr>
-            <tr>
-                <th>Start Date</th>
-                <td>{{ $object->start_date }}</td>
-            </tr>
-            <tr>
-                <th>End Date</th>
-                <td>{{ $object->end_date }}</td>
-            </tr>
+
             <tr>
                 <th>Manage Inventory</th>
-                <td><a href="/addinventory/{{$tenant_warehouse_section_id}}/add"><button type="button" class="btn btn-primary">Manage Inventory</button></a></td>
+                <td><a href="/addinventory/{{$warehouse_admin_section_id}}/add"><button type="button" class="btn btn-primary">Manage Inventory</button></a></td>
             </tr>
             
             @endforeach
@@ -76,7 +61,7 @@
 @section('css')
 
     <link rel="stylesheet" href="/css/admin_custom.css">
-	
+    
 @stop
 
 @section('js')

@@ -65,7 +65,8 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'employee_show'],
 			    ['name'=>'employee_delete'],
 
-			    ['name'=>'mark_attendance'],
+			    ['name'=>'mark_attendance'],  
+			    ['name'=>'warehouseadmindashboard'],
 		    ],
 		    
 		    'tenant' => [

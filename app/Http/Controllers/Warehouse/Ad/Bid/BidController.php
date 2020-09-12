@@ -139,12 +139,14 @@ class BidController extends Controller
 
     public function acceptBid(Request $request)
     {
+
         $id = $request->id;
         $warehouse_ad_bid = WarehouseAdBid::find($id);
         $warehouse_ad = WarehouseAd::find($warehouse_ad_bid->warehouse_ad_id); 
       
         $tenant_warehouse = new TenantWarehouse;
         $tenant_warehouse->warehouse_id = $warehouse_ad->warehouse_id;
+        $tenant_warehouse->warehouse_ad_id = $warehouse_ad->id;
         $tenant_warehouse->renter_id = $warehouse_ad_bid->renter_id;
         $tenant_warehouse->tenant_id = $warehouse_ad_bid->tenant_id;
         $start_date = Carbon::now();
