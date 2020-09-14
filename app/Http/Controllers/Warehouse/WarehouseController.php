@@ -131,8 +131,11 @@ class WarehouseController extends Controller
             $marla_ramaining = $marla_ramaining - $tenant_warehouse_section->marla;
         }
 
+        $room = $warehouse->room;
+
         return response()->json([
-            'marla' => $marla_ramaining
+            'marla' => $marla_ramaining,
+            'room'  => $room,
         ]);
     }
 }

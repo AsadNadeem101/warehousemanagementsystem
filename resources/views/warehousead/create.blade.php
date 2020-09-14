@@ -28,8 +28,9 @@
 	    		{!! Form::number('marla',null,['class' => 'form-control entered-marla','placeholder' => 'MARLA']); !!}
 	    	</div>	
 	    	<div class="col-md-6">
-	    		<h6>Room #</h6>
-	    		{!! Form::text('room',null,['class' => 'form-control','placeholder' => 'ROOM']); !!}
+	    		<h6>Room # (Available <span style="color: red" id="available"></span> )</h6>
+
+	    		{!! Form::text('room',null,['class' => 'form-control entered-room','placeholder' => 'ROOM']); !!}
 	    	</div>    	
 	    </div>
 	    <br>
@@ -79,24 +80,26 @@
     	var warehouse_id = $(".warehouse_id").val();
 	    console.log(warehouse_id)
 	    remaining_marla = 0;
+	    available = 0;
 	    $.ajax({
 		  url  : "{{route('check-remaining-marla')}}",
 		  data : {'warehouse_id':warehouse_id}
 		}).done(function(result) {
-		  $("#remaining-marla").text(result.marla)
+		  $("#remaining-marla").text(result.marla);
+		  $("#available").text(result.room)
 		});
     	$(".warehouse_id").change(function(){
     		var warehouse_id = $(".warehouse_id").val();
-    	    console.log(warehouse_id)
-
+    	    
     	    $.ajax({
 			  url  : "{{route('check-remaining-marla')}}",
 			  data : {'warehouse_id':warehouse_id}
 			}).done(function(result) {
 			   console.log(result)
-			   $("#remaining-marla").val(result.remaining_marla)
-			   remaining_marla = result.remaining_marla;
-			   
+			   $("#remaining-marla").text(result.marla)
+			   $("#available").text(result.room)
+			   remaining_marla = result.marla;
+			   available = result.room;
 			});
     	})
 
@@ -105,16 +108,22 @@
     		
     		var entered_marla = $('.entered-marla').val();
     		var remaining_marla = $('#remaining-marla').text();
-    		console.log(remaining_marla)
-    		console.log(entered_marla)
+    		var available_rooms = $('#available').text();
+    		
+    		console.log(available_rooms)
     		var temp = remaining_marla - entered_marla;
-    		if (temp >= 0)
+    		
+    		var entered_room = $('.entered-room').val();
+			console.log(entered_room)
+			debugger
+    		if (temp >= 0 && entered_room <= available_rooms)
     		{
+
     			return true;
     		}
     		else
     		{
-    			Swal.fire("Please enter less than or equal to "+remaining_marla+"Marla");
+    			Swal.fire("Please enter less than or equal to "+remaining_marla+"Marla & rooms less than "+available_rooms);
     			return false;	
     		}
     		

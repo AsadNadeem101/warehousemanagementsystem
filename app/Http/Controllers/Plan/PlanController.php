@@ -5,9 +5,11 @@ namespace App\Http\Controllers\Plan;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Plan;
+use App\Model\PlanSubscriptionUser;
 use App\DataTables\PlanDataTable;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
+use Carbon\Carbon;
 
 class PlanController extends Controller
 {
@@ -110,10 +112,28 @@ class PlanController extends Controller
             return redirect()->route('plan.index');
         }
     }
-     public function selectplan($id)
+    public function selectplan($id)
     {
         $selectplan = Plan::all();
 
         return view('warehousead.selectplan',compact('selectplan'));
+    }
+
+    public function activatePlan(Request $request)
+    {
+        $input = $request->all();
+
+        $plan = Plan::where('id',$input['plan_id'])->first();
+
+        $now = Carbon::now();
+        $start_date = Carbon::now();
+        $end_date = $now->addDays($plan['duration']);
+
+        $input['start_date'] = $start_date;
+        $input['end_date'] = $end_date;
+
+        $plan_subscription = PlanSubscriptionUser::create($input);
+
+        return redirect()->route('warehouse.index');
     }
 }
