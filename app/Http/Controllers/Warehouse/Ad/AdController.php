@@ -60,7 +60,7 @@ class AdController extends Controller
             foreach($request->file('images') as $image)
             {
                 $imageName = time().'.'.$image->extension(); 
-                $image->move(public_path('ad-images'), $imageName);
+                $image->move(public_path('images/brands'), $imageName);
                 $ad_image = AdImage::create([
                     'warehouse_ad_id' => $warehouse_ad->id,
                     'path'            => '/ad-images/'.$imageName
