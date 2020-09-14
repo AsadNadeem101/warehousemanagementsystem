@@ -35,7 +35,7 @@ class AdController extends Controller
     {
         $warehouses = Warehouse::where('renter_id',Auth::user()->id)->pluck('name','id');
         
-        return view('warehousead.create',compact('warehouses'));// uncomment this line and write your view name here
+        return view('warehousead.create',compact('warehouses'));
     }
 
     /**
@@ -68,7 +68,7 @@ class AdController extends Controller
             }
         }
 
-        return redirect()->route('warehousead.index'); //return your ad index page here
+        return redirect()->route('warehousead.index'); 
     }
 
     /**
@@ -140,13 +140,30 @@ class AdController extends Controller
     }
     public function adIndex()
     {
-        $ads=WarehouseAd::get();
-        // $data  =DB::table('warehouse_ads')
+       $data=WarehouseAd::all();
+         // $warehouse_ads  =DB::table('warehouse_ads')
+         //    ->join('ad_images' , 'warehouse_ads.id','=','ad_images.warehouse_ad_id')
+         //   // ->join('warehouses' , 'warehouse_ads.warehouse_id', '=' , 'warehouses.id')
+         //    ->select('ad_images.path')
+         //     ->first();
+
+
+
+        // $warehouse_ads  =DB::table('warehouse_ads')
         //     ->join('warehouses' , 'warehouse_ads.warehouse_id','=','warehouses.id')
-        //     ->select('warehouse_ads.*','warehouses.location')->get();
-        //     $ads = json_decode($data, true);
-        //     dd($ads);
-        return view('website.index',compact('ads'));
+        //     ->select('warehouse_ads.*','warehouses.location');
+        //     ->get();
+        // $warehouse_ad_asset = DB::table('ad_images')
+        //     ->joinSub($warehouse_ads,'warehouses', function ($join){
+        //         $join->on('warehouses.id', '=' , 'warehouse_ads.warehouse_id');
+        //     })->get();  
+
+          //  dd($warehouse_ads);
+
+
+
+
+        return view('website.index',compact('data'));
     }
 
     public function showOnWeb(Request $request)

@@ -29,7 +29,7 @@
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-12" style="text-align: center">
-	    		{!! Form::hidden('warehouse_id',$warehouse_id,['class' => 'form-control','placeholder' => 'warehouse_id']); !!}
+	    		{!! Form::hidden('warehouse_ad_id',$warehouse_ad_id,['class' => 'form-control','placeholder' => 'warehouse_ad_id']); !!}
 	    		{!! Form::submit('Save', ['class'=>'btn btn-success']); !!}
 	    	</div>
 	    </div>

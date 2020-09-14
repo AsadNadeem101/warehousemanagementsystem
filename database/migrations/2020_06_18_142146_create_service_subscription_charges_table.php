@@ -23,8 +23,10 @@ class CreateServiceSubscriptionChargesTable extends Migration
             $table->foreign('service_id')->references('id')->on('services');            
 
             $table->string("month");
-            $table->boolean('paid')->default(0);
-            $table->dateTime('paid_at')->nullable();
+            $table->enum('payment_status', ['pending', 'paid', 'nopaid'])->default('pending');
+            $table->unsignedBigInteger('account_number')->default(0);
+            $table->enum('system_verification',['pending', 'verified',])->default('pending');
+            $table->date('paid_at')->nullable();
 
             $table->timestamps();
         });

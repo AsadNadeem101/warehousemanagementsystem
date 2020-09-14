@@ -19,11 +19,15 @@ class CreateTenantWarehousesTable extends Migration
             $table->unsignedBigInteger('warehouse_id');
             $table->foreign('warehouse_id')->references('id')->on('warehouses');
 
+            $table->unsignedBigInteger('warehouse_ad_id');
+            $table->foreign('warehouse_ad_id')->references('id')->on('warehouse_ads');
+            
             $table->unsignedBigInteger('renter_id');
             $table->foreign('renter_id')->references('id')->on('users');
 
             $table->unsignedBigInteger('tenant_id');
             $table->foreign('tenant_id')->references('id')->on('users');
+
 
             $table->date('start_date');
 

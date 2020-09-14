@@ -110,4 +110,10 @@ class PlanController extends Controller
             return redirect()->route('plan.index');
         }
     }
+     public function selectplan($id)
+    {
+        $selectplan = Plan::all();
+
+        return view('warehousead.selectplan',compact('selectplan'));
+    }
 }

@@ -37,6 +37,18 @@ Route::group(['middleware' => 'auth'], function (){
 
     //Warehouse
     Route::resource('warehouse', 'Warehouse\WarehouseController');
+
+    //Create Warehouse Admin
+    Route::resource('warehouseadmin', 'Warehouse\WarehouseAdminController');
+    Route::get('/warehouseadmin/{id}/create', 'Warehouse\WarehouseAdminController@create');
+    
+    //Add Inventory
+    Route::get('/addinventory/{id}/add', 'Inventory\InventoryController@addinventory');
+    //Route::get('/storeinventory', 'Inventory\InventoryController@store');
+    Route::resource('inventory', 'Inventory\InventoryController');
+    
+
+     Route::resource('warehouse', 'Warehouse\WarehouseController');
 	
     //WarehouseAds
     Route::resource('warehousead', 'Warehouse\Ad\AdController');
@@ -54,19 +66,60 @@ Route::group(['middleware' => 'auth'], function (){
 
     Route::get('warehouseadbid/{id}/withdraw','Warehouse\Ad\Bid\BidController@withdrawBid');
     
+    //Tenant dashboard
+
+    Route::get('tenantdashboard','TenantDashboard\TenantDashboardController@index');
+    Route::get('tenantsection/{id}','TenantDashboard\TenantDashboardController@tenantsection');
+    Route::get('tenantsectiondetail/{id}','TenantDashboard\TenantDashboardController@tenantsectiondetail');
+
+    //Renter Dashboard
+     Route::get('renterdashboard','RenterDashboard\RenterDashboardController@index');
+     Route::get('rentersection/{id}','RenterDashboard\RenterDashboardController@rentersection');
+     Route::get('rentersectiondetail/{id}','RenterDashboard\RenterDashboardController@rentersectiondetail');
+
+    //WarehouseAdminDashobard
+    
+    Route::get('warehouseadmindashboard','WarehouseAdminDashboard\WarehouseAdminDashboardController@index'); 
+
+    Route::get('warehouseadminsection/{id}','WarehouseAdminDashboard\WarehouseAdminDashboardController@warehouseadminsection');
+
+    Route::get('warehouseadminsectiondetail/{id}','WarehouseAdminDashboard\WarehouseAdminDashboardController@warehouseadminsectiondetail');
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');
 
     //TenantRent
-    Route::resource('tenantrent', 'TenantRent\TenantRentController');
-    Route::get('tenantrent/{id}/payment', 'TenantRent\TenantRentController@payment');
-    Route::post('tenantrent/paymentupdate', 'TenantRent\TenantRentController@paymentupdate');
+    Route::resource('tenantrent', 'TenantRent\TenantrentController');
+    Route::get('tenantrent/{id}/payment', 'TenantRent\TenantrentController@payment');
+    
+    //Select Plan
+    Route::get('selectplan/{id}', 'Plan\PlanController@selectplan');
+
+
+
+    //TenantRentVerification
+    Route::resource('tenantrentverification', 'TenantRent\TenantrentverificationController');
+     Route::get('tenantrent/{id}/detail', 'TenantRent\TenantrentverificationController@show');
+     Route::get('tenantrent/{id}/verification', 'TenantRent\TenantrentverificationController@update');
+
+     Route::get('tenantrent/{id}/verifications', 'TenantRent\TenantrentverificationController@update1');
 
     //Service
     Route::resource('service', 'Service\ServiceController');
     Route::group(['prefix' => 'service'], function (){
         Route::post('subscribe_service','Service\ServiceController@subscribeService')->name('subscribe_service');
     });
+
+    //Service Subscription Charges
+    Route::resource('servicesubscriptioncharges', 'ServiceSubscriptionCharges\ServiceSubscriptionChargesController');
+    Route::get('servicecharges/{id}/payment', 'ServiceSubscriptionCharges\ServiceSubscriptionChargesController@payment');
+
+     //Service Subscription Charges Veification
+
+    Route::resource('servicechargesverification', 'ServiceSubscriptionCharges\ServiceschargesverificationController');
+     Route::get('servicecharges/{id}/detail', 'ServiceSubscriptionCharges\ServiceschargesverificationController@show');
+      Route::get('servicecharges/{id}/verification', 'ServiceSubscriptionCharges\ServiceschargesverificationController@update');
+      Route::get('servicecharges/{id}/verifications', 'ServiceSubscriptionCharges\ServiceschargesverificationController@update1');
+
 
     //Report
     Route::group(['prefix' => 'report'], function (){

@@ -237,6 +237,18 @@ return [
             'topnav' => true,
         ],
         [
+            'text' => 'Renter Dashboard',
+            'url'  => 'renterdashboard',
+            'can'  => 'renterdashboard'
+            
+        ],
+        [
+            'text' => 'Warehouse Admin Dashboard',
+            'url'  => 'warehouseadmindashboard',
+            'can'  => 'warehouseadmindashboard',
+            
+        ],
+        [
             'text' => 'Warehouse',
             'url'  => 'warehouse',
             'can'  => 'warehouse_list',
@@ -248,6 +260,7 @@ return [
             'can'  => 'warehouse_ad_bid',
             'icon' => 'fas fa-home'
         ],
+
         [
             'text' => 'Warehouse Ad Bids',
             'url'  => 'warehouseadbid',
@@ -261,6 +274,13 @@ return [
             'icon' => 'fas fa-home'
         ],
         [
+            'text' => 'Tenant Rent verification',
+            'url'  => 'tenantrentverification',
+            'can'  => 'tenantrentverification',
+            'icon' => 'fas fa-home'
+        ],
+        
+        [
             'text' => 'Employee',
             'url'  => 'employee',
             'can'  => 'employee_list',
@@ -272,6 +292,18 @@ return [
             'can'  => 'plan_list'
         ],
         [
+            'text' => 'Service Subscription Charges',
+            'url'  => 'servicesubscriptioncharges',
+            'can'  => 'servicesubscriptioncharges'
+        ],
+        [
+            'text' => 'Service Charges Verification',
+            'url'  => 'servicechargesverification',
+            'can'  => 'servicechargesverification'
+        ],
+
+
+        [
             'text' => 'Services',
             'url'  => 'service',
             'can'  => 'service_list'
@@ -280,7 +312,12 @@ return [
             'text' => 'Tenant Rent',
             'url'  => 'tenantrent',
             'can'  => 'tenantrent_list'
-        ],                  
+        ], 
+        [
+            'text' => 'Tenant Dashboard',
+            'url'  => 'tenantdashboard',
+            'can'  => 'tenantdashboard'
+        ],                   
         [
             'text'    => 'Reports',
             'icon'    => 'fas fa-file-pdf',

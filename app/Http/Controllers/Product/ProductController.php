@@ -27,8 +27,8 @@ class ProductController extends Controller
      */
     public function create(Request $request)
     {
-        $warehouse_id = $request->id;
-        return view('product.create',compact('warehouse_id'));
+        $warehouse_ad_id = $request->id;
+        return view('product.create',compact('warehouse_ad_id'));
     }
 
     /**
@@ -42,7 +42,7 @@ class ProductController extends Controller
         $input = $request->all();
         Product::create($input);
         Alert::success('Product', 'Data successfully created');
-        return redirect()->route('product.index');
+        return redirect()->route('warehousead.index');
     }
 
     /**

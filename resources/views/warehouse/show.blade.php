@@ -48,6 +48,15 @@
                 <th>TimeStamp</th>
                 <td>{{ $warehouse->created_at }}</td>
             </tr>
+            <tr>
+                <th>Assign Warehouse Admin</th>
+                
+                @if($user== null)
+                <td> <a href="/warehouseadmin/{{$id}}/create"><button type="button" class="btn btn-primary">Create Warehouse Admin</button></a></td>
+                @elseif($user->warehouse_id == $id)
+                <td><h6><b style="color:green">Warehouse Admin already assigned</b></h6></td>
+                @endif
+            </tr>
         </table>
     </div>
 </div>

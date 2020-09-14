@@ -19,8 +19,8 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->string('manufacturer');
             
-            $table->unsignedBigInteger('warehouse_id');
-            $table->foreign('warehouse_id')->references('id')->on('warehouses')->onDelete('cascade');
+            $table->unsignedBigInteger('warehouse_ad_id');
+            $table->foreign('warehouse_ad_id')->references('id')->on('warehouse_ads')->onDelete('cascade');
 
             $table->timestamps();
         });

@@ -8,16 +8,17 @@
 
 @section('content')
 
-	{!! Form::open(['route' => ['tenantrent.update',$tenantrent->id],'method' => 'patch']) !!}
+{!! Form::model($tenantrent, ['method' => 'PATCH','route' => ['tenantrent.update', $tenantrent->id]]) !!}
+
 		{!! Form::token(); !!}
 	    <div class="row">
 	    	<div class="col-md-6">
-	    		<h6>Paid</h6>
-	    		{!! Form::text('paid',null,['class' => 'form-control','placeholder' => 'Paid']); !!}
+	    		<h6>Please enter your account number for verfication</h6>
+	    		{!! Form::number('account_number',null,['class' => 'form-control','placeholder' => 'Account Number']); !!}
 	    	</div>
 	    	<div class="col-md-6">
-	    		<h6>Paid time</h6>
-	    		{!! Form::datetime('paid_at',null,['class' => 'form-control','placeholder' => 'PAIDTIME']); !!}
+	    		<h6>Paid date</h6>
+	    		{!! Form::date('paid_at',null,['class' => 'form-control','placeholder' => 'PAIDTIME']); !!}
 	    	</div>	    	
 	    </div>
 	    <br><br>

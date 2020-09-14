@@ -68,7 +68,7 @@ class TenantRentDataTable extends DataTable
             Column::make('tenant_warehouse_id'),
             Column::make('month'), 
             Column::make('rent'), 
-            Column::make('paid'), 
+            Column::make('payment_status'), 
             Column::make('paid_at'), 
             Column::make('created_at'),
             Column::make('updated_at'),
