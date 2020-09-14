@@ -25,6 +25,9 @@ class CreatePlanSubscriptionUsersTable extends Migration
             $table->unsignedBigInteger('plan_id');
             $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
 
+            $table->unsignedBigInteger('warehouse_ad_id');
+            $table->foreign('warehouse_ad_id')->references('id')->on('warehouse_ads');
+
             $table->date('start_date');
             $table->date('end_date');
 

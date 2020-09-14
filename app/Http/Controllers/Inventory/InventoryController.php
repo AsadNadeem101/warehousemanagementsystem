@@ -43,4 +43,6 @@ class InventoryController extends Controller
         Alert::success('Inventory', 'Data successfully created');
         return redirect('warehouseadmindashboard');        
     }
+
+
 }

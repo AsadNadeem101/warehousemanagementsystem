@@ -136,4 +136,13 @@ class PlanController extends Controller
 
         return redirect()->route('warehouse.index');
     }
+
+    public function featuredPlans()
+    {
+        $plan_subscription = PlanSubscriptionUser::where('status',1)->where('paid','>',0)->pluck('warehouse_ad_id');
+
+        $warehouseads = Ad::whereIn($plan_subscription);
+
+        return view('',compact('warehouseads'));
+    }
 }

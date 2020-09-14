@@ -13,7 +13,8 @@ class PlanSubscriptionUser extends Model
      */
     protected $fillable = [
         'user_id', 
-        'plan_id', 
+        'plan_id',
+        'warehouse_ad_id',
         'start_date',
         'end_date',
         'paid',
@@ -21,4 +22,6 @@ class PlanSubscriptionUser extends Model
     ];
 
     public $table = "plan_subscription_users";
+
+
 }

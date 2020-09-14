@@ -2,6 +2,7 @@
 
 namespace App\Helpers;
 use App\Model\Warehouse;
+use App\Model\Inventory;
 use App\Model\TenantWarehouse;
 use App\User;
 class Helper
@@ -30,5 +31,14 @@ class Helper
     {
         $user_name=User::where('id',$id)->value('name');
         return $user_name;   
+    }
+
+    public static function checkRemainingInventory($id)
+    {
+        $in = Inventory::where('id',$id)->sum('in');
+        $out = Inventory::where('id',$id)->sum('out');
+        $remaining = $in - $out;
+
+        return $remaining;
     }
 }
