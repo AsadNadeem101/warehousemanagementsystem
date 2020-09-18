@@ -12,12 +12,16 @@ class PlanSubscriptionUser extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 
+        'renter_id',
+        'warehouse_id', 
         'plan_id',
         'warehouse_ad_id',
         'start_date',
         'end_date',
         'paid',
+        'payment_status',
+        'account_number',
+        'system_verification',
         'paid_at'
     ];
 

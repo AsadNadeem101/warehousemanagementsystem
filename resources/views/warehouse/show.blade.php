@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Show')
+@section('title', 'Show Detail')
 
 @section('content_header')
-    <h1>Show</h1>
+    <h1>Show Warehouse Detail</h1>
 @stop
 
 @section('content')
@@ -21,8 +21,16 @@
             </tr>
 
             <tr>
-                <th>Location</th>
-                <td>{{ $warehouse->location }}</td>        
+                <th>Address</th>
+                <td>{{ $warehouse->address }}</td>        
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ $warehouse->city }}</td>        
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ $warehouse->country }}</td>        
             </tr>
             <tr>
                 <th>Marla</th>

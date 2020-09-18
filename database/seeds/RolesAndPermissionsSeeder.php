@@ -47,17 +47,19 @@ class RolesAndPermissionsSeeder extends Seeder
 
 			    ['name'=>'tenantrentverification'],  
 			    ['name'=>'servicechargesverification'], 
+			    ['name'=>'warehouseregistration'], 
+			    ['name'=>'warehouseadapproval'], 
+			  
+			 	['name'=>'product'],
+			    
+			    
 		    ],
 		    
 		    'warehouse_admin' => [
 				['name'=>'warehouse_admin_dashboard'],
 				['name'=>'warehouse_admin_report'],
 
-				['name'=>'product_list'],
-			    ['name'=>'product_create'],
-			    ['name'=>'product_edit'],
-			    ['name'=>'product_show'],
-			    ['name'=>'product_delete'],
+				
 
 				['name'=>'employee_list'],
 			    ['name'=>'employee_create'],
@@ -96,7 +98,8 @@ class RolesAndPermissionsSeeder extends Seeder
 
 			    ['name'=>'warehouse_ad_bid'],
 			    ['name'=>'servicesubscriptioncharges'],
-			    ['name'=>'renterdashboard']
+			    ['name'=>'renterdashboard'], 
+			    ['name'=>'plansubscriptionuser'], 
 		    ]		    
 		];
 

@@ -6,10 +6,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Model\Plan;
 use App\Model\PlanSubscriptionUser;
+use App\Model\WarehouseAd;
 use App\DataTables\PlanDataTable;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Carbon\Carbon;
+use Auth; 
 
 class PlanController extends Controller
 {
@@ -113,12 +115,33 @@ class PlanController extends Controller
         }
     }
     public function selectplan($id)
-    {
+    {   
+        $warehouse_ad_id = $id;
         $selectplan = Plan::all();
-
-        return view('warehousead.selectplan',compact('selectplan'));
+        $warehouse_Ad_id = PlanSubscriptionUser::where('warehouse_ad_id',$warehouse_ad_id)->value('warehouse_ad_id');
+     
+        return view('warehousead.selectplan',compact('selectplan','warehouse_ad_id','warehouse_Ad_id'));
     }
 
+    
+    public function subscribePlan(Request $request)
+    {   
+        $plan_id = $request->id;
+        $warehouse_ad_id = $request->warehouse_ad_id;
+        $renter_id = Auth::user()->id;
+        $warehouse_id = WarehouseAd::where('id',$warehouse_ad_id)->value('warehouse_id');
+
+        $paid = Plan::where('id',$plan_id)->value('price');
+        
+        $input['renter_id'] = $renter_id;
+        $input['warehouse_id'] = $warehouse_id;
+        $input['plan_id'] = $plan_id;
+        $input['warehouse_ad_id'] = $warehouse_ad_id;
+        $input['paid'] = $paid;
+        $plan_subscription = PlanSubscriptionUser::create($input);
+       return redirect()->route('plansubscriptionuser.index');
+        
+    }
     public function activatePlan(Request $request)
     {
         $input = $request->all();
@@ -139,7 +162,7 @@ class PlanController extends Controller
 
     public function featuredPlans()
     {
-        $plan_subscription = PlanSubscriptionUser::where('status',1)->where('paid','>',0)->pluck('warehouse_ad_id');
+        $plan_subscription = PlanSubscriptionUser::where('payment_status',paid)->where('paid','>',0)->where('system_verification'verified)->pluck('warehouse_ad_id');
 
         $warehouseads = Ad::whereIn($plan_subscription);
 

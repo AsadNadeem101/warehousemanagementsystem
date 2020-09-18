@@ -22,15 +22,15 @@ class CreateWarehouseAdsTable extends Migration
 
             $table->string('description');
 
-            $table->string('marla');
+            $table->integer('marla');
 
-            $table->string('room');
+            $table->integer('room');
 
             $table->integer('duration');
 
             $table->integer('rent');
 
-            $table->boolean('status')->default(1);
+            $table->enum('status',['pending', 'inactive','active'])->default('pending');
 
             $table->timestamps();
         });

@@ -184,7 +184,7 @@ class BidController extends Controller
         \Log::info($warehouse_ads_delete);
 
         $warehouse_ad_deactive = WarehouseAd::where('id',$warehouse_ad->id)->update([
-            'status' => 0
+            'status' => 'inactive'
         ]);
 
         WarehouseAdBid::where('warehouse_ad_id',$warehouse_ad->id)
@@ -192,7 +192,7 @@ class BidController extends Controller
             ->delete();
 
         WarehouseAd::whereIn('id',$warehouse_ads_delete)
-            ->where('status',1)
+            ->where('status','active')
             ->delete(); 
 
 

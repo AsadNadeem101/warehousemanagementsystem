@@ -1,14 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', 'Index')
+@section('title', 'Warehouse')
 
 @section('content_header')
     <h1>Warehouse</h1>
 @stop
 
 @section('content')
+
 	{{$dataTable->table()}}
 @stop
+
 
 @section('css')
 <style type="text/css">

@@ -79,15 +79,16 @@ class WarehouseDataTable extends DataTable
             Column::make('id'),
             Column::make('name'),
             Column::make('description'),
-            Column::make('location'),
+            Column::make('city'),
+            Column::make('address'),
             Column::make('marla'),
             Column::make('room'),
+            Column::make('status'),
             Column::make('created_at'),
-            Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
-                  ->width(240)
+                  ->width(300)
                   ->addClass('text-center'),
         ];
     }

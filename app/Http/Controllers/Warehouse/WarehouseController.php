@@ -43,6 +43,8 @@ class WarehouseController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $input = $request->all();
         $input['renter_id'] = Auth::user()->id;
         Warehouse::create($input);
@@ -58,6 +60,7 @@ class WarehouseController extends Controller
      */
     public function show($id)
     {
+
         $warehouse = Warehouse::find($id);
         $id = $warehouse->id;
         $services = Service::all();

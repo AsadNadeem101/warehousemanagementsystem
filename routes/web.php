@@ -44,15 +44,28 @@ Route::group(['middleware' => 'auth'], function (){
     
     //Add Inventory
     Route::get('/addinventory/{id}/add', 'Inventory\InventoryController@addinventory');
-    //Route::get('/storeinventory', 'Inventory\InventoryController@store');
+    
+    Route::get('/remaininginventory/{id}/remaining', 'Inventory\InventoryController@remaininginventory');
+
+    Route::post('/remaininginventorycheck', 'Inventory\InventoryController@checkRemainingInventory')->name('inventory.checkremaing');
+    
+    //Warehouse Registration
+    Route::resource('warehouseregistration', 'Warehouse\WarehouseRegistrationController');
+    Route::get('warehouseregistration/{id}/activate', 'Warehouse\WarehouseRegistrationController@update');
+    Route::get('warehouseregistration/{id}/inactivate', 'Warehouse\WarehouseRegistrationController@update1');
+
+    //Inventory
     Route::resource('inventory', 'Inventory\InventoryController');
     
-
+    //Warehouse
      Route::resource('warehouse', 'Warehouse\WarehouseController');
 	
     //WarehouseAds
     Route::resource('warehousead', 'Warehouse\Ad\AdController');
-
+    
+    //WarehouseAds Approval
+     Route::resource('warehouseadapproval', 'Warehouse\Ad\WarehouseAdApprovalController');
+     Route::get('warehouseadapproval/{id}/activate', 'Warehouse\Ad\WarehouseAdApprovalController@update');
     //My bids
     Route::resource('mybid', 'Warehouse\Ad\Bid\MyBidController');
     
@@ -83,7 +96,7 @@ Route::group(['middleware' => 'auth'], function (){
 
     Route::get('warehouseadminsection/{id}','WarehouseAdminDashboard\WarehouseAdminDashboardController@warehouseadminsection');
 
-    Route::get('warehouseadminsectiondetail/{id}','WarehouseAdminDashboard\WarehouseAdminDashboardController@warehouseadminsectiondetail');
+    Route::get('warehouseadminsectiondetail/{id}','WarehouseAdminDashboard\WarehouseAdminDashboardController@warehouseadminsectiondetail')->name('warehouse_section');
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');
 
@@ -93,7 +106,20 @@ Route::group(['middleware' => 'auth'], function (){
     
     //Select Plan
     Route::get('selectplan/{id}', 'Plan\PlanController@selectplan');
+    Route::get('/warehousead/{warehouse_ad_id}/subscribeplan/{id}', 'Plan\PlanController@subscribePlan')->name('subscribe');
 
+   
+    //Plan Subscription
+    Route::resource('plansubscriptionuser', 'Plan\PlanSubscriptionUserController');
+    Route::get('plansubscriptioncharges/{id}/payment', 'Plan\PlanSubscriptionUserController@payment');
+    
+    //Plan Subscription Verification
+     Route::resource('plansubscriptionverification', 'Plan\PlanSubscriptionVerificationController');
+     Route::get('plansubscription/{id}/detail', 'Plan\PlanSubscriptionVerificationController@show');
+
+    Route::get('subscriptioncharges/{id}/verification', 'Plan\PlanSubscriptionVerificationController@update');
+
+    Route::get('subscriptioncharges/{id}/verifications', 'Plan\PlanSubscriptionVerificationController@update1');
 
 
     //TenantRentVerification
@@ -101,7 +127,7 @@ Route::group(['middleware' => 'auth'], function (){
      Route::get('tenantrent/{id}/detail', 'TenantRent\TenantrentverificationController@show');
      Route::get('tenantrent/{id}/verification', 'TenantRent\TenantrentverificationController@update');
 
-     Route::get('tenantrent/{id}/verifications', 'TenantRent\TenantrentverificationController@update1');
+    Route::get('tenantrent/{id}/verifications', 'TenantRent\TenantrentverificationController@update1');
 
     //Service
     Route::resource('service', 'Service\ServiceController');
@@ -116,9 +142,9 @@ Route::group(['middleware' => 'auth'], function (){
      //Service Subscription Charges Veification
 
     Route::resource('servicechargesverification', 'ServiceSubscriptionCharges\ServiceschargesverificationController');
-     Route::get('servicecharges/{id}/detail', 'ServiceSubscriptionCharges\ServiceschargesverificationController@show');
-      Route::get('servicecharges/{id}/verification', 'ServiceSubscriptionCharges\ServiceschargesverificationController@update');
-      Route::get('servicecharges/{id}/verifications', 'ServiceSubscriptionCharges\ServiceschargesverificationController@update1');
+    Route::get('servicecharges/{id}/detail', 'ServiceSubscriptionCharges\ServiceschargesverificationController@show');
+    Route::get('servicecharges/{id}/verification', 'ServiceSubscriptionCharges\ServiceschargesverificationController@update');
+    Route::get('servicecharges/{id}/verifications', 'ServiceSubscriptionCharges\ServiceschargesverificationController@update1');
 
 
     //Report

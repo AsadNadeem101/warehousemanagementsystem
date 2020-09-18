@@ -255,9 +255,22 @@ return [
             'icon' => 'fas fa-home'
         ],
         [
+            'text' => 'Warehouse Activation',
+            'url'  => 'warehouseregistration',
+            'can'  => 'warehouseregistration',
+            'icon' => 'fas fa-home'
+        ],
+        
+        [
             'text' => 'Warehouse Ads',
             'url'  => 'warehousead',
             'can'  => 'warehouse_ad_bid',
+            'icon' => 'fas fa-home'
+        ],
+        [
+            'text' => 'Warehouse Ad Approval',
+            'url'  => 'warehouseadapproval',
+            'can'  => 'warehouseadapproval',
             'icon' => 'fas fa-home'
         ],
 
@@ -292,14 +305,29 @@ return [
             'can'  => 'plan_list'
         ],
         [
+            'text' => 'Product',
+            'url'  => 'product',
+            'can'  => 'product'
+        ],
+        [
             'text' => 'Service Subscription Charges',
             'url'  => 'servicesubscriptioncharges',
             'can'  => 'servicesubscriptioncharges'
         ],
         [
+            'text' => 'Plan Subscription Charges',
+            'url'  => 'plansubscriptionuser',
+            'can'  => 'plansubscriptionuser'
+        ],
+        [
             'text' => 'Service Charges Verification',
             'url'  => 'servicechargesverification',
             'can'  => 'servicechargesverification'
+        ],
+        [
+            'text' => 'Plan Subscription Verification',
+            'url'  => 'plansubscriptionverification',
+            'can'  => 'plansubscriptionverification'
         ],
 
 

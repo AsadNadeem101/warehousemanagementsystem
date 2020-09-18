@@ -67,9 +67,8 @@ class ProductDataTable extends DataTable
             Column::make('id'),
             Column::make('name'),
             Column::make('description'),
-            Column::make('manufacturer'),
+            Column::make('type'),
             Column::make('created_at'),
-            Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

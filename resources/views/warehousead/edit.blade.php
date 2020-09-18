@@ -7,48 +7,56 @@
 @stop
 
 @section('content')	
-	{!! Form::open(['route' => ['warehousead.update',$ad->id],'method' => 'PATCH' , 'enctype' => 'multipart/form-data']) !!}
+{!! Form::model($ad, ['method' => 'PATCH','enctype' => 'multipart/form-data','route' => ['warehousead.update', $ad->id]]) !!}
+
 		{!! Form::token(); !!}
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Select Warehouse</h6>
-	    		{!! Form::text('warehouse_id', $ad->warehouse_id, ['readonly','class'=>'form-control']) !!}
+	    		{!! Form::select('warehouse_id', $warehouses, null, ['class'=>'form-control warehouse_id']) !!}
 	    		
 	    	</div>
 	    	<div class="col-md-6">
 	    		<h6>Title</h6>
-	    		{!! Form::text('title',$ad->title,['class' => 'form-control','placeholder' => 'TITLE']); !!}
+	    		{!! Form::text('title',null,['class' => 'form-control','placeholder' => 'TITLE','required','maxlength' => 20 ]); !!}
 	    	</div>	    	
 	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
-	    		<h6>Marla</h6>
-	    		{!! Form::text('marla',$ad->marla,['class' => 'form-control','placeholder' => 'MARLA']); !!}
+	    		<h6>Marla (Remaining <span style="color: red" id="remaining-marla"></span> )</h6>
+	    		{!! Form::number('marla',null,['class' => 'form-control entered-marla','placeholder' => 'MARLA','min' => '1', 'required','max' => '100']); !!}
 	    	</div>	
 	    	<div class="col-md-6">
-	    		<h6>Room</h6>
-	    		{!! Form::text('room',$ad->room,['class' => 'form-control','placeholder' => 'ROOM']); !!}
+	    		<h6>Room # (Available <span style="color: red" id="available"></span> )</h6>
+
+	    		{!! Form::text('room',null,['class' => 'form-control entered-room','placeholder' => 'ROOM','min' => '1', 'required','max' => '100']); !!}
 	    	</div>    	
 	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
-	    		<h6>Duration <small>(Month)</small></h6>
-	    		{!! Form::text('duration',$ad->duration,['class' => 'form-control','placeholder' => 'DURATION']); !!}
-	    	</div>	
+	    		<h6>Duration <small>(in months)</small></h6>
+	    		{!! Form::number('duration',null,['class' => 'form-control','placeholder' => 'DURATION','min' => '1', 'required','max' => '100']); !!}
+		    	</div>	
 	    	<div class="col-md-6">
-	    		<h6>Rent</h6>
-	    		{!! Form::text('rent',$ad->rent,['class' => 'form-control','placeholder' => 'RENT']); !!}
+	    		<h6>Rent Per Month<small>(in rupees)</small></h6>
+	    		{!! Form::number('rent',null,['class' => 'form-control','placeholder' => 'RENT','min' => '1', 'required']); !!}
 	    	</div>    	
 	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Description</h6>
-	    		{!! Form::textarea('description',$ad->description,['class' => 'form-control','placeholder' => 'DESCRIPTION']); !!}
+	    			{!! Form::textarea('description',null,['class' => 'form-control','placeholder' => 'DESCRIPTION', 'required','maxlength' => 120]); !!}
 	    	</div>	    	
-	    </div>	
+    		<div class="col-md-6">
+                 <div class="form-group">
+                  <label>Upload Ads Images</label>
+                  {!! Form::file('images[]',array('multiple'=>true,'class'=>'send-btn')) !!}
+                 </div>
+             </div>
+	    	</div>	
 	    	
 	    <br>
 	    <div class="row">

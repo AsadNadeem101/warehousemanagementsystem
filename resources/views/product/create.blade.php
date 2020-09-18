@@ -12,19 +12,19 @@
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Name</h6>
-	    		{!! Form::text('name',null,['class' => 'form-control','placeholder' => 'NAME']); !!}
+	    		{!! Form::text('name',null,['class' => 'form-control','placeholder' => 'NAME','required','maxlength' => 20 ]); !!}
 	    	</div>
 	    	<div class="col-md-6">
-	    		<h6>Description</h6>
-	    		{!! Form::text('description',null,['class' => 'form-control','placeholder' => 'description']); !!}
-	    	</div>	    	
+	    		<h6>Type</h6>
+	    		{!! Form::text('type',null,['class' => 'form-control','placeholder' => 'TYPE','required','maxlength' => 20 ]); !!}
+	    	</div>      	
 	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
-	    		<h6>Manufacturer</h6>
-	    		{!! Form::text('manufacturer',null,['class' => 'form-control','placeholder' => 'MANUFACTURER']); !!}
-	    	</div>  
+	    		<h6>Description</h6>
+	    		{!! Form::textarea('description',null,['class' => 'form-control','placeholder' => 'DESCRIPTION', 'required','maxlength' => 120]); !!}
+	    	</div>	
 	    </div>  	
 	    <br>
 	    <div class="row">

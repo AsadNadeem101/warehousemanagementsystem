@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Model\WarehouseAd;
 use App\Model\Warehouse;
 use App\Model\AdImage;
+use App\Model\PlanSubscriptionUser;
+
 use App\DataTables\AdDataTable;
 use App\DataTables\WarehouseAdDataTable;
 use Illuminate\Database\QueryException;
@@ -33,7 +35,7 @@ class AdController extends Controller
      */
     public function create()
     {
-        $warehouses = Warehouse::where('renter_id',Auth::user()->id)->pluck('name','id');
+        $warehouses = Warehouse::where('renter_id',Auth::user()->id)->where('status','active') ->pluck('name','id');
         
         return view('warehousead.create',compact('warehouses'));
     }
@@ -67,7 +69,7 @@ class AdController extends Controller
                 ]);
             }
         }
-
+        Alert::success('Warehouse Ad', 'Warehouse Ad successfully created');
         return redirect()->route('warehousead.index'); 
     }
 
@@ -92,8 +94,8 @@ class AdController extends Controller
      */
     public function edit($id)
     {
-        $warehouses = Warehouse::where('renter_id',Auth::user()->id)->pluck('id');
-        $admin = WarehouseAd::find($id);
+        $warehouses = Warehouse::where('renter_id',Auth::user()->id)->where('status','active') ->pluck('name','id');
+        $ad = WarehouseAd::find($id);
         return view('warehousead.edit',compact('ad','warehouses'));// write your ad edit page name here
     }
 
@@ -141,11 +143,22 @@ class AdController extends Controller
     public function adIndex()
     {
        $data=WarehouseAd::all();
+
+        // $plan_subscription = PlanSubscriptionUser::where('status',1)->where('paid','>',0)->pluck('warehouse_ad_id');
+        // if($plan_subscription)
+        // {
+        //     $warehouseads = WarehouseAd::whereIn('id',$plan_subscription);
+        // }
+
+
+        // $warehouse_ads = AdImage::where('ad_id',$data->id)->get();
+
+
          // $warehouse_ads  =DB::table('warehouse_ads')
          //    ->join('ad_images' , 'warehouse_ads.id','=','ad_images.warehouse_ad_id')
          //   // ->join('warehouses' , 'warehouse_ads.warehouse_id', '=' , 'warehouses.id')
-         //    ->select('ad_images.path')
-         //     ->first();
+         //    ->select('warehouse_ads.*','ad_images.path')
+         //     ->get();
 
 
 
@@ -161,7 +174,7 @@ class AdController extends Controller
           //  dd($warehouse_ads);
 
 
-
+        
 
         return view('website.index',compact('data'));
     }

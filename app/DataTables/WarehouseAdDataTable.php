@@ -22,13 +22,17 @@ class WarehouseAdDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->editColumn('status', function($warehouseAd){
-                if($warehouseAd->status == 1)
+                if($warehouseAd->status == 'active')
                 {
                     return "<span style='background-color:green; color:white; padding:5px '>Active</span>";
                 }
-                else if($warehouseAd->status == 0)
+                else if($warehouseAd->status == 'inactive')
                 {
                     return "<span style='background-color:red; color:white; padding:5px '>Inactive</span>";
+                }
+                else if($warehouseAd->status == 'pending')
+                {
+                    return "<span style='background-color:orange; color:white; padding:5px '>Pending</span>";
                 }
             })
             ->escapeColumns([])
@@ -43,6 +47,7 @@ class WarehouseAdDataTable extends DataTable
      */
     public function query(WarehouseAd $model)
     {
+        
         return $model->newQuery();
     }
 

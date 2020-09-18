@@ -4,6 +4,7 @@ namespace App\Helpers;
 use App\Model\Warehouse;
 use App\Model\Inventory;
 use App\Model\TenantWarehouse;
+use App\Model\WarehouseAd;
 use App\User;
 class Helper
 {
@@ -16,6 +17,11 @@ class Helper
     {
         $warehouseName = Warehouse::find($id);
         return $warehouseName->name;
+    }
+    public static function warehouseadIdToTitle($id)
+    {
+        $warehousead = WarehouseAd::find($id);
+        return $warehousead->room;
     }
     public static function tenantWarehouseIdToStartTime($id)
     {
@@ -33,7 +39,7 @@ class Helper
         return $user_name;   
     }
 
-    public static function checkRemainingInventory($id)
+    public static function checkRemainingInventory($id)//product id
     {
         $in = Inventory::where('id',$id)->sum('in');
         $out = Inventory::where('id',$id)->sum('out');

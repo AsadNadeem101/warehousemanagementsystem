@@ -10,6 +10,7 @@ use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 use Auth;
 use App\User;
+use App\Helpers\Helper;
 
 class WarehouseAdBidDataTable extends DataTable
 {
@@ -41,6 +42,7 @@ class WarehouseAdBidDataTable extends DataTable
                     return '<span style="color:brown"><b>Withdrawn</b></span>';
                 }
             })
+           
             ->escapeColumns([])
             ->addColumn('action', 'warehouseadbid.action');
     }

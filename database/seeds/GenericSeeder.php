@@ -47,9 +47,11 @@ class GenericSeeder extends Seeder
         $warehouse = Warehouse::create([
             'name'        => 'Warehouse 1',
             'description' => 'Test Warehouse',
+            'country'     => 'Pakistan',
+            'city'        => 'Lahore',
+            'address'     => 'Sultan Mahmood Road, Lahore',
             'marla'       => '20',
             'room'        => '5',
-            'location'    => 'Raiwand Road, Lahore',
             'renter_id'   =>  $renter->id,
         ]);
 

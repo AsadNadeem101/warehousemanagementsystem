@@ -49,6 +49,10 @@
                 <th>Manage Inventory</th>
                 <td><a href="/addinventory/{{$warehouse_admin_section_id}}/add"><button type="button" class="btn btn-primary">Manage Inventory</button></a></td>
             </tr>
+            <tr>
+                <th>Remaining Inventory</th>
+                <td><a href="/remaininginventory/{{$warehouse_admin_section_id}}/remaining"><button type="button" class="btn btn-primary">Remaining Inventory</button></a></td>
+            </tr>
             
             @endforeach
         </table>

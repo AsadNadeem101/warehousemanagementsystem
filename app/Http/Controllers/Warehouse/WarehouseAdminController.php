@@ -18,7 +18,7 @@ class WarehouseAdminController extends Controller
      */
     public function index()
     {
-        //
+        return $dataTable->render('warehouse.index');
     }
 
     /**

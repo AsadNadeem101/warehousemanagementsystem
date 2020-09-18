@@ -26,16 +26,24 @@ class CreatePlanSubscriptionUsersTable extends Migration
             $table->foreign('plan_id')->references('id')->on('plans')->onDelete('cascade');
 
             $table->unsignedBigInteger('warehouse_ad_id');
-            $table->foreign('warehouse_ad_id')->references('id')->on('warehouse_ads');
+            $table->foreign('warehouse_ad_id')->references('id')->on('warehouse_ads')->nullable();
 
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->date('start_date')->nullable();
+            $table->date('end_date')->nullable();
 
             $table->integer('paid')->default(0);
 
-            $table->boolean('status')->default(1);
+            $table->enum('payment_status', ['pending', 'paid', 'nopaid'])->default('pending');
+            
+            $table->unsignedBigInteger('account_number')->default(0);
+            
+            $table->enum('system_verification',['pending', 'verified',])->default('pending');
             
             $table->dateTime('paid_at')->nullable();
+
+            
+
+
 
             $table->timestamps();
         });

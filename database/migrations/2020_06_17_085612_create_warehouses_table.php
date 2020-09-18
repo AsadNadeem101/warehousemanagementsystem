@@ -17,14 +17,15 @@ class CreateWarehousesTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->string('location');
+            $table->string('country')->default('Pakistan');
+            $table->string('city');
+            $table->string('address');
             $table->integer('marla');
             $table->integer('room');
-
             $table->unsignedBigInteger('renter_id');
             $table->foreign('renter_id')->references('id')->on('users')->onDelete('cascade');
-
-            $table->boolean('status')->default(1);
+               $table->enum('status',['inactive', 'active',])->default('inactive');
+            
             $table->timestamps();
         });
     }

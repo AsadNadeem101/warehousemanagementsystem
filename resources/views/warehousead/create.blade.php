@@ -10,7 +10,7 @@
 
 	{!! Form::open(['route' => 'warehousead.store','method' => 'post' , 'enctype' => 'multipart/form-data']) !!}
 		{!! Form::token(); !!}
-	    <div class="row">
+	     <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Select Warehouse</h6>
 	    		{!! Form::select('warehouse_id', $warehouses, null, ['class'=>'form-control warehouse_id']) !!}
@@ -18,37 +18,37 @@
 	    	</div>
 	    	<div class="col-md-6">
 	    		<h6>Title</h6>
-	    		{!! Form::text('title',null,['class' => 'form-control','placeholder' => 'TITLE']); !!}
+	    		{!! Form::text('title',null,['class' => 'form-control','placeholder' => 'TITLE','required','maxlength' => 20 ]); !!}
 	    	</div>	    	
 	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Marla (Remaining <span style="color: red" id="remaining-marla"></span> )</h6>
-	    		{!! Form::number('marla',null,['class' => 'form-control entered-marla','placeholder' => 'MARLA']); !!}
+	    		{!! Form::number('marla',null,['class' => 'form-control entered-marla','placeholder' => 'MARLA','min' => '1', 'required','max' => '100']); !!}
 	    	</div>	
 	    	<div class="col-md-6">
 	    		<h6>Room # (Available <span style="color: red" id="available"></span> )</h6>
 
-	    		{!! Form::text('room',null,['class' => 'form-control entered-room','placeholder' => 'ROOM']); !!}
+	    		{!! Form::text('room',null,['class' => 'form-control entered-room','placeholder' => 'ROOM','min' => '1', 'required','max' => '100']); !!}
 	    	</div>    	
 	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Duration <small>(in months)</small></h6>
-	    		{!! Form::text('duration',null,['class' => 'form-control','placeholder' => 'DURATION']); !!}
-	    	</div>	
+	    		{!! Form::number('duration',null,['class' => 'form-control','placeholder' => 'DURATION','min' => '1', 'required','max' => '100']); !!}
+		    	</div>	
 	    	<div class="col-md-6">
-	    		<h6>Rent</h6>
-	    		{!! Form::text('rent',null,['class' => 'form-control','placeholder' => 'RENT']); !!}
+	    		<h6>Rent Per Month<small>(in rupees)</small></h6>
+	    		{!! Form::number('rent',null,['class' => 'form-control','placeholder' => 'RENT','min' => '1', 'required']); !!}
 	    	</div>    	
 	    </div>
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Description</h6>
-	    		{!! Form::textarea('description',null,['class' => 'form-control','placeholder' => 'DESCRIPTION']); !!}
+	    			{!! Form::textarea('description',null,['class' => 'form-control','placeholder' => 'DESCRIPTION', 'required','maxlength' => 120]); !!}
 	    	</div>	    	
     		<div class="col-md-6">
                  <div class="form-group">
