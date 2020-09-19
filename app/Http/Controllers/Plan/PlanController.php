@@ -162,7 +162,7 @@ class PlanController extends Controller
 
     public function featuredPlans()
     {
-        $plan_subscription = PlanSubscriptionUser::where('payment_status',paid)->where('paid','>',0)->where('system_verification'verified)->pluck('warehouse_ad_id');
+        $plan_subscription = PlanSubscriptionUser::where('payment_status','paid')->where('paid','>','0')->where('system_verification','verified')->pluck('warehouse_ad_id');
 
         $warehouseads = Ad::whereIn($plan_subscription);
 

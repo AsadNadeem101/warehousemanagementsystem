@@ -287,9 +287,15 @@ return [
             'icon' => 'fas fa-home'
         ],
         [
-            'text' => 'Tenant Rent verification',
+            'text' => 'Tenant Rent Verification',
             'url'  => 'tenantrentverification',
             'can'  => 'tenantrentverification',
+            'icon' => 'fas fa-home'
+        ],
+         [
+            'text' => 'Plan Subscription Verification',
+            'url'  => 'plansubscriptionverification',
+            'can'  => 'plansubscriptionverification',
             'icon' => 'fas fa-home'
         ],
         
@@ -299,6 +305,8 @@ return [
             'can'  => 'employee_list',
             'icon' => 'fas fa-user-tie'
         ],
+
+        
         [
             'text' => 'Plan',
             'url'  => 'plan',

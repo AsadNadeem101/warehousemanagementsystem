@@ -49,6 +49,7 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'servicechargesverification'], 
 			    ['name'=>'warehouseregistration'], 
 			    ['name'=>'warehouseadapproval'], 
+			    ['name'=>'plansubscriptionverification'], 
 			  
 			 	['name'=>'product'],
 			    
