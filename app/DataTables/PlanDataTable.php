@@ -72,7 +72,6 @@ class PlanDataTable extends DataTable
             Column::make('price'),
             Column::make('status'),
             Column::make('created_at'),
-            Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

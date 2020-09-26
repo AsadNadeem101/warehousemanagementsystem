@@ -42,48 +42,37 @@
                            <div class="short-history">
                               <ul>
                                  <li>Published on: <b>{{$ad->created_at}}</b></li>
-                                 <li>Category: <b><a href="#">Used Cars</a></b></li>
-                                 <li>Location: <b>London</b></li>
+                                 <li>Category: <b><a href="#">{{$ad->category}}</a></b></li>
+                                 <li>City: <b>{{$ad->warehouse->city}}</b></li>
                               </ul>
                            </div>
                         </div>
                         <!-- Listing Slider  --> 
+                        <!-- Listing Slider  -->
                         <div class="flexslider single-page-slider">
                            <div class="flex-viewport">
-                              <ul class="slides slide-main">
-                                 <li class=""><img alt="" src="images/single-page/1.jpg" title=""></li>
-                                 <li><img alt="" src="images/single-page/2.jpg" title=""></li>
-                                 <li class="flex-active-slide"><img alt="" src="images/single-page/3.jpg" title=""></li>
-                                 <li><img alt="" src="images/single-page/4.jpg" title=""></li>
-                                 <li><img alt="" src="images/single-page/5.jpg" title=""></li>
-                                 <li><img alt="" src="images/single-page/6.jpg" title=""></li>
-                              </ul>
+
                            </div>
-                        </div>
-                        <!-- Listing Slider Thumb --> 
+                        <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides slide-main" style="width: 1200%; transition-duration: 0s; transform: translate3d(-3750px, 0px, 0px);">
+                                 @foreach($ad->adImages as $media)
+                                 <li class="" style="width: 750px; float: left; display: block;"><img alt="" src="{{asset($media->path)}}" title="" draggable="false"></li>
+                                 @endforeach
+                              </ul></div>
+                              <ul class="flex-direction-nav"><li><a class="flex-prev" href="#"></a></li><li><a class="flex-next flex-disabled" href="#" tabindex="-1"></a></li></ul></div>
+                        <!-- Listing Slider Thumb -->
                         <div class="flexslider" id="carousels">
                            <div class="flex-viewport">
-                              <ul class="slides slide-thumbnail">
-                                 <li><img alt="" draggable="false" src="images/single-page/1_thumb.jpg"></li>
-                                 <li><img alt="" draggable="false" src="images/single-page/2_thumb.jpg"></li>
-                                 <li class="flex-active-slide"><img alt="" draggable="false" src="images/single-page/3_thumb.jpg"> </li>
-                                 <li><img alt="" draggable="false" src="images/single-page/4_thumb.jpg"></li>
-                                 <li><img alt="" draggable="false" src="images/single-page/5_thumb.jpg"></li>
-                                 <li><img alt="" draggable="false" src="images/single-page/6_thumb.jpg"></li>
-                                 <!-- items mirrored twice, total of 12 -->
+
+                           </div>
+                           <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                              <ul class="slides slide-thumbnail" style="width: 1200%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
+                                 @foreach($ad->adImages as $media)
+                                 <li class="flex-active-slide" style="width: 110px; float: left; display: block;"><img alt="" draggable="false" src="{{asset($media->picture_link)}}"></li>
+                                 @endforeach
+
                               </ul>
-                           </div>
                         </div>
-                        <!-- Share Ad  --> 
-                        <div class="ad-share text-center">
-                           <div data-toggle="modal" data-target=".share-ad" class="ad-box col-md-4 col-sm-4 col-xs-12">
-                              <i class="fa fa-share-alt"></i> <span class="hidetext">Share</span>
-                           </div>
-                           <a class="ad-box col-md-4 col-sm-4 col-xs-12" href="#"><i class="fa fa-star active"></i> <span class="hidetext">Add to watchlist</span></a>
-                           <div data-target=".report-quote" data-toggle="modal" class="ad-box col-md-4 col-sm-4 col-xs-12">
-                              <i class="fa fa-warning"></i> <span class="hidetext">Report</span>
-                           </div>
-                        </div>
+                        <ul class="flex-direction-nav"><li><a class="flex-prev flex-disabled" href="#" tabindex="-1"></a></li><li><a class="flex-next flex-disabled" href="#" tabindex="-1"></a></li></ul></div>
                         <div class="clearfix"></div>
                         <!-- Short Description  --> 
                         <div class="ad-box">
@@ -94,85 +83,14 @@
                                     Description 
                                  </h3>
                               </div>
-                              <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                 <span><strong>Condition</strong> :</span> Used
-                              </div>
-                              <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                 <span><strong>Brand</strong> :</span> Nokia
-                              </div>
-                              <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                 <span><strong>Model</strong> :</span> Lumia 625
-                              </div>
-                              <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                 <span><strong>Product Type</strong>:</span> Mobile
-                              </div>
-                              <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                 <span><strong>Date</strong> :</span> 2014-10-06
-                              </div>
-                              <div class="col-sm-4 col-md-4 col-xs-12 no-padding">
-                                 <span><strong>Price</strong> :</span> Rs. 22,000
-                              </div>
+                              {{$ad->description}}
                            </div>
-                           <!-- Short Features  --> 
-                           <div class="desc-points">
-                              <ul>
-                                 <li>
-                                    Looking to sell the car urgently.
-                                 </li>
-                                 <li>
-                                    Engine is good condition.
-                                 </li>
-                                 <li>
-                                    Complete service history available.
-                                 </li>
-                                 <li>
-                                    Original return file is available.
-                                 </li>
-                                 <li>
-                                    After Market Alloy rims.
-                                 </li>
-                                 <li>
-                                    As good as a brand new car.
-                                 </li>
-                                 <li>
-                                    Lady Driven Car in Immaculate Condition.
-                                 </li>
-                                 <li>
-                                    No Work Required in Car.
-                                 </li>
-                                 <li>
-                                    Excellent Mileage , Local Average = 14 km , Long Average = 16 km .
-                                 </li>
-                              </ul>
-                           </div>
+                           
                            <!-- Related Image  --> 
                            <div class="ad-related-img">
                               <img src="images/car-img1.png" alt="" class="img-responsive center-block">
                            </div>
-                           <!-- Ad Specifications --> 
-                           <div class="specification">
-                              <!-- Heading Area -->
-                              <div class="heading-panel">
-                                 <h3 class="main-title text-left">
-                                    Specifications 
-                                 </h3>
-                              </div>
-                              <p>
-                                 samsung galaxy note 2 new condition with handsfree and charger urgent sale. with book pouch original 4g lte. 16 gb condition 10/10 andriod kitkat4.4.2
-                              </p>
-                              <p>
-                                 Bank Leased 5 Year plan 2013 Honda Civic 1.8 Vti Oriel Prosmatec Automatic ( New Shape ) Attractive Silver Color 1 year installments paid Lahore Reg number Well Maintained Insurance + tracker etc included Options: Sunroof 
-                              </p>
-                              <p>
-                                 Chilled AC Power Windows Power Steering ABS braking system ETC 15000 km carefully driven No SMS / Email , Serious Buyers Requested To Call .
-                              </p>
-                              <p>
-                                 Chilled AC Power Windows Power Steering ABS braking system ETC 15000 km carefully driven No SMS / Email , Serious Buyers Requested To Call .
-                              </p>
-                              <p>
-                                 Bank Leased 5 Year plan 2013 Honda Civic 1.8 Vti Oriel Prosmatec Automatic ( New Shape ) Attractive Silver Color 1 year installments paid Lahore Reg number Well Maintained Insurance + tracker etc included Options: Sunroof 
-                              </p>
-                           </div>
+                           
                            <div class="clearfix"></div>
                         </div>
                      </div>
@@ -184,15 +102,10 @@
                      <!-- Sidebar Widgets -->
                      <div class="sidebar">
                         <!-- Contact info -->
-                        <div class="contact white-bg">
-                           <!-- Email Button trigger modal -->
-                          
-                           <!-- Email Modal -->
-                           <button class="btn-block btn-contact contactPhone number" data-last="111111X" >0320<span>XXXXXXX</span></button>
-                        </div>
+                       
                         <!-- Price info block -->   
                         <div class="ad-listing-price">
-                           <p>Rs. 22,000</p>
+                           <p>Rs. {{$ad->rent}}</p>
                         </div><hr>
                         
                         @if(Auth::user()->type == 'tenant')
@@ -209,163 +122,26 @@
                                  <img src="images/users/3.jpg" alt="">
                               </div>
                               <div class="user-information no-padding col-md-8 col-sm-9 col-xs-8">
-                                 <span class="user-name"><a class="hover-color" href="">Sonu Monu</a></span>
-                                 <div class="item-date">
-                                    <span class="ad-pub">Published on: 10 Dec 2017</span><br>
-                                    <a href="#" class="link">More Ads</a>
-                                 </div>
+                                 <span class="user-name"><a class="hover-color" href="">{{$ad->warehouse->user->name}}</a></span>
+                                
                               </div>
                               <div class="clearfix"></div>
                            </div>
                            <div class="ad-listing-meta">
                               <ul>
-                                 <li>Ad Id: <span class="color">4143</span></li>
-                                 <li>Categories: <span class="color">Used Cars</span></li>
-                                 <li>Visits: <span class="color">9</span></li>
-                                 <li>Location: <span class="color">New York, USA</span></li>
+                                 <li>Ad Id: <span class="color">{{$ad->id}}</span></li>
+                                 <li>Categories: <span class="color">{{$ad->category}}</span></li>
+                                 <li>Country: <span class="color">{{$ad->warehouse->country}}</span></li>
+                                 <li>City: <span class="color">{{$ad->warehouse->city}}</span></li>
+                                 <li>Address: <span class="color">{{$ad->warehouse->address}}</span></li>
+                                 <li>Marla: <span class="color">{{$ad->marla}}</span></li>
+                                 <li>Rooms: <span class="color">{{$ad->room}}</span></li>
+                                 <li>Duration: <span class="color">{{$ad->duration}} month</span></li>
                               </ul>
                            </div>
                            <div id="itemMap" style="width: 100%; height: 370px; margin-bottom:5px;"></div>
                         </div>
                     
-                        <!-- Recent Ads --> 
-                        <div class="widget">
-                           <div class="widget-heading">
-                              <h4 class="panel-title"><a>Recent Ads</a></h4>
-                           </div>
-                           <div class="widget-content recent-ads">
-                              <!-- Ads -->
-                              <div class="recent-ads-list">
-                                 <div class="recent-ads-container">
-                                    <div class="recent-ads-list-image">
-                                       <a href="#" class="recent-ads-list-image-inner">
-                                       <img src="images/posting/thumb-1.jpg" alt="">
-                                       </a><!-- /.recent-ads-list-image-inner -->
-                                    </div>
-                                    <!-- /.recent-ads-list-image -->
-                                    <div class="recent-ads-list-content">
-                                       <h3 class="recent-ads-list-title">
-                                          <a href="#">Sony Xperia Z1</a>
-                                       </h3>
-                                       <ul class="recent-ads-list-location">
-                                          <li><a href="#">New York</a>,</li>
-                                          <li><a href="#">Brooklyn</a></li>
-                                       </ul>
-                                       <div class="recent-ads-list-price">
-                                          $ 17,000
-                                       </div>
-                                       <!-- /.recent-ads-list-price -->
-                                    </div>
-                                    <!-- /.recent-ads-list-content -->
-                                 </div>
-                                 <!-- /.recent-ads-container -->
-                              </div>
-                              <!-- Ads -->
-                              <div class="recent-ads-list">
-                                 <div class="recent-ads-container">
-                                    <div class="recent-ads-list-image">
-                                       <a href="#" class="recent-ads-list-image-inner">
-                                       <img src="images/posting/thumb-2.jpg" alt="">
-                                       </a><!-- /.recent-ads-list-image-inner -->
-                                    </div>
-                                    <!-- /.recent-ads-list-image -->
-                                    <div class="recent-ads-list-content">
-                                       <h3 class="recent-ads-list-title">
-                                          <a href="#">2017 BMW i8</a>
-                                       </h3>
-                                       <ul class="recent-ads-list-location">
-                                          <li><a href="#">New York</a>,</li>
-                                          <li><a href="#">Brooklyn</a></li>
-                                       </ul>
-                                       <div class="recent-ads-list-price">
-                                          $ 66,000
-                                       </div>
-                                       <!-- /.recent-ads-list-price -->
-                                    </div>
-                                    <!-- /.recent-ads-list-content -->
-                                 </div>
-                                 <!-- /.recent-ads-container -->
-                              </div>
-                              <!-- Ads -->
-                              <div class="recent-ads-list">
-                                 <div class="recent-ads-container">
-                                    <div class="recent-ads-list-image">
-                                       <a href="#" class="recent-ads-list-image-inner">
-                                       <img src="images/posting/thumb-3.jpg" alt="">
-                                       </a><!-- /.recent-ads-list-image-inner -->
-                                    </div>
-                                    <!-- /.recent-ads-list-image -->
-                                    <div class="recent-ads-list-content">
-                                       <h3 class="recent-ads-list-title">
-                                          <a href="#">Dell Latitude e7440</a>
-                                       </h3>
-                                       <ul class="recent-ads-list-location">
-                                          <li><a href="#">New York</a>,</li>
-                                          <li><a href="#">Brooklyn</a></li>
-                                       </ul>
-                                       <div class="recent-ads-list-price">
-                                          $ 37,000
-                                       </div>
-                                       <!-- /.recent-ads-list-price -->
-                                    </div>
-                                    <!-- /.recent-ads-list-content -->
-                                 </div>
-                                 <!-- /.recent-ads-container -->
-                              </div>
-                              <!-- Ads -->
-                              <div class="recent-ads-list">
-                                 <div class="recent-ads-container">
-                                    <div class="recent-ads-list-image">
-                                       <a href="#" class="recent-ads-list-image-inner">
-                                       <img src="images/posting/thumb-4.jpg" alt="">
-                                       </a><!-- /.recent-ads-list-image-inner -->
-                                    </div>
-                                    <!-- /.recent-ads-list-image -->
-                                    <div class="recent-ads-list-content">
-                                       <h3 class="recent-ads-list-title">
-                                          <a href="#">Sport Stylish Steering</a>
-                                       </h3>
-                                       <ul class="recent-ads-list-location">
-                                          <li><a href="#">New York</a>,</li>
-                                          <li><a href="#">Brooklyn</a></li>
-                                       </ul>
-                                       <div class="recent-ads-list-price">
-                                          $ 11,000
-                                       </div>
-                                       <!-- /.recent-ads-list-price -->
-                                    </div>
-                                    <!-- /.recent-ads-list-content -->
-                                 </div>
-                                 <!-- /.recent-ads-container -->
-                              </div>
-                              <!-- Ads -->
-                              <div class="recent-ads-list">
-                                 <div class="recent-ads-container">
-                                    <div class="recent-ads-list-image">
-                                       <a href="#" class="recent-ads-list-image-inner">
-                                       <img src="images/posting/thumb-5.jpg" alt="">
-                                       </a><!-- /.recent-ads-list-image-inner -->
-                                    </div>
-                                    <!-- /.recent-ads-list-image -->
-                                    <div class="recent-ads-list-content">
-                                       <h3 class="recent-ads-list-title">
-                                          <a href="#">Apple Wrist Watches</a>
-                                       </h3>
-                                       <ul class="recent-ads-list-location">
-                                          <li><a href="#">New York</a>,</li>
-                                          <li><a href="#">Brooklyn</a></li>
-                                       </ul>
-                                       <div class="recent-ads-list-price">
-                                          $ 20,000
-                                       </div>
-                                       <!-- /.recent-ads-list-price -->
-                                    </div>
-                                    <!-- /.recent-ads-list-content -->
-                                 </div>
-                                 <!-- /.recent-ads-container -->
-                              </div>
-                           </div>
-                        </div>
                         <!-- Saftey Tips  --> 
                         <div class="widget">
                            <div class="widget-heading">
@@ -703,32 +479,5 @@
             </div>
          </div>
       </div>
-       <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8 col-md-offset-2">
-                <div class="card">
-
-                    <div class="card-body">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th style="font-size: 16px" scope="col">Title</th>
-                                <th style="font-size: 16px" scope="col">Bid Price</th>
-                                <th style="font-size: 16px" scope="col">Ad Link</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="font-size: 16px"> </td>
-                                    <td style="font-size: 16px"></td>
-                                    <td style="font-size: 16px"><a href=""> click to view ad </a> </td>
-                                </tr>   
-                            </tbody>
-                        </table>
-                    </div>
-                    <br>
-                </div>
-            </div>
-        </div>
-    </div>
+     
 @endsection

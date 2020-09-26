@@ -84,7 +84,7 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $input = $request->only('name','email','bio','type','cnic','phone','salary','status');
+        $input = $request->only('name','email','bio','type','cnic','phone','salary');
         Employee::find($id)->update($input);
         Alert::success('Employee', 'Data successfully updated');
         return redirect()->route('employee.index');
@@ -102,7 +102,7 @@ class EmployeeController extends Controller
             $employee = Employee::find($id)->delete();
             if($employee)
             {
-                return redirect()->route('Employee.index');
+                return redirect()->route('employee.index');
                 Alert::success('Employee', 'Data successfully deleted');
             }
         } catch (QueryException $e){

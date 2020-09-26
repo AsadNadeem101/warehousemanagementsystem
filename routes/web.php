@@ -57,6 +57,11 @@ Route::group(['middleware' => 'auth'], function (){
     //Warehouse
     Route::resource('warehouse', 'Warehouse\WarehouseController');
 
+    //Employee Payroll
+     Route::resource('employeepayroll', 'Employee\EmployeePayrollController');
+    Route::get('salaries/{id}/payment', 'Employee\EmployeePayrollController@payment');
+
+
     //Create Warehouse Admin
     Route::resource('warehouseadmin', 'Warehouse\WarehouseAdminController');
     Route::get('/warehouseadmin/{id}/create', 'Warehouse\WarehouseAdminController@create');
@@ -122,6 +127,8 @@ Route::group(['middleware' => 'auth'], function (){
     Route::get('warehouseadminsection/{id}','WarehouseAdminDashboard\WarehouseAdminDashboardController@warehouseadminsection');
 
     Route::get('warehouseadminsectiondetail/{id}','WarehouseAdminDashboard\WarehouseAdminDashboardController@warehouseadminsectiondetail')->name('warehouse_section');
+
+
     //Employee
 	Route::resource('employee', 'Employee\EmployeeController');
 

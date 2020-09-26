@@ -71,7 +71,6 @@ class TenantRentDataTable extends DataTable
             Column::make('payment_status'), 
             Column::make('paid_at'), 
             Column::make('created_at'),
-            Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

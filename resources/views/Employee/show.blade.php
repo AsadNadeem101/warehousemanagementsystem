@@ -48,6 +48,13 @@
                 <th>Created at</th>
                 <td>{{ $employee->created_at }}</td>
             </tr>
+            <tr>
+                <th>View Attendence Detail</th>
+                
+                <td>
+                    <a href="/viewattendancedetail/{{$employee->id}}"><button type="button" class="btn btn-primary">Detail</button></a> 
+                </td>
+            </tr>
         </table>
     </div>
 </div>

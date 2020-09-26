@@ -45,6 +45,7 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'warehouseadapproval'], 
 			  
 			 	['name'=>'product'],
+			 	
 			    ['name'=>'superadmindashboard'],
 			    
 		    ],
@@ -53,8 +54,7 @@ class RolesAndPermissionsSeeder extends Seeder
 				['name'=>'warehouse_admin_dashboard'],
 				['name'=>'warehouse_admin_report'],
 
-				
-
+			
 				['name'=>'employee_list'],
 			    ['name'=>'employee_create'],
 			    ['name'=>'employee_edit'],
@@ -63,6 +63,8 @@ class RolesAndPermissionsSeeder extends Seeder
 
 			    ['name'=>'mark_attendance'],  
 			    ['name'=>'warehouseadmindashboard'],
+			   
+			    ['name'=>'employeepayroll'],
 		    ],
 		    
 		    'tenant' => [

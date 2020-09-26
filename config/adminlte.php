@@ -305,6 +305,12 @@ return [
             'can'  => 'employee_list',
             'icon' => 'fas fa-user-tie'
         ],
+        [
+            'text' => 'Employee Salaries Payment',
+            'url'  => 'employeepayroll',
+            'can'  => 'employeepayroll',
+            'icon' => 'fas fa-user-tie'
+        ],
 
         
         [

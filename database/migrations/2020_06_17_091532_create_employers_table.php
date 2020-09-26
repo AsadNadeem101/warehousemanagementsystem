@@ -26,7 +26,6 @@ class CreateEmployersTable extends Migration
             $table->unsignedBigInteger('warehouse_id');
             $table->foreign('warehouse_id')->references('id')->on('warehouses')->onDelete('cascade');
 
-            $table->boolean('status')->default(1);
             $table->timestamps();
         });
     }

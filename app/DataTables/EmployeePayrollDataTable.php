@@ -2,14 +2,14 @@
 
 namespace App\DataTables;
 
-use App\Payroll;
+use App\Model\EmployerPayroll;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class PayrollDataTable extends DataTable
+class EmployeePayrollDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -21,16 +21,16 @@ class PayrollDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
-            ->addColumn('action', 'payroll.action');
+            ->addColumn('action', 'employeepayroll.action');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Payroll $model
+     * @param \App\EmployeePayroll $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Payroll $model)
+    public function query(EmployerPayroll $model)
     {
         return $model->newQuery();
     }
@@ -43,13 +43,12 @@ class PayrollDataTable extends DataTable
     public function html()
     {
         return $this->builder()
-                    ->setTableId('payroll-table')
+                    ->setTableId('employeepayroll-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
                     ->buttons(
-                        Button::make('create'),
                         Button::make('export'),
                         Button::make('print'),
                         Button::make('reset'),
@@ -65,15 +64,21 @@ class PayrollDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            Column::make('id'),
+            Column::make('employee_id'),
+            Column::make('month'),
+            Column::make('actual_salary'),
+            Column::make('payable'),
+            Column::make('deduction'),
+            Column::make('status'),
+            Column::make('paid_at'),
+            Column::make('created_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)
                   ->width(60)
                   ->addClass('text-center'),
-            Column::make('id'),
-            Column::make('add your columns'),
-            Column::make('created_at'),
-            Column::make('updated_at'),
+            
         ];
     }
 
@@ -84,6 +89,6 @@ class PayrollDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'Payroll_' . date('YmdHis');
+        return 'EmployeePayroll_' . date('YmdHis');
     }
 }

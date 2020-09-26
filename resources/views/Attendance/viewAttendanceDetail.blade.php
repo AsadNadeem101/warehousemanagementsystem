@@ -1,24 +1,28 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Detail Attendance')
 
-@section('content_header')
-    <h1>View Attendance</h1>
+@section('content_header') 
+<h1>View Attendance Detail</h1> 
 @stop
 
 @section('content')
 
 	@if(isset($attendances))
 
-	<h2>{{$attendances[0]->employee_name}} Attendance Sheet</h2>
-	<table class="table">
+	<h4 style="text-align: center; color: orange"><b>{{$attendances[0]->employee_name}} Attendance Sheet</b></h4>
+	<table class="table table-bordered table-striped">
 		<tr>
 			<th>Status</th>
 			<th>Attendance Time</th>
 		</tr>
 		@foreach($attendances as $attendance)
 		<tr>
-			<td>{{$attendance->status}}</td>
+			@if($attendance->status == 0)
+			<td style="color: red">Absent</td>
+			@elseif($attendance->status == 1)
+			<td style="color: green">Present</td>
+			@endif
 			@if($attendance->updated_at->gt($attendance->created_at))
 				<td>{{$attendance->updated_at}}</td>			
 			@else

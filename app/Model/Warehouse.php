@@ -28,4 +28,8 @@ class Warehouse extends Model
     public function warehouseAds(){
         return $this->hasMany(WarehouseAd::class);
     }
+
+    public function user(){
+        return $this->belongsTo('App\User'::class,'renter_id');
+    }
 }

@@ -19,7 +19,6 @@ class Employee extends Model
         'cnic',
         'phone',
         'salary',
-        'status',
         'warehouse_id'
     ];
 

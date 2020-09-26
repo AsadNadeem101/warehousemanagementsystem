@@ -70,7 +70,6 @@ class ServiceChargesVerificationDataTable extends DataTable
                 Column::make('month'),
                 Column::make('payment_status'),
                 Column::make('created_at'),
-                Column::make('updated_at'),
                 Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

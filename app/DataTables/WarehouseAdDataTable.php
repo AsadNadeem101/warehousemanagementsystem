@@ -89,7 +89,6 @@ class WarehouseAdDataTable extends DataTable
             Column::make('room'),
             Column::make('status'),
             Column::make('created_at'),
-            Column::make('updated_at'),
             Column::computed('action')
                   ->exportable(false)
                   ->printable(false)

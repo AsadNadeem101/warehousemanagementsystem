@@ -38,7 +38,7 @@ class CalculatePayroll implements ShouldQueue
         foreach ($employees as $key => $employee) {
             $absents = Attendance::whereMonth('created_at',Carbon::now()->month)
                         ->where('employee_id',$employee['id'])
-                        ->where('status',0)
+                        ->where('status','0')
                         ->count();
             $actual_salary = $employee['salary'];
             $per_day_salary = $actual_salary / 30;

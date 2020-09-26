@@ -27,6 +27,7 @@ class GenericSeeder extends Seeder
         $tenant = User::create([
             'name'     => 'Tenant 1',
             'email'    => 'tenant1@wms.com',
+            'contact'  => '0302445566',
             'type'     =>  'tenant',
             'password' => Hash::make('12345678'),
         ]);
@@ -38,6 +39,7 @@ class GenericSeeder extends Seeder
             'name'     => 'Renter 1',
             'email'    => 'renter1@wms.com',
             'type'     => 'renter',
+            'contact'     => '0322445544',
             'password' => Hash::make('12345678'),
         ]);
         //Assigning role
@@ -60,6 +62,7 @@ class GenericSeeder extends Seeder
             'name'         => 'Warehouse Admin',
             'email'        => 'warehouse_admin@wms.com',
             'type'         => 'warehouse_admin',
+            'contact'         => '03334545676',
             'warehouse_id' => $warehouse->id, 
             'password'     => Hash::make('12345678'),
         ]);

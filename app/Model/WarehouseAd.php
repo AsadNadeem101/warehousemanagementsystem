@@ -25,6 +25,7 @@ class WarehouseAd extends Model
         return $this->belongsTo(Warehouse::class,'warehouse_id');
     }
 
+
     public function adImages(){
         return $this->hasMany(AdImage::class);
     }
