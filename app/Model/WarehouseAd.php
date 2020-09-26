@@ -18,5 +18,14 @@ class WarehouseAd extends Model
     	'status',
     	'duration',
     	'rent',
+        'category',
     ];
+
+    public function warehouse(){
+        return $this->belongsTo(Warehouse::class,'warehouse_id');
+    }
+
+    public function adImages(){
+        return $this->hasMany(AdImage::class);
+    }
 }

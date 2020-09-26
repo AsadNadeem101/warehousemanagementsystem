@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Tenant Details') 
+@section('title', 'Super Admin Details') 
 
 @section('content_header')
     <h1>Show Details</h1>

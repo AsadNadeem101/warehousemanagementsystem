@@ -45,7 +45,7 @@
                 <td>{{ $ad->created_at }}</td>
             </tr>
             <tr>
-                @if( $ad->status != '0')
+                @if( $ad->status == 'active')
                 <th>Subscription Plans</th>
                 <td><a href="/selectplan/{{$ad->id}}"><button type="button" class="btn btn-primary">Select Plan</button></a></td>
                 @endif

@@ -21,12 +21,6 @@ class RolesAndPermissionsSeeder extends Seeder
 		    	['name'=>'super_admin_dashboard'],
 				['name'=>'super_admin_report'],
 
-			    ['name'=>'warehouse_list'],
-			    ['name'=>'warehouse_create'],
-			    ['name'=>'warehouse_edit'],
-			    ['name'=>'warehouse_show'],
-			    ['name'=>'warehouse_delete'],
-
 			    ['name'=>'user_list'],
 			    ['name'=>'user_create'],
 			    ['name'=>'user_edit'],
@@ -49,10 +43,9 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'servicechargesverification'], 
 			    ['name'=>'warehouseregistration'], 
 			    ['name'=>'warehouseadapproval'], 
-			    ['name'=>'plansubscriptionverification'], 
 			  
 			 	['name'=>'product'],
-			    
+			    ['name'=>'superadmindashboard'],
 			    
 		    ],
 		    

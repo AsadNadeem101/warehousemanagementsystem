@@ -61,44 +61,18 @@
          <div class="loader-section section-right"></div>
       </div>
       <!-- =-=-=-=-=-=-= Color Switcher =-=-=-=-=-=-= -->
-      <div class="color-switcher" id="choose_color">
-         <a href="#." class="picker_close"><i class="fa fa-gear"></i></a>
-         <h5>STYLE SWITCHER</h5>
-         <div class="theme-colours">
-            <p> Choose Colour style </p>
-            <ul>
-               <li>
-                  <a href="#." class="defualt" id="defualt"></a>
-               </li>
-               <li>
-                  <a href="#." class="green" id="green"></a>
-               </li>
-               <li>
-                  <a href="#." class="blue" id="blue"></a>
-               </li>
-               <li>
-                  <a href="#." class="red" id="red"></a>
-               </li>
-               
-               <li>
-                  <a href="#." class="sea-green" id="sea-green"></a>
-               </li>
-              
-            </ul>
-         </div>
-         <div class="clearfix"> </div>
-      </div>
+      
       <!-- =-=-=-=-=-=-= Transparent Header =-=-=-=-=-=-= -->
       <div class="transparent-header">
          <!-- Top Bar -->
-         <div class="header-top">
+          <div class="header-top">
             <div class="container">
                <div class="row">
                   <!-- Header Top Left -->
                   <div class="header-top-left col-md-8 col-sm-6 col-xs-12 hidden-xs">
                      <ul class="listnone">
-                        <li><a href="about.html"><i class="fa fa-heart-o" aria-hidden="true"></i> About</a></li>
-                        <li><a href="faqs.html"><i class="fa fa-folder-open-o" aria-hidden="true"></i> FAQS</a></li>
+                        <li><a href="/about"><i class="fa fa-heart-o" aria-hidden="true"></i> About</a></li>
+                        <li><a href="/faqs"><i class="fa fa-folder-open-o" aria-hidden="true"></i> FAQS</a></li>
                      </ul>
                   </div>
                   <!-- Header Top Right Social -->
@@ -112,28 +86,6 @@
                            <li><a href="/logout"><i class="fa fa-sign-out"></i> Log out</a></li>
                            <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="icon-profile-male" aria-hidden="true"></i> {{Auth::user()->name}} <span class="caret"></span></a>
-                              @if(Auth::user()->type == 'renter')
-      
-                              <ul class="dropdown-menu">
-                                 <li><a href="\profile">User Profile</a></li>
-                                 <li><a href="\warehouse">My Warehouse</a></li>
-                                 <li><a href="\warehouseadbid">My Ads Bids</a></li>
-                                 <li><a href="active-ads.html">Active Ads</a></li>
-                              <li><a href="pending-ads.html">Pending Ads</a></li>
-                                 <li><a href="favourite.html">Favourite Ads</a></li>
-                                 <li><a href="messages.html">Message Panel</a></li>
-                                 <li><a href="deactive.html">Account Deactivation</a></li>
-                              </ul>
-                              @elseif(Auth::user()->type == 'warehouse_admin')
-                               <ul class="dropdown-menu">
-                                 <li><a href="\profile">User Profile</a></li>
-                                 <li><a href="#">My Warehouse</a></li>
-                                 <li><a href="\employee">Employees</a></li>
-                                 <li><a href="\markAttendancePage">Mark Employeed Attendence</a></li>
-                              <li><a href="/viewattendance/today">View Today Attendance</a></li>
-                                 <li><a href="/profile/change-password">Change Password</a></li>
-                              </ul>
-                              @endif
                            </li>
                            @endif
                         </ul>
@@ -141,7 +93,7 @@
                   </div>
                </div>
             </div>
-         </div>
+         </div>   
          <!-- Top Bar End -->
          <!-- Navigation Menu -->
          <div class="clearfix"></div>
@@ -162,187 +114,49 @@
                            <ul class="menu-links">
                               <!-- active class -->
                               <li>
-                                 <a href="#"> Home </a>
+                                 <a href="/index"> Home </a>
                               </li>
                               <li>
                                  <a href="/termsandconditions">Terms and Conditions</a>
                                  
                               </li>
+                               @if(!Auth::check())
                               <li>
-                                 <a href="javascript:void(0)">Categories <i class="fa fa-angle-down fa-indicator"></i></a>
-                                 <!-- drop down multilevel  -->
-                                 <ul class="drop-down-multilevel">
-                                    
-                                    <li><a href="category-2.html">Modern Variation</a></li>
-                                    <li><a href="category-3.html">Minimal Variation</a></li>
-                                    <li><a href="category-4.html">Fancy Variation</a></li>
-                                    
-                                    <li><a href="category-6.html">Flat Variation</a></li>
-                                 </ul>
+                                 <a href="#">Dashboard </a>
+                              </li>
+                              @endif
+                              @if(Auth::check())
+                              @if(Auth::user()->type == 'super_admin')
+                              <li>
+                                 <a href="\superadmindashboard">Dashboard </a>
+                              </li>
+                              @elseif(Auth::user()->type == 'warehouse_admin')
+                              <li>
+                                 <a href="\warehouseadmindashboard">Dashboard </a>
+                              </li>
+                              @elseif(Auth::user()->type == 'renter')
+                              <li>
+                                 <a href="\renterdashboard">Dashboard </a>
+                              </li>
+                              @elseif(Auth::user()->type == 'tenant')
+                              <li>
+                                 <a href="\tenantdashboard">Dashboard </a>
+                              </li>
+                              @endif
+                              @endif
+                              <li>
+                                 <a href="\privacypolicy">Privacy Policy </a>
                               </li>
                               <li>
-                                 <a href="\home">Dashboard </a>
+                                 <a href="\our_services">Our Services </a>
                               </li>
-                              <li>
-                                 <a href="javascript:void(0)">Pages <i class="fa fa-angle-down fa-indicator"></i></a>
-                                 <!-- drop down full width -->
-                                 <div class="drop-down grid-col-12">
-                                    <!--grid row-->
-                                    <div class="grid-row">
-                                       <!--grid column 2-->
-                                       <div class="grid-col-3">
-                                          <h4>Blog</h4>
-                                          <ul>
-                                             <li><a href="blog.html">Blog With Right Sidebar</a></li>
-                                             <li><a href="blog-1.html">Blog With Masonry Style</a></li>
-                                             <li><a href="blog-2.html">Blog Without Sidebar</a></li>
-                                             <li><a href="blog-details.html">Single Blog </a></li>
-                                             <li><a href="blog-details-1.html">Single Blog (Adsense) </a></li>
-                                          </ul>
-                                       </div>
-                                       <!--grid column 2-->
-                                       <div class="grid-col-3">
-                                          <h4>Miscellaneous</h4>
-                                          <ul>
-                                             <li><a href="about.html">About Us</a></li>
-                                             <li><a href="cooming-soon.html">Comming Soon</a></li>
-                                             <li><a href="elements.html">Shortcodes</a></li>
-                                             <li><a href="error.html">404 Page</a></li>
-                                             <li><a href="faqs.html">FAQS</a></li>
-                                          </ul>
-                                       </div>
-                                       <!--grid column 2-->
-            
-                                       <div class="grid-col-3">
-                                          <h4>Others</h4>
-                                          <ul>
-                                             <li><a href="login.html">Login</a></li>
-                                             <li><a href="register.html">Register</a></li>
-                                             <li><a href="pricing.html">Pricing</a></li>
-                                             <li><a href="site-map.html">Site Map</a></li>
-                                             <li><a href="post-ad-1.html">Post Ad</a></li>
-                                          </ul>
-                                       </div>
-                                       <!--grid column 2-->
-                                       <div class="grid-col-3">
-                                          <h4>Detail Page</h4>
-                                          <ul>
-                                             <li><a href="post-ad-2.html">Post Ad 2</a></li>
-                                             <li><a href="single-page-listing.html">Single Ad Detail</a></li>
-                                             <li><a href="single-page-listing-2.html">Single Ad 2</a></li>
-                                             <li><a href="single-page-listing-3.html">Single Ad (Adsense)</a></li>
-                                             <li><a href="single-page-expired.html">Single Ad (Closed)</a></li>
-                                          </ul>
-                                       </div>
-                                       <!--grid column 2-->
-                                    </div>
-                                 </div>
-                              </li>
-                              <li>
-                                 <a href="javascript:void(0)">Drop Down <i class="fa fa-angle-down fa-indicator"></i></a>
-                                 <!-- drop down multilevel  -->
-                                 <ul class="drop-down-multilevel">
-                                    <li><a href="#">Item one</a></li>
-                                    <li>
-                                       <a href="javascript:void(0)">Items Right Side <i class="fa fa-angle-right fa-indicator"></i> </a>
-                                       <!-- drop down second level -->
-                                       <ul class="drop-down-multilevel">
-                                          <li>
-                                             <a href="javascript:void(0)"> <i class="fa fa-buysellads"></i> Level 2 <i class="fa fa-angle-right fa-indicator"></i></a>
-                                             <!-- drop down third level -->
-                                             <ul class="drop-down-multilevel">
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                             </ul>
-                                          </li>
-                                          <li>
-                                             <a href="javascript:void(0)"> <i class="fa fa-dashcube"></i> Level 2 <i class="fa fa-angle-right fa-indicator"></i></a>
-                                             <!-- drop down third level -->
-                                             <ul class="drop-down-multilevel">
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                             </ul>
-                                          </li>
-                                          <li>
-                                             <a href="javascript:void(0)"> <i class="fa fa-heartbeat"></i> Level 2 <i class="fa fa-angle-right fa-indicator"></i></a>
-                                             <!-- drop down third level -->
-                                             <ul class="drop-down-multilevel">
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                             </ul>
-                                          </li>
-                                          <li>
-                                             <a href="javascript:void(0)"> <i class="fa fa-medium"></i> Level 2 <i class="fa fa-angle-right fa-indicator"></i></a>
-                                             <!-- drop down third level -->
-                                             <ul class="drop-down-multilevel">
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                             </ul>
-                                          </li>
-                                          <li>
-                                             <a href="javascript:void(0)"> <i class="fa fa-leanpub"></i> Level 2 <i class="fa fa-angle-right fa-indicator"></i> </a>
-                                             <!-- drop down third level -->
-                                             <ul class="drop-down-multilevel">
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                             </ul>
-                                          </li>
-                                       </ul>
-                                    </li>
-                                    <li><a href="#">Item 2</a></li>
-                                    <li>
-                                       <a href="javascript:void(0)">Items Left Side <i class="fa fa-angle-left fa-indicator"></i> </a>
-                                       <!-- add class left-side -->
-                                       <ul class="drop-down-multilevel left-side">
-                                          <li>
-                                             <a href="#"> <i class="fa fa-forumbee"></i> Level 2</a>
-                                          </li>
-                                          <li>
-                                             <a href="#"> <i class="fa fa-hotel"></i> Level 2</a>
-                                          </li>
-                                          <li>
-                                             <a href="#"> <i class="fa fa-automobile"></i> Level 2</a>
-                                          </li>
-                                          <li>
-                                             <a href="javascript:void(0)"> <i class="fa fa-heartbeat"></i> Level 2 <i class="fa fa-plus fa-indicator"></i> </a>
-                                             <!--drop down second level-->
-                                             <ul class="drop-down-multilevel">
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                                <li><a href="#">Level 3</a></li>
-                                             </ul>
-                                          </li>
-                                          <li>
-                                             <a href="#"> <i class="fa fa-bookmark"></i> Level 2</a>
-                                          </li>
-                                          <li>
-                                             <a href="#"> <i class="fa fa-bell"></i> Level 2</a>
-                                          </li>
-                                          <li>
-                                             <a href="#"> <i class="fa fa-soccer-ball-o"></i> Level 2</a>
-                                          </li>
-                                          <li>
-                                             <a href="#"> <i class="fa fa-life-ring"></i> Level 2</a>
-                                          </li>
-                                       </ul>
-                                    </li>
-                                    <li><a href="#">Item 4</a>
-                                    </li>
-                                 </ul>
-                              </li>
-                              <li><a href="contact.html">Contact </a></li>
+                              <li><a href="/contact">Contact </a></li>
                            </ul>
-                           <ul class="menu-search-bar">
+                           <!-- <ul class="menu-search-bar">
                               <li>
                                  <a href="post-ad-1.html" class="btn btn-light"><i class="fa fa-plus" aria-hidden="true"></i> Post Free Ad</a>
                               </li>
-                           </ul>
+                           </ul> -->
                         </div>
                      </div>
                   </div>
@@ -370,13 +184,12 @@
                                     <a href="index.html"><img alt="" class="img-responsive" src="images/logo.png"></a>
                                  </div>
                                  <div class="text">
-                                    <p>Lorem ipsum dolor sit amet, eu me.</p>
+                                    <p>Rent warehouse and earn money</p>
                                  </div>
                                  <ul class="contact-info">
                                     <li><span class="icon fa fa-map-marker"></span> 60 Link Road Lhr. Pakistan 54770</li>
-                                    <li><span class="icon fa fa-phone"></span> (042) 1234567890</li>
-                                    <li><span class="icon fa fa-envelope-o"></span> contant@scriptsbundle.com</li>
-                                    <li><span class="icon fa fa-fax"></span> (042) 1234 7777</li>
+                                    <li><span class="icon fa fa-phone"></span> +(92)304-496-666-9</li>
+                                    <li><span class="icon fa fa-envelope-o"></span> warehousemanagement07@gmail.com</li>
                                  </ul>
                                  <div class="social-links-two clearfix"> 
                                     <a class="facebook img-circle" href="#"><span class="fa fa-facebook-f"></span></a>
@@ -394,11 +207,10 @@
                               </div>
                               <div class="footer-widget links-widget">
                                  <ul>
-                                    <li><a href="#">Web Development</a></li>
-                                    <li><a href="#">Web Designing</a></li>
-                                    <li><a href="#">Android Development</a></li>
-                                    <li><a href="#">Theme Development</a></li>
-                                    <li><a href="#">IOS Development</a></li>
+                                    <li>Maintenace Service</li>
+                                    <li>Cleaning Service</li>
+                                    <li>Attendance Management (Free)</li>
+                                    <li>Inventory Management (Free)</li>
                                  </ul>
                               </div>
                            </div>
@@ -419,19 +231,12 @@
                                     <div class="icon"></div>
                                     <div class="news-content">
                                        <figure class="image-thumb"><img alt="" src="images/blog/popular-2.jpg"></figure>
-                                       <a href="#">If you need a crown or lorem an implant you will pay it gap it</a>
+                                       <a href="#">No News Yet</a>
                                     </div>
-                                    <div class="time">July 2, 2014</div>
+                                    <div class="time">Oct 2, 2020</div>
                                  </div>
                                  <!--News Post-->
-                                 <div class="news-post">
-                                    <div class="icon"></div>
-                                    <div class="news-content">
-                                       <figure class="image-thumb"><img alt="" src="images/blog/popular-1.jpg"></figure>
-                                       <a href="#">If you need a crown or lorem an implant you will pay it gap it</a>
-                                    </div>
-                                    <div class="time">July 2, 2014</div>
-                                 </div>
+                               
                               </div>
                            </div>
                            <!--Footer Column-->
@@ -441,11 +246,9 @@
                                     <h3 class="main-title text-left"> Quick Links</h3>
                                  </div>
                                  <ul>
-                                    <li><a href="about.html">About Us</a></li>
-                                    <li><a href="#">Our Team</a></li>
-                                    <li><a href="#">Our Services</a></li>
-                                    <li><a href="index-7.html">One Page</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="/about">About Us</a></li>
+                                    <li><a href="/our_services">Our Services</a></li>
+                                    <li><a href="/contact">Contact Us</a></li>
                                  </ul>
                               </div>
                            </div>
@@ -459,7 +262,7 @@
             <div class="footer-copyright">
                <div class="container clearfix">
                   <!--Copyright-->
-                  <div class="copyright text-center">Copyright 2017 © Theme Created By <a href="http://themeforest.net/user/scriptsbundle/portfolio" target="_blank">Scriptsbundle</a> All Rights Reserved</div>
+                  <div class="copyright text-center">Copyright 2020 © Warehouse Rentral Management All Rights Reserved</div>
                </div>
             </div>
          </footer>
@@ -467,12 +270,7 @@
       </div>
       <!-- Main Content Area End --> 
       <!-- Post Ad Sticky -->
-      <a href="#" class="sticky-post-button">
-         <span class="sell-icons">
-         <i class="flaticon-transport-9"></i>
-         </span>
-         <h4>SELL</h4>
-      </a>
+     
       <!-- Back To Top -->
       <a href="#0" class="cd-top">Top</a>
       <!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= -->

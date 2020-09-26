@@ -6,7 +6,7 @@
             <div class="row">
                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="header-page">
-                     <h1>Privacy Policy</h1>
+                     <h1>FAQ's</h1>
                   </div>
                </div>
             </div>
@@ -19,7 +19,7 @@
                <ul>
                   <li><a href="\">Home Page</a></li>
 
-                  <li><a class="active" href="/termsandconditions">Privacy Policy</a></li>
+                  <li><a class="active" href="/about">FAQ's</a></li>
                </ul>
             </div>
          </div>
@@ -38,28 +38,24 @@
                      <div class="content">
                         <div class="heading-panel">
                            <h3 class="main-title text-left">
-                             Privacy Policy
+                           FAQ's
                            </h3>
                         </div>
-                        <p>This Privacy Policy is meant to help you understand the information we collect, why we collect it, and how you can manage it.</p>
-                        <p style="color:#f58936"><b>Personal Information</b></p>
-                        <p>When you become a customer, we may collect the following information from you</p>
-                        <p>•  Contact information such as name, email address, mailing address, phone number.</p>
-                        <p>•  Billing information such as credit card number.</p>
-                        <p>•  CNIC number for property verification.</p>
-                        <p>•  Other information as requested.</p>
-                        <p style="color:#f58936"><b>We may use your information to</b></p>
-                        <p>•  Process your payments.</p>
-                        <p>•  Send you information about your use of the Services, purchases and other transactions.</p>
-                        <p>•  Communicate with you about current offers.</p>
-
-
-                        
+                       <p style="color:#f58936"><b>How do I apply to become a tenant?</b></p>
+                       <p>Taking the first step to become a tenant is easy! You can search for a property in your market or apply for a lease to become a tenant directly on our website.</p>
+                       <p style="color:#f58936"><b>Who will take care of maintenance requests?</b></p>
+                       <p>We will coordinate maintenance requests and get confirmation from the owner on approvals for any repairs which means you don’t have to.</p>
+                       <p style="color:#f58936"><b>How do I pay rent?</b></p>
+                       <p>The payment method is offline but there will be a portal in which you will update that if you pay the rent or not.</p>
+                       <p style="color:#f58936"><b>When is my monthly rent due?</b></p>
+                        <p>Rent is due on the 1st of each month.</p>
+                        <p style="color:#f58936"><b>What can I not do inside my warehouse unit?</b></p>
+                        <p>We don’t allow activities that produce a lot of noise or dust, waste and other hazardous materials.</p>
                      </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
-                     <div class="about-page-featured-image" style="margin-top: 140px;margin-left: 115px">
-                        <a href="#"><img src="images/privacy_policy.png" alt=""></a>
+                     <div class="about-page-featured-image">
+                        <a href="#"><img src="images/faqs.png" alt=""></a>
                      </div>
                   </div>
                   

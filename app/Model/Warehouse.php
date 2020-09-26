@@ -24,4 +24,8 @@ class Warehouse extends Model
     ];
 
     public $table = "warehouses";
+
+    public function warehouseAds(){
+        return $this->hasMany(WarehouseAd::class);
+    }
 }

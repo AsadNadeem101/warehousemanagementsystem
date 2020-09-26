@@ -26,7 +26,9 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create(Request $request)
-    {
+    {   
+
+       
         $warehouse_ad_id = $request->id;
         return view('product.create',compact('warehouse_ad_id'));
     }
@@ -39,6 +41,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+         $request->validate([
+            'name' => 'required|min:10',
+        ]);
+
         $input = $request->all();
         Product::create($input);
         Alert::success('Product', 'Data successfully created');

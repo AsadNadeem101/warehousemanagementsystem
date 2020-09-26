@@ -32,6 +32,8 @@ class CreateWarehouseAdsTable extends Migration
 
             $table->enum('status',['pending', 'inactive','active'])->default('pending');
 
+            $table->enum('category',['normal','cooling']);
+
             $table->timestamps();
         });
     }

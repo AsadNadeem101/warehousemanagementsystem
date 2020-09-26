@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard') 
+@section('title', 'Manage Inventory') 
 
 @section('content_header')
-  <h1 style="margin-bottom:-10px"><b>Mange Inventory</b></h1>
+  <h1 style="margin-bottom:-10px"><b>Manage Inventory</b></h1>
     <hr class="divider" >
 @stop
 

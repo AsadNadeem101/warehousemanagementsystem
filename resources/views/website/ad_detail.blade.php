@@ -5,7 +5,7 @@
             <div class="row">
                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="header-page">
-                     <h1>Ad Detial</h1>
+                     <h1>Ad Detail</h1>
                   </div>
                </div>
             </div>
@@ -16,8 +16,7 @@
          <div class="container">
             <div class=" breadcrumb-link">
                <ul>
-                  <li><a href="index.html">Home Page</a></li>
-                  <li><a href="#">Pages</a></li>
+                  <li><a href="/index">Home Page</a></li>
                   <li><a class="active" href="#">Ad Detail</a></li>
                </ul>
             </div>
@@ -39,10 +38,10 @@
                      <div class="single-ad">
                         <!-- Title -->
                         <div class="ad-box">
-                           <h1>Honda Civic Oriel 1.8 i-VTEC CVT 2017</h1>
+                           <h1>{{$ad->title}}</h1>
                            <div class="short-history">
                               <ul>
-                                 <li>Published on: <b>07 Oct 2017</b></li>
+                                 <li>Published on: <b>{{$ad->created_at}}</b></li>
                                  <li>Category: <b><a href="#">Used Cars</a></b></li>
                                  <li>Location: <b>London</b></li>
                               </ul>
@@ -187,7 +186,7 @@
                         <!-- Contact info -->
                         <div class="contact white-bg">
                            <!-- Email Button trigger modal -->
-                           <button class="btn-block btn-contact contactEmail" data-toggle="modal" data-target=".price-quote" >Contact Seller Via Email</button>
+                          
                            <!-- Email Modal -->
                            <button class="btn-block btn-contact contactPhone number" data-last="111111X" >0320<span>XXXXXXX</span></button>
                         </div>
@@ -210,7 +209,7 @@
                                  <img src="images/users/3.jpg" alt="">
                               </div>
                               <div class="user-information no-padding col-md-8 col-sm-9 col-xs-8">
-                                 <span class="user-name"><a class="hover-color" href="profile.html">Sonu Monu</a></span>
+                                 <span class="user-name"><a class="hover-color" href="">Sonu Monu</a></span>
                                  <div class="item-date">
                                     <span class="ad-pub">Published on: 10 Dec 2017</span><br>
                                     <a href="#" class="link">More Ads</a>
@@ -403,79 +402,13 @@
       <!-- Back To Top -->
       <a href="#0" class="cd-top">Top</a>
       
-      <!-- =-=-=-=-=-=-= Quote Modal =-=-=-=-=-=-= -->
-      <div class="modal fade price-quote" tabindex="-1" role="dialog" aria-hidden="true">
-         <div class="modal-dialog">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                  <h3 class="modal-title" id="lineModalLabel">Email for Price</h3>
-               </div>
-               <div class="modal-body">
-                  <div class="recent-ads">
-                     <div class="recent-ads-list">
-                        <div class="recent-ads-container">
-                           <div class="recent-ads-list-image">
-                              <a href="#" class="recent-ads-list-image-inner">
-                              <img src="images/car.png" alt="">
-                              </a><!-- /.recent-ads-list-image-inner -->
-                           </div>
-                           <!-- /.recent-ads-list-image -->
-                           <div class="recent-ads-list-content">
-                              <h3 class="recent-ads-list-title">
-                                 <a href="#">Honda Civic Oriel 1.8 i-VTEC CVT 2017</a>
-                              </h3>
-                              <ul class="recent-ads-list-location">
-                                 <li><a href="#">New York</a>,</li>
-                                 <li><a href="#">Brooklyn</a></li>
-                              </ul>
-                              <div class="recent-ads-list-price">
-                                 $ 17,000
-                              </div>
-                              <!-- /.recent-ads-list-price -->
-                           </div>
-                           <!-- /.recent-ads-list-content -->
-                        </div>
-                        <!-- /.recent-ads-container -->
-                     </div>
-                  </div>
-                  <!-- content goes here -->
-                  <form>
-                     <div class="form-group  col-md-6  col-sm-6">
-                        <label>Your Name</label>
-                        <input type="text" class="form-control" placeholder="Enter Your Name"> 
-                     </div>
-                     <div class="form-group  col-md-6  col-sm-6">
-                        <label>Email Address</label>
-                        <input type="email" class="form-control" placeholder="Enter email"> 
-                     </div>
-                     <div class="form-group  col-md-12  col-sm-12">
-                        <label>Contact No</label>
-                        <input type="text" class="form-control" placeholder="Contact No"> 
-                     </div>
-                     <div class="form-group  col-md-12  col-sm-12">
-                        <label>Comments</label>
-                        <textarea placeholder="What is the price of the Honda Civic 2017 you have in your inventory?" rows="3" class="form-control">What is the price of the 2015 Honda Accord EX-L you have in your inventory?</textarea>
-                     </div>
-                     <div class="col-md-12  col-sm-12"> <img src="images/captcha.gif" alt="" class="img-responsive"> </div>
-                     <div class="clearfix"></div>
-                     <div class="col-md-12  col-sm-12 margin-bottom-20 margin-top-20">
-                        <button type="submit" class="btn btn-theme btn-block">Submit</button>
-                     </div>
-                  </form>
-               </div>
-            </div>
-         </div>
-      </div>
+   
       
        <!-- =-=-=-=-=-=-= Share Modal =-=-=-=-=-=-= -->
       <div class="modal fade share-ad" tabindex="-1" role="dialog" aria-hidden="true">
          <div class="modal-dialog">
             <div class="modal-content">
-               <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-                  <h3 class="modal-title">Share</h3>
-               </div>
+               
                <div class="modal-body">
                   <div class="recent-ads">
                      <div class="recent-ads-list">
@@ -509,11 +442,7 @@
                   <h3>Link</h3>
                   <p><a href="https://themeforest.net/user/scriptsbundle/portfolio">https://themeforest.net/user/scriptsbundle/portfolio</a></p>
                </div>
-               <div class="modal-footer">
-                  <a href="" class="btn btn-fb btn-md"><i class="fa fa-facebook"></i></a>
-                  <a class="btn btn-twitter btn-md"><i class="fa fa-twitter"></i></a>
-                  <a class="btn btn-gplus btn-md"><i class="fa fa-google-plus"></i></a>
-               </div>
+            
             </div>
          </div>
       </div>

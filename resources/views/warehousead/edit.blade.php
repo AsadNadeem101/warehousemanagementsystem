@@ -38,30 +38,37 @@
 	    	<div class="col-md-6">
 	    		<h6>Duration <small>(in months)</small></h6>
 	    		{!! Form::number('duration',null,['class' => 'form-control','placeholder' => 'DURATION','min' => '1', 'required','max' => '100']); !!}
-		    	</div>	
+		    </div>	
 	    	<div class="col-md-6">
 	    		<h6>Rent Per Month<small>(in rupees)</small></h6>
 	    		{!! Form::number('rent',null,['class' => 'form-control','placeholder' => 'RENT','min' => '1', 'required']); !!}
 	    	</div>    	
 	    </div>
 	    <br>
-	    <div class="row">
+	    <div class="row">	
 	    	<div class="col-md-6">
-	    		<h6>Description</h6>
-	    			{!! Form::textarea('description',null,['class' => 'form-control','placeholder' => 'DESCRIPTION', 'required','maxlength' => 120]); !!}
-	    	</div>	    	
+	    		<h6>Category</h6>
+	    		{!! Form::select('category', ['normal' => 'Normal', 'cooling' => 'Cooling'],null,['class' => 'form-control','required']); !!}
+	    	</div>		
     		<div class="col-md-6">
-                 <div class="form-group">
+                
                   <label>Upload Ads Images</label>
+                   <div class="form-group">
                   {!! Form::file('images[]',array('multiple'=>true,'class'=>'send-btn')) !!}
                  </div>
              </div>
+    	</div>
+    	<br>
+    	<div class="row">
+	    	<div class="col-md-6">
+	    		<h6>Description</h6>
+	    			{!! Form::textarea('description',null,['class' => 'form-control','placeholder' => 'DESCRIPTION', 'required','maxlength' => 120]); !!}
 	    	</div>	
-	    	
+    	</div>	
 	    <br>
 	    <div class="row">
 	    	<div class="col-md-12" style="text-align: center">
-	    		{!! Form::submit('Save', ['class'=>'btn btn-success']); !!}
+	    		<input type="submit" class="btn btn-success" onclick="return doValidate()">
 	    	</div>
 	    </div>
 	    

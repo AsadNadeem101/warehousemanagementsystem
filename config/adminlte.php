@@ -249,6 +249,12 @@ return [
             
         ],
         [
+            'text' => 'Super Admin Dashboard',
+            'url'  => 'superadmindashboard',
+            'can'  => 'superadmindashboard',
+            
+        ],
+        [
             'text' => 'Warehouse',
             'url'  => 'warehouse',
             'can'  => 'warehouse_list',
@@ -290,12 +296,6 @@ return [
             'text' => 'Tenant Rent Verification',
             'url'  => 'tenantrentverification',
             'can'  => 'tenantrentverification',
-            'icon' => 'fas fa-home'
-        ],
-         [
-            'text' => 'Plan Subscription Verification',
-            'url'  => 'plansubscriptionverification',
-            'can'  => 'plansubscriptionverification',
             'icon' => 'fas fa-home'
         ],
         

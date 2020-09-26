@@ -1078,7 +1078,7 @@ ul {
 
 /* =-=-=-=-=-=-= Home With Static Banner =-=-=-=-=-=-= */
 #banner {
-	background: url("../images/banner-5.jpg");
+	background: url("../images/warehouse_1.png");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -1087,7 +1087,7 @@ ul {
 	width: 100%;
 }
 #banner::before {
-	background-color: rgba(34, 34, 34, 0.6);
+	background-color:;
 	content: "";
 	display: inline-block;
 	height: 100%;

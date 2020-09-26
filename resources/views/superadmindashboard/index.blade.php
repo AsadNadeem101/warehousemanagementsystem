@@ -10,7 +10,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="container-fluid">                    
- 			<h1 style="margin-bottom:-10px;color:#f58936"><b>Tenant Dashboard</b></h1>  
+ 			<h1 style="margin-bottom:-10px;color:#f58936"><b>Super Admin Dashboard</b></h1>  
  			<hr class="divider" style="border: 3px solid #272d47;width: 100%;">
         </div>
 		<div class="row">
@@ -19,17 +19,17 @@
  				<h3 style="margin-bottom:-10px;color:blue;text-align: center;"><b>Warehouse</b></h3>  
  				<hr class="divider" style="border: 3px solid #272d47;width:80%">
         	</div>
-        		@if($data->isEmpty())
+        		@if($warehouses->isEmpty())
 
         		<h4 style="font-weight:600;font-size: 20px;margin-left: 30px">You have not currently any warehouse</h4>
 
         		@else        	
-	      		@foreach($data as $index => $warehouse)
+	      		@foreach($warehouses as $index => $warehouse)
 				<div class="col-md-4">
-					<a href="/tenantsection/{{$warehouse->id}}" data-toggle="tooltip" title="Warehouse">          
+					<a href="/warehousesection/{{$warehouse->id}}" data-toggle="tooltip" title="Warehouse">          
 				        <div class="box hvr-grow hvr-shutter-out-vertical"style="background-color: #cee9ef;">
 				          <h3 style="font-weight:600;font-size: 20px;text-align: center">Click to view the sections</h3>
-				          <h2 style="font-size: 3.0vw;text-align: center">{{$warehouse->warehouse_id}}</h2>
+				          <h2 style="font-size: 3.0vw;text-align: center">{{$warehouse->name}}</h2>
 				        </div>
 		        	</a>  
 				</div>

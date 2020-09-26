@@ -17,4 +17,8 @@ class AdImage extends Model
     ];
 
     public $table = 'ad_images';
+
+    public function warehouse(){
+        return $this->belongsTo(Warehouse::class,'warehouse_ad_id');
+    }
 }

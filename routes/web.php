@@ -18,6 +18,25 @@ Route::get('/', 'Warehouse\Ad\AdController@adIndex')->name('website');
 Route::get('/termsandconditions', function () {
     return view('website/termsandconditions');
 });
+Route::get('/privacypolicy', function () {
+    return view('website/privacypolicy');
+});
+Route::get('/about', function () {
+    return view('website/about');
+});
+Route::get('/faqs', function () {
+    return view('website/faqs');
+});
+Route::get('/our_services', function () {
+    return view('website/our_service');
+});
+
+
+Route::get('/contact', function () {
+    return view('website/contact/index');
+});
+
+
 Auth::routes();
 
 Route::group(['middleware' => 'auth'], function (){
@@ -89,6 +108,12 @@ Route::group(['middleware' => 'auth'], function (){
      Route::get('renterdashboard','RenterDashboard\RenterDashboardController@index');
      Route::get('rentersection/{id}','RenterDashboard\RenterDashboardController@rentersection');
      Route::get('rentersectiondetail/{id}','RenterDashboard\RenterDashboardController@rentersectiondetail');
+
+    //Super Admin Dashboard
+     Route::get('superadmindashboard','SuperAdminDashboard\SuperAdminDashboardController@index');
+     Route::get('warehousesection/{id}','SuperAdminDashboard\SuperAdminDashboardController@warehousesection');
+     Route::get('warehousesectiondetail/{id}','SuperAdminDashboard\SuperAdminDashboardController@warehousesectiondetail');
+
 
     //WarehouseAdminDashobard
     

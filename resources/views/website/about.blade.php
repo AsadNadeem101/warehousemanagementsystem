@@ -6,7 +6,7 @@
             <div class="row">
                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                   <div class="header-page">
-                     <h1>Privacy Policy</h1>
+                     <h1>About Us</h1>
                   </div>
                </div>
             </div>
@@ -19,7 +19,7 @@
                <ul>
                   <li><a href="\">Home Page</a></li>
 
-                  <li><a class="active" href="/termsandconditions">Privacy Policy</a></li>
+                  <li><a class="active" href="/about">About Us</a></li>
                </ul>
             </div>
          </div>
@@ -38,28 +38,19 @@
                      <div class="content">
                         <div class="heading-panel">
                            <h3 class="main-title text-left">
-                             Privacy Policy
+                             About Us
                            </h3>
                         </div>
-                        <p>This Privacy Policy is meant to help you understand the information we collect, why we collect it, and how you can manage it.</p>
-                        <p style="color:#f58936"><b>Personal Information</b></p>
-                        <p>When you become a customer, we may collect the following information from you</p>
-                        <p>•  Contact information such as name, email address, mailing address, phone number.</p>
-                        <p>•  Billing information such as credit card number.</p>
-                        <p>•  CNIC number for property verification.</p>
-                        <p>•  Other information as requested.</p>
-                        <p style="color:#f58936"><b>We may use your information to</b></p>
-                        <p>•  Process your payments.</p>
-                        <p>•  Send you information about your use of the Services, purchases and other transactions.</p>
-                        <p>•  Communicate with you about current offers.</p>
+                        <p>•  The warehouse rental management system is a web-based software which help the user (warehouse owner) to rent the place of their warehouse to those who run business and don’t have space either for storage or business purpose and they can’t afford making their own warehouse. </p>
+                        <p>•  We have provide some services like attendance service, cleaning and maintenance.</p>
+                        <p>•  We have also provide the service to manage the inventory of the warehouse.</p>
 
-
-                        
+                        <div class="row"></div>
                      </div>
                   </div>
                   <div class="col-lg-6 col-md-6 col-sm-5 col-xs-12">
-                     <div class="about-page-featured-image" style="margin-top: 140px;margin-left: 115px">
-                        <a href="#"><img src="images/privacy_policy.png" alt=""></a>
+                     <div class="about-page-featured-image" style="margin-top: 90px;margin-left: 115px">
+                        <a href="#"><img src="images/about_us.png" alt=""></a>
                      </div>
                   </div>
                   

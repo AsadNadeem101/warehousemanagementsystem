@@ -48,8 +48,7 @@ class PlanSubscriptionVerificationDataTable extends DataTable
                     ->minifiedAjax()
                     ->dom('Bfrtip')
                     ->orderBy(1)
-                    ->buttons(
-                        Button::make('create'),
+                    ->buttons(  
                         Button::make('export'),
                         Button::make('print'),
                         Button::make('reset'),

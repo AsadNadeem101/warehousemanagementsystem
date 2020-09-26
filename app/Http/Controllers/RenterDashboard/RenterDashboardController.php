@@ -17,7 +17,7 @@ class RenterDashboardController extends Controller
     public function index()
     {	
     	$id = Auth::user()->id;
-    	$data = Warehouse::where('renter_id',$id)->get();
+    	$data = Warehouse::where('renter_id',$id)->where('status','active')->get();
     	
     	return view('renterdashboard.index',compact('data'));
     	

@@ -8,7 +8,7 @@ use App\Model\WarehouseAd;
 use App\Model\Warehouse;
 use App\Model\AdImage;
 use App\Model\PlanSubscriptionUser;
-
+use App\User;
 use App\DataTables\AdDataTable;
 use App\DataTables\WarehouseAdDataTable;
 use Illuminate\Database\QueryException;
@@ -142,41 +142,57 @@ class AdController extends Controller
     }
     public function adIndex()
     {
-       $data=WarehouseAd::all();
+       // $ware_house=Warehouse::first();
 
-        // $plan_subscription = PlanSubscriptionUser::where('status',1)->where('paid','>',0)->pluck('warehouse_ad_id');
-        // if($plan_subscription)
-        // {
-        //     $warehouseads = WarehouseAd::whereIn('id',$plan_subscription);
-        // }
+       // $ware_house_ad=$ware_house->warehouseAds()->first();
 
+       // $ware_house_ad_image=$ware_house_ad->adImages()->first();
 
-        // $warehouse_ads = AdImage::where('ad_id',$data->id)->get();
+       // $ware_house_ads=$ware_house->warehouseAds;
 
+       // $ware_house_ad_image=$ware_house_ad->adImages()->first();
 
-         // $warehouse_ads  =DB::table('warehouse_ads')
-         //    ->join('ad_images' , 'warehouse_ads.id','=','ad_images.warehouse_ad_id')
-         //   // ->join('warehouses' , 'warehouse_ads.warehouse_id', '=' , 'warehouses.id')
-         //    ->select('warehouse_ads.*','ad_images.path')
-         //     ->get();
+       // dd($ware_house_ads);
 
 
+       // [
+       //      'ware_houses' => [
+       //              'ware_house_ads' => [
+       //                      'ware_house_ad_image' => [
 
-        // $warehouse_ads  =DB::table('warehouse_ads')
-        //     ->join('warehouses' , 'warehouse_ads.warehouse_id','=','warehouses.id')
-        //     ->select('warehouse_ads.*','warehouses.location');
-        //     ->get();
-        // $warehouse_ad_asset = DB::table('ad_images')
-        //     ->joinSub($warehouse_ads,'warehouses', function ($join){
-        //         $join->on('warehouses.id', '=' , 'warehouse_ads.warehouse_id');
-        //     })->get();  
+       //                      ]
+       //              ]
+       //      ]
 
-          //  dd($warehouse_ads);
+       // ]
 
 
-        
+       // foreach ($ware_houses as $ware_house) {
+       //      foreach ($ware_house->warehouseAds as $ware_house_ad) {
+       //          foreach ($ware_house_ad->adImages as $ad_image) {
+       //              echo $ad_image->path
+       //          }
+       //      }
+       //  }
 
-        return view('website.index',compact('data'));
+
+        $plan_subscription = PlanSubscriptionUser::where('payment_status','paid')->where('paid','>',0)->where('system_verification','verified') ->pluck('warehouse_ad_id');
+
+        if ($plan_subscription->isEmpty())
+        {
+            $warehouse_ad_featureds = 'There is NO Featured Ads';
+            $status = 1;
+        }
+        else
+        {
+            $warehouse_ad_featureds = WarehouseAd::where('id',$plan_subscription)->where('status','active')->get();
+            $status = 0; 
+        }
+    
+
+        $active_ads = WarehouseAd::where('status','active')->paginate(6);
+
+         return view('website.index',compact('active_ads','warehouse_ad_featureds','status'));
     }
 
     public function showOnWeb(Request $request)
