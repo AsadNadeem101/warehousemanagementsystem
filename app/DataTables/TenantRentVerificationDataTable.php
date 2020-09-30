@@ -8,6 +8,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use App\Helpers\Helper;
 
 class TenantRentVerificationDataTable extends DataTable
 {
@@ -21,6 +22,9 @@ class TenantRentVerificationDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+             ->editColumn('tenant_warehouse_id', function($id){
+                return Helper::warehouseIdToName($id->tenant_warehouse_id);
+            })
             ->addColumn('action', 'tenantrentverification.action');
     }
 

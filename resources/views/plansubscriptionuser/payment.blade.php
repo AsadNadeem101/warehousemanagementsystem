@@ -7,7 +7,15 @@
 @stop
 
 @section('content')
-
+ @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 {!! Form::model($subscriptioncharges, ['method' => 'PATCH','route' => ['plansubscriptionuser.update', $subscriptioncharges->id]]) !!}
 
 		{!! Form::token(); !!}
@@ -18,7 +26,7 @@
 	    	</div>
 	    	<div class="col-md-6">
 	    		<h6>Paid date</h6>
-	    		{!! Form::date('paid_at',null,['class' => 'form-control','placeholder' => 'PAIDTIME']); !!}
+	    		{!! Form::date('paid_at',null,['class' => 'form-control','required','placeholder' => 'PAIDTIME']); !!}
 	    	</div>	    	
 	    </div>
 	    <br><br>

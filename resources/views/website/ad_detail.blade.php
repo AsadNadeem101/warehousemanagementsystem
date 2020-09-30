@@ -54,8 +54,8 @@
 
                            </div>
                         <div class="flex-viewport" style="overflow: hidden; position: relative;"><ul class="slides slide-main" style="width: 1200%; transition-duration: 0s; transform: translate3d(-3750px, 0px, 0px);">
-                                 @foreach($ad->adImages as $media)
-                                 <li class="" style="width: 750px; float: left; display: block;"><img alt="" src="{{asset($media->path)}}" title="" draggable="false"></li>
+                                 @foreach($ad->adImage as $media)
+                                 <li class="" style="width: 750px; float: left; display: block;"><img alt="" src="{{asset($media->path)}}" title="" draggable="true"></li>
                                  @endforeach
                               </ul></div>
                               <ul class="flex-direction-nav"><li><a class="flex-prev" href="#"></a></li><li><a class="flex-next flex-disabled" href="#" tabindex="-1"></a></li></ul></div>
@@ -66,8 +66,8 @@
                            </div>
                            <div class="flex-viewport" style="overflow: hidden; position: relative;">
                               <ul class="slides slide-thumbnail" style="width: 1200%; transition-duration: 0s; transform: translate3d(0px, 0px, 0px);">
-                                 @foreach($ad->adImages as $media)
-                                 <li class="flex-active-slide" style="width: 110px; float: left; display: block;"><img alt="" draggable="false" src="{{asset($media->picture_link)}}"></li>
+                                 @foreach($ad->adImage as $media)
+                                 <li class="flex-active-slide" style="width: 110px; float: left; display: block;"><img alt="" draggable="true" src="{{asset($media->path)}}"></li>
                                  @endforeach
 
                               </ul>

@@ -7,9 +7,9 @@
       <![endif]-->
       <meta name="description" content="">
       <meta name="author" content="ScriptsBundle">
-      <title>AdForest | Largest Classifieds Portal</title>
+      <title>WMS | Warehouse Management System</title>
       <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
-      <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
+      <link rel="icon" href="{{asset('images/new.png')}}" type="image/x-icon">
       <!-- =-=-=-=-=-=-= Mobile Specific =-=-=-=-=-=-= -->
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <!-- =-=-=-=-=-=-= Bootstrap CSS Style =-=-=-=-=-=-= -->
@@ -94,15 +94,12 @@
                   <div class="container">
                      <div class="row">
                         <div class="col-lg-12 col-md-12">
-                           <!-- menu logo -->
-                           <ul class="menu-logo">
-                              <li>
-                                 <a href="index.html"><img src="{{asset('images/logo.png')}}" alt="logo"> </a>
-                              </li>
-                           </ul>
                            <!-- menu links -->
                            <ul class="menu-links">
                               <!-- active class -->
+                              <li style="width: 120px; height: 50px">
+                                 <a href="/index" style="width: 120px; height: 50px"><img src="images/new.png" alt="logo" style="width: 120px; height: 50px"> </a>
+                              </li>
                               <li>
                                  <a href="/index"> Home </a>
                               </li>
@@ -157,7 +154,9 @@
                      <div class="col-md-3  col-sm-6 col-xs-12">
                         <!-- Info Widget -->
                         <div class="widget">
-                           <div class="logo"> <img alt="" src="images/logo-1.png"> </div>
+                           <div class="logo">   
+                              <a href="/index" style="width: 120px; height: 50px"><img src="images/new.png" alt="logo" style="width: 120px; height: 50px"> </a>
+                           </div>
                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur et dolor eget erat fringilla port.</p>
                            <ul>
                               <li><img src="images/appstore.png" alt=""></li>

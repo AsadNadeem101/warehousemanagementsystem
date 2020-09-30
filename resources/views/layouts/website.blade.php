@@ -10,7 +10,7 @@
       <meta name="author" content="ScriptsBundle">
       <title>WRMS | Home</title>
       <!-- =-=-=-=-=-=-= Favicons Icon =-=-=-=-=-=-= -->
-      <link rel="icon" href="{{asset('images/favicon.ico')}}" type="image/x-icon">
+      <link rel="icon" href="{{asset('images/new.png')}}" type="image/x-icon">
       <!-- =-=-=-=-=-=-= Mobile Specific =-=-=-=-=-=-= -->
       <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
       <!-- =-=-=-=-=-=-= Bootstrap CSS Style =-=-=-=-=-=-= -->
@@ -105,14 +105,13 @@
                      <div class="row">
                         <div class="col-lg-12 col-md-12">
                            <!-- menu logo -->
-                           <ul class="menu-logo">
-                              <li>
-                                 <a href="index.html"><img src="images/logo-1.png" alt="logo"> </a>
-                              </li>
-                           </ul>
+                           
                            <!-- menu links -->
                            <ul class="menu-links">
                               <!-- active class -->
+                              <li style="width: 120px; height: 50px">
+                                 <a href="/index" style="width: 120px; height: 50px"><img src="images/new.png" alt="logo" style="width: 120px; height: 50px"> </a>
+                              </li>
                               <li>
                                  <a href="/index"> Home </a>
                               </li>
@@ -180,8 +179,8 @@
                         <div class="row clearfix">
                            <div class="col-lg-7 col-sm-6 col-xs-12 column">
                               <div class="footer-widget about-widget">
-                                 <div class="logo">
-                                    <a href="index.html"><img alt="" class="img-responsive" src="images/logo.png"></a>
+                                 <div class="logo">   
+                                    <a href="/index" style="width: 120px; height: 50px"><img src="images/new.png" alt="logo" style="width: 120px; height: 50px"> </a>
                                  </div>
                                  <div class="text">
                                     <p>Rent warehouse and earn money</p>

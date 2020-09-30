@@ -10,6 +10,7 @@ use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 use Auth;
 use App\User;
+
 class WarehouseDataTable extends DataTable
 {
     /**

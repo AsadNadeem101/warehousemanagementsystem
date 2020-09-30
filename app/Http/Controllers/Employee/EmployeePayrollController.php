@@ -10,6 +10,7 @@ use App\DataTables\EmployeePayrollDataTable;
 use Illuminate\Database\QueryException;
 use RealRashid\SweetAlert\Facades\Alert;
 use Auth;
+use App\Helpers\Helper;
 
 class EmployeePayrollController extends Controller
 {

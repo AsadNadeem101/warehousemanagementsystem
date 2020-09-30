@@ -14,15 +14,15 @@
             <tr>
             <tr>
                 <th>Warehouse Ad</th>
-                <td>{{ $bid->warehouse_ad_id }}</td>
+                <td>{{App\Helpers\Helper::warehouseadIdToTitle($bid->warehouse_ad_id)}}</td>
             </tr>
              <tr>
                 <th>Renter</th>
-                <td>{{ $bid->renter_id }}</td>
+                <td>{{App\Helpers\Helper::userIdToName($bid->renter_id)}}</td>
             </tr>
             <tr>
                 <th>Tenant</th>
-                <td>{{ $bid->tenant_id }}</td>
+                <td>{{App\Helpers\Helper::userIdToName($bid->tenant_id)}}</td>
             </tr>
             <tr>
                 <th>Amount</th>

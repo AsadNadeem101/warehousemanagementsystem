@@ -7,6 +7,17 @@
 @stop
 
 @section('content')
+
+ @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
 	{!! Form::open(['route' => 'employee.store','method' => 'post']) !!}
 		{!! Form::token(); !!}
 	    <div class="row">
@@ -34,18 +45,18 @@
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Cnic</h6>
-	    		{!! Form::number('cnic',null,['class' => 'form-control','placeholder' => 'CNIC','min' => '0', 'required','max' => '9999999999999']); !!}
+	    		{!! Form::number('cnic',null,['class' => 'form-control','placeholder' => '342123456677','min' => '0', 'required']); !!}
 	    	</div>
 	    	<div class="col-md-6">
 	    		<h6>Contact No</h6>
-				{!! Form::number('phone',null,['class' => 'form-control','placeholder' => 'PHONE','min' => '0', 'required','max' => '99999999999']); !!}
+				{!! Form::number('phone',null,['class' => 'form-control','placeholder' => '03123567890','min' => '0', 'required']); !!}
 	    	</div>	    	
 	    </div>	
 		<br>	    
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Salary</h6>
-	    		{!! Form::number('salary',null,['class' => 'form-control','placeholder' => 'SALARY','min' => '0', 'required','max' => '10000000']); !!}
+	    		{!! Form::number('salary',null,['class' => 'form-control','placeholder' => 'SALARY','min' => '1', 'required','max' => '10000000']); !!}
 	    	</div>
 
 			<div class="col-md-6">

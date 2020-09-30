@@ -11,6 +11,7 @@ class WarehouseAd extends Model
     protected $fillable = [
     	'title',
     	'warehouse_id',
+        'renter_id',
     	'description',
     	'img_path',
     	'marla',
@@ -25,8 +26,7 @@ class WarehouseAd extends Model
         return $this->belongsTo(Warehouse::class,'warehouse_id');
     }
 
-
-    public function adImages(){
+    public function adImage(){
         return $this->hasMany(AdImage::class);
     }
 }

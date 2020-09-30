@@ -12,16 +12,17 @@
         <div class="container-fluid">
         <table class="table table-bordered table-striped">
             <tr>
-                <th>Name</th>
-                <td>{{ $ad->warehouse_id }}</td>
+                <th>Warehouse Name</th>
+                <td>{{App\Helpers\Helper::warehouseIdToName($ad->warehouse_id)}}</td>
+                
             </tr>
              <tr>
-                <th>Description</th>
+                <th>Ad Title</th>
                 <td>{{ $ad->title }}</td>
             </tr>
 
             <tr>
-                <th>Location</th>
+                <th>Description</th>
                 <td>{{ $ad->description }}</td>        
             </tr>
             <tr>

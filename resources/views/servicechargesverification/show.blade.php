@@ -12,12 +12,13 @@
         <div class="container-fluid">
         <table class="table table-bordered table-striped">
             <tr>
-                <th>Renter Id</th>
-                <td>{{ $servicechargesverification->renter_id }}</td>
+                <th>Renter Name</th>
+                <td>{{App\Helpers\Helper::userIdToName($servicechargesverification->renter_id)}}</td>
+                
             </tr>
             <tr>
-                <th>Service Id</th>
-                <td>{{ $servicechargesverification->service_id }}</td>
+                <th>Service Name</th>
+                <td>{{App\Helpers\Helper::ServiceIdToName($servicechargesverification->service_id)}}</td>
             </tr>
              <tr>
                 <th>Month</th>

@@ -21,7 +21,7 @@ class EmployeeController extends Controller
      */
     public function index(EmployeeDataTable $dataTable)
     {
-        return $dataTable->render('Employee.index');
+        return $dataTable->render('employee.index');
     }
 
     /**
@@ -44,6 +44,15 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
+         $request->validate([
+            'name' => 'required|max:20',
+            'email' => 'required|email|unique:users',
+            'bio' => 'required|max:50',
+            'cnic' => 'required|regex:/^[1-9][0-9]{12}$/|unique:users',
+            'phone' => 'required|regex:/^(03)[0-9]{9}$/',
+            'salary'=> 'required',
+        ]);
+
         $input = $request->all();
         Employee::create($input);
 
@@ -83,7 +92,16 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
+        $request->validate([
+            'name' => 'required|max:20',
+            'email' => 'required|email|unique:users',
+            'bio' => 'required|max:50',
+            'cnic' => 'required|regex:/^[1-9][0-9]{12}$/',
+            'phone' => 'required|regex:/^(03)[0-9]{9}$/',
+            'salary'=> 'required',
+        ]);
+        
         $input = $request->only('name','email','bio','type','cnic','phone','salary');
         Employee::find($id)->update($input);
         Alert::success('Employee', 'Data successfully updated');

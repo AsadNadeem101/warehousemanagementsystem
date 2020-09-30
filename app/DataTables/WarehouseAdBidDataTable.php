@@ -42,7 +42,15 @@ class WarehouseAdBidDataTable extends DataTable
                     return '<span style="color:brown"><b>Withdrawn</b></span>';
                 }
             })
-           
+             ->editColumn('warehouse_ad_id', function($id){
+                return Helper::warehouseadIdToTitle($id->warehouse_ad_id);
+            })
+              ->editColumn('renter_id', function($id){
+                return Helper::userIdToName($id->renter_id);
+            })
+            ->editColumn('tenant_id', function($id){
+                return Helper::userIdToName($id->tenant_id);
+            })
             ->escapeColumns([])
             ->addColumn('action', 'warehouseadbid.action');
     }
@@ -55,7 +63,15 @@ class WarehouseAdBidDataTable extends DataTable
      */
     public function query(WarehouseAdBid $model)
     {
-        return $model->newQuery();
+        if(Auth::user()->type == 'super_admin')
+        {
+            return $model->newQuery();
+        }
+        if(Auth::user()->type == 'renter')
+        {
+            $model = WarehouseAdBid::where('renter_id',Auth::user()->id);
+            return $model->newQuery();            
+        }
     }
 
     /**

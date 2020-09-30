@@ -9,6 +9,9 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use App\Helpers\Helper;
+use Auth;
+use App\User;
 
 class MyBidDataTable extends DataTable
 {
@@ -22,6 +25,10 @@ class MyBidDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('warehouse_ad_id', function($id){
+                return Helper::warehouseadIdToTitle($id->warehouse_ad_id);
+            })
+            ->escapeColumns([])
             ->addColumn('action', 'mybid.action');
     }
 
@@ -33,7 +40,16 @@ class MyBidDataTable extends DataTable
      */
     public function query(WarehouseAdBid $model)
     {
-        return $model->newQuery();
+        if(Auth::user()->type == 'super_admin')
+        {
+            return $model->newQuery();
+        }
+        if(Auth::user()->type == 'tenant')
+        {
+            $model = WarehouseAdBid::where('tenant_id',Auth::user()->id);
+            return $model->newQuery();            
+        }
+
     }
 
     /**

@@ -8,6 +8,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use App\Helpers\Helper;
 
 class EmployeePayrollDataTable extends DataTable
 {
@@ -21,6 +22,10 @@ class EmployeePayrollDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('employee_id', function($id){
+                return Helper::employeeIdToName($id->employee_id);
+            })
+            ->escapeColumns([])
             ->addColumn('action', 'employeepayroll.action');
     }
 

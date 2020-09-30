@@ -8,6 +8,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use App\Helpers\Helper;
 
 class WarehouseAdApprovalDataTable extends DataTable
 {
@@ -21,6 +22,9 @@ class WarehouseAdApprovalDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('warehouse_id', function($id){
+                return Helper::warehouseIdToName($id->warehouse_id);
+            })
             ->addColumn('action', 'warehouseadapproval.action');
     }
 
@@ -65,6 +69,7 @@ class WarehouseAdApprovalDataTable extends DataTable
     {
         return [
             Column::make('id'),
+            Column::make('warehouse_id'),
             Column::make('title'),
             Column::make('description'),
             Column::make('marla'),

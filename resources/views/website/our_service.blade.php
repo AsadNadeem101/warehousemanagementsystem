@@ -41,10 +41,10 @@
                            Our Services
                            </h3>
                         </div>
-                        <p> <b style="color:#f58936">• </b> &nbsp; Maintenace Service</p>
-                        <p> <b style="color:#f58936">• </b> &nbsp; Cleaning Service</p>
-                        <p> <b style="color:#f58936">• </b> &nbsp; Attendance Management</p>
-                        <p> <b style="color:#f58936">• </b> &nbsp; Inventory  Management</p>
+                        <p> <b style="color:#f58936">• </b> &nbsp; Maintenace Service in just Rs 500</p>
+                        <p> <b style="color:#f58936">• </b> &nbsp; Cleaning Service  in just Rs 500</p>
+                        <p> <b style="color:#f58936">• </b> &nbsp; Attendance Management (Free)</p>
+                        <p> <b style="color:#f58936">• </b> &nbsp; Inventory  Management (Free)</p>
 
                      </div>
                   </div>

@@ -8,6 +8,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use App\Helpers\Helper;
 
 class PlanSubscriptionVerificationDataTable extends DataTable
 {
@@ -21,6 +22,12 @@ class PlanSubscriptionVerificationDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('plan_id', function($id){
+                return Helper::PlanIdToName($id->plan_id);
+            })
+            ->editColumn('warehouse_ad_id', function($id){
+                return Helper::warehouseadIdToTitle($id->warehouse_ad_id);
+            })
             ->addColumn('action', 'plansubscriptionverification.action');
     }
 

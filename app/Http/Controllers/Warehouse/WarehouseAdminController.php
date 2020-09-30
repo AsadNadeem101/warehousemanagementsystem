@@ -41,11 +41,15 @@ class WarehouseAdminController extends Controller
     public function store(Request $request)
     {
           $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|same:confirm-password|min:8',
-            'cnic' => 'unique:users',
 
+
+        ]);
+          $request->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|same:confirm-password|min:8',
+            'cnic' => 'required|regex:/^[1-9][0-9]{12}$/', 'unique:users',
+            'phone' => 'required|regex:/^(03)[0-9]{9}$/',
         ]);
 
         $input = $request->all();

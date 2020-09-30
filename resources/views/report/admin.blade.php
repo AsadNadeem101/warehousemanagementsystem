@@ -9,37 +9,26 @@
 @section('content')
 <table class="table table-bordered">
 	<tr>
-		<th># of tenants</th>
+		<th># of Tenants</th>
 		<td>{{$tenants}}</td>
 	</tr>
 	<tr>
-		<th># of renters</th>
+		<th># of Renters</th>
 		<td>{{$renters}}</td>
 	</tr>
 	<tr>
-		<th># of total_users</th>
+		<th># of Users</th>
 		<td>{{$total_users}}</td>
 	</tr>
 	<tr>
-		<th>warehouses</th>
+		<th>Warehouses</th>
 		<td>{{$warehouses}}</td>
 	</tr>
 	<tr>
-		<th>sales_by_service</th>
-		<td>{{$sales_by_service}}</td>
-	</tr>	
-	<tr>
-		<th>sales_by_plan</th>
-		<td>{{$sales_by_plan}}</td>
+		<th># of Warehouse Ads</th>
+		<td>{{$warehouse_ads}}</td>
 	</tr>
-	<tr>
-		<th>sales_by_commission</th>
-		<td>{{$sales_by_commission}}</td>
-	</tr>
-	<tr>
-		<th>total_sales</th>
-		<td>{{$total_sales}}</td>
-	</tr>					
+						
 </table>
 	
 @stop

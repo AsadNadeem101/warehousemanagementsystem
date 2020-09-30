@@ -255,6 +255,11 @@ return [
             
         ],
         [
+            'text' => 'Tenant Dashboard',
+            'url'  => 'tenantdashboard',
+            'can'  => 'tenantdashboard'
+        ],  
+        [
             'text' => 'Warehouse',
             'url'  => 'warehouse',
             'can'  => 'warehouse_list',
@@ -311,7 +316,11 @@ return [
             'can'  => 'employeepayroll',
             'icon' => 'fas fa-user-tie'
         ],
-
+        [
+            'text' => 'Plan Subscription Verification',
+            'url'  => 'plansubscriptionverification',
+            'can'  => 'plansubscriptionverification'
+        ],
         
         [
             'text' => 'Plan',
@@ -338,11 +347,7 @@ return [
             'url'  => 'servicechargesverification',
             'can'  => 'servicechargesverification'
         ],
-        [
-            'text' => 'Plan Subscription Verification',
-            'url'  => 'plansubscriptionverification',
-            'can'  => 'plansubscriptionverification'
-        ],
+        
 
 
         [
@@ -356,40 +361,12 @@ return [
             'can'  => 'tenantrent_list'
         ], 
         [
-            'text' => 'Tenant Dashboard',
-            'url'  => 'tenantdashboard',
-            'can'  => 'tenantdashboard'
-        ],                   
-        [
-            'text'    => 'Reports',
+            'text' => 'Report',
+            'url'  => '/report/admin',
+            'can'  => 'super_admin_report',
             'icon'    => 'fas fa-file-pdf',
-            'submenu' => [
-                [
-                    'text' => 'Summary',
-                    'url'  => '/report/admin',
-                    'can'  => 'super_admin_report',
-                    'icon' => 'fas fa-fw fa-share',
-                ],
-                [
-                    'text' => 'Summary',
-                    'url'  => '/report/warehouse-admin',
-                    'can'  => 'warehouse_admin_report',
-                    'icon' => 'fas fa-fw fa-share',
-                ],                
-                [
-                    'text' => 'Summary',
-                    'url'  => '/report/renter',
-                    'can'  => 'renter_report',
-                    'icon' => 'fas fa-fw fa-share',
-                ],
-                [
-                    'text' => 'Summary',
-                    'url'  => '/report/tenant',
-                    'can'  => 'tenant_report',
-                    'icon' => 'fas fa-fw fa-share',
-                ]
-            ]
         ],
+                        
         ['header' => 'User management'],
         [
             'text' => 'Users',

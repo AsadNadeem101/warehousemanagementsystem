@@ -8,6 +8,7 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use App\Helpers\Helper;
 
 class ServiceChargesVerificationDataTable extends DataTable
 {
@@ -21,6 +22,13 @@ class ServiceChargesVerificationDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('renter_id', function($id){
+                return Helper::userIdToName($id->renter_id);
+            })
+            ->editColumn('service_id', function($id){
+                return Helper::ServiceIdToName($id->service_id);
+            })
+             ->escapeColumns([])
             ->addColumn('action', 'servicechargesverification.action');
     }
 

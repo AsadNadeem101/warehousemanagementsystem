@@ -54,7 +54,7 @@ class AdController extends Controller
         ]);
 
         $input = $request->all();        
-        
+        $input['renter_id'] = Auth::user()->id;
         $warehouse_ad = WarehouseAd::create($input);
 
         if($request->hasfile('images'))
@@ -62,7 +62,7 @@ class AdController extends Controller
             foreach($request->file('images') as $image)
             {
                 $imageName = time().'.'.$image->extension(); 
-                $image->move(public_path('images/brands'), $imageName);
+                $image->move(public_path('/ad-images'), $imageName);
                 $ad_image = AdImage::create([
                     'warehouse_ad_id' => $warehouse_ad->id,
                     'path'            => '/ad-images/'.$imageName
@@ -109,7 +109,21 @@ class AdController extends Controller
     public function update(Request $request, $id)
     {
         $input = $request->all();
+
         WarehouseAd::find($id)->update($input);
+
+        if($request->hasfile('images'))
+        {
+            foreach($request->file('images') as $image)
+            {
+                $imageName = time().'.'.$image->extension(); 
+                $image->move(public_path('/ad-images'), $imageName);
+                $ad_image = AdImage::create([
+                    'warehouse_ad_id' => $warehouse_ad->id,
+                    'path'            => '/ad-images/'.$imageName
+                ]);
+            }
+        }
         Alert::success('Warehouse Ad', 'Data successfully updated');
         return redirect()->route('warehousead.index');
     }
@@ -177,7 +191,7 @@ class AdController extends Controller
 
 
         $plan_subscription = PlanSubscriptionUser::where('payment_status','paid')->where('paid','>',0)->where('system_verification','verified') ->pluck('warehouse_ad_id');
-
+       
         if ($plan_subscription->isEmpty())
         {
             $warehouse_ad_featureds = 'There is NO Featured Ads';
@@ -188,7 +202,6 @@ class AdController extends Controller
             $warehouse_ad_featureds = WarehouseAd::where('id',$plan_subscription)->where('status','active')->get();
             $status = 0; 
         }
-    
 
         $active_ads = WarehouseAd::where('status','active')->paginate(6);
 

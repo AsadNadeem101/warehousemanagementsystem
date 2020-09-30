@@ -58,7 +58,7 @@ Route::group(['middleware' => 'auth'], function (){
     Route::resource('warehouse', 'Warehouse\WarehouseController');
 
     //Employee Payroll
-     Route::resource('employeepayroll', 'Employee\EmployeePayrollController');
+    Route::resource('employeepayroll', 'Employee\EmployeePayrollController');
     Route::get('salaries/{id}/payment', 'Employee\EmployeePayrollController@payment');
 
 

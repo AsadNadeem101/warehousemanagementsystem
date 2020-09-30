@@ -12,20 +12,21 @@
         <div class="container-fluid">
         <table class="table table-bordered table-striped">
             <tr>
-                <th>Warehouse Id</th>
-                <td>{{ $subscriptionchargesverification->warehouse_id }}</td>
+                <th>Warehouse Name</th>
+
+                <td>{{App\Helpers\Helper::warehouseIdToName($subscriptionchargesverification->warehouse_id)}}</td>
             </tr>
             <tr>
-                <th>Renter Id</th>
-                <td>{{ $subscriptionchargesverification->renter_id }}</td>
+                <th>Renter Name</th>
+                <td>{{App\Helpers\Helper::userIdToName($subscriptionchargesverification->renter_id)}}</td>
             </tr>
             <tr>
-                <th>Plan Id</th>
-                <td>{{ $subscriptionchargesverification->plan_id }}</td>
+                <th>Plan Name</th>
+                <td>{{App\Helpers\Helper::PlanIdToName($subscriptionchargesverification->plan_id)}}</td>
             </tr>
              <tr>
-                <th>Warehouse Ad Id</th>
-                <td>{{ $subscriptionchargesverification->warehouse_ad_id }}</td>
+                <th>Warehouse Ad Title</th>
+                <td>{{App\Helpers\Helper::warehouseadIdToTitle($subscriptionchargesverification->warehouse_ad_id)}}</td>
             </tr>
             <tr>
                 <th>Account Number</th>

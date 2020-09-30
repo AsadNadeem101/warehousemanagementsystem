@@ -9,16 +9,17 @@
 
 @section('content')
 
-@if (count($errors) > 0)
+
+ @if ($errors->any())
     <div class="alert alert-danger">
-        <strong>Whoops!</strong> There were some problems with your input.<br><br>
         <ul>
-        @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-        @endforeach
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
         </ul>
     </div>
 @endif
+
 
 {!! Form::open(['route' =>  ['inventory.store'],'method' => 'post']) !!}
 <div class="row">
@@ -38,8 +39,8 @@
     </div>
     <div class="col-md-6"> 
         <div class="form-group">
-            <div class="in box">{!! Form::number('in', null, array('placeholder' => 'No of Piece IN','class' => 'form-control')) !!} </div>
-            <div class="out box">{!! Form::number('out', null, array('placeholder' => 'No of Piece OUT','class' => 'form-control')) !!} </div>
+            <div class="in box">{!! Form::number('in', null, array('placeholder' => 'No of Piece IN','class' => 'form-control','min' => '1', 'required','max' => '10000000')) !!} </div>
+            <div class="out box">{!! Form::number('out', null, array('placeholder' => 'No of Piece OUT','class' => 'form-control','min' => '1', 'required','max' => '10000000')) !!} </div>
         </div>   
     </div>
       <input type="hidden" name="tenant_warehouse_section_id" value="<?php echo $tenant_warehouse_section_id; ?>">

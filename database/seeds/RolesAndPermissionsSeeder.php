@@ -18,9 +18,13 @@ class RolesAndPermissionsSeeder extends Seeder
 
 		$permissionsByRole = [
 		    'super_admin' => [
-		    	['name'=>'super_admin_dashboard'],
+				
+			    ['name'=>'superadmindashboard'],
 				['name'=>'super_admin_report'],
 
+				['name'=>'warehouse_list'],
+			    ['name'=>'warehouse_show'],
+			    ['name'=>'warehouse_delete'],
 			    ['name'=>'user_list'],
 			    ['name'=>'user_create'],
 			    ['name'=>'user_edit'],
@@ -42,17 +46,16 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'tenantrentverification'],  
 			    ['name'=>'servicechargesverification'], 
 			    ['name'=>'warehouseregistration'], 
-			    ['name'=>'warehouseadapproval'], 
-			  
+			    ['name'=>'warehouseadapproval'],  
+			  	['name'=>'plansubscriptionverification'],
 			 	['name'=>'product'],
 			 	
-			    ['name'=>'superadmindashboard'],
 			    
 		    ],
 		    
 		    'warehouse_admin' => [
-				['name'=>'warehouse_admin_dashboard'],
-				['name'=>'warehouse_admin_report'],
+				 ['name'=>'warehouseadmindashboard'],
+				
 
 			
 				['name'=>'employee_list'],
@@ -62,35 +65,27 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'employee_delete'],
 
 			    ['name'=>'mark_attendance'],  
-			    ['name'=>'warehouseadmindashboard'],
+			   
 			   
 			    ['name'=>'employeepayroll'],
 		    ],
 		    
 		    'tenant' => [
-				['name'=>'tenant_dashboard'],
-				['name'=>'tenant_report'],
+				['name'=>'tenantdashboard'],
+				
 				['name'=>'my_bid'],
 				['name'=>'tenantrent_list'],
-				['name'=>'tenantdashboard'],
 		    ],
 
 		    'renter' => [
-				['name'=>'renter_dashboard'],
-				['name'=>'renter_report'],
+				['name'=>'renterdashboard'],
+				
 
 				['name'=>'warehouse_list'],
 			    ['name'=>'warehouse_create'],
 			    ['name'=>'warehouse_edit'],
 			    ['name'=>'warehouse_show'],
 			    ['name'=>'warehouse_delete'],
-
-
-				['name'=>'employee_list'],
-			    ['name'=>'employee_create'],
-			    ['name'=>'employee_edit'],
-			    ['name'=>'employee_show'],
-			    ['name'=>'employee_delete'],
 
 			    ['name'=>'warehouse_ad_bid'],
 			    ['name'=>'servicesubscriptioncharges'],

@@ -8,6 +8,9 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use App\Helpers\Helper;
+use Auth;
+use App\User;
 
 class WarehouseRegistrationDataTable extends DataTable
 {
@@ -21,6 +24,9 @@ class WarehouseRegistrationDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('renter_id', function($id){
+                return Helper::userIdToName($id->renter_id);
+            })
             ->addColumn('action', 'warehouseregistration.action');
     }
 
@@ -66,6 +72,7 @@ class WarehouseRegistrationDataTable extends DataTable
         return [
             
             Column::make('id'),
+            Column::make('renter_id'),
             Column::make('name'),
             Column::make('description'),
             Column::make('city'),

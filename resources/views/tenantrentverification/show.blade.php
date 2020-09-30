@@ -13,7 +13,7 @@
         <table class="table table-bordered table-striped">
             <tr>
                 <th>Tenant Warehouse</th>
-                <td>{{ $tenantrentverification->tenant_warehouse_id }}</td>
+                 <td>{{App\Helpers\Helper::warehouseIdToName($tenantrentverification->tenant_warehouse_id)}}</td>
             </tr>
              <tr>
                 <th>Month</th>

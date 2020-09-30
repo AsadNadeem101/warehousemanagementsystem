@@ -7,6 +7,15 @@
 @stop
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 	{!! Form::open(['route' => 'change_password','method' => 'post']) !!}
 		{!! Form::token(); !!}
 		<table class="table">

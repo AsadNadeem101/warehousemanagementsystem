@@ -74,6 +74,10 @@ class ServiceSubscriptionChargesController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'account_number' => 'required|regex:/^[1-9][0-9]{15}$/',
+        ]);
+        
         $servicecharges = ServiceSubscriptionCharges::find($id);        
         $servicecharges->account_number = $request->input('account_number');
         $servicecharges->paid_at = $request->input('paid_at');

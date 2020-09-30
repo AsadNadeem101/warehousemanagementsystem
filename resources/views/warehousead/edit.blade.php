@@ -7,6 +7,15 @@
 @stop
 
 @section('content')	
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 {!! Form::model($ad, ['method' => 'PATCH','enctype' => 'multipart/form-data','route' => ['warehousead.update', $ad->id]]) !!}
 
 		{!! Form::token(); !!}

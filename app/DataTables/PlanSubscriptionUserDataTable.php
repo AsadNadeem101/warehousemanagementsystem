@@ -8,7 +8,9 @@ use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
-
+use App\Helpers\Helper;
+use Auth;
+use App\User;
 class PlanSubscriptionUserDataTable extends DataTable
 {
     /**
@@ -21,6 +23,12 @@ class PlanSubscriptionUserDataTable extends DataTable
     {
         return datatables()
             ->eloquent($query)
+            ->editColumn('plan_id', function($id){
+                return Helper::PlanIdToName($id->plan_id);
+            })
+            ->editColumn('warehouse_ad_id', function($id){
+                return Helper::warehouseadIdToTitle($id->warehouse_ad_id);
+            })
             ->addColumn('action', 'plansubscriptionuser.action');
     }
 
@@ -32,7 +40,11 @@ class PlanSubscriptionUserDataTable extends DataTable
      */
     public function query(PlanSubscriptionUser $model)
     {
-        return $model->newQuery();
+        if(Auth::user()->type == 'renter')
+        {
+            $model = PlanSubscriptionUser::where('renter_id',Auth::user()->id);
+            return $model->newQuery();            
+        }
     }
 
     /**

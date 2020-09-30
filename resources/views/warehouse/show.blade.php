@@ -41,21 +41,25 @@
                 <td>{{ $warehouse->room }}</td>
             </tr>
             <tr>
-                <th>Renter</th>
-                <td>{{ $warehouse->renter_id }}</td>
+                <th>Renter Name</th>
+                <td>{{App\Helpers\Helper::userIdToName($warehouse->renter_id)}}</td>
+                
             </tr>
             <tr>
                 <th>Status</th>
                 <td>{{ $warehouse->status }}</td>
             </tr>
+           
             <tr>
                 <th>Service</th>
                 <td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#add_service">Add service</button></td>
             </tr>
+           
             <tr>
                 <th>TimeStamp</th>
                 <td>{{ $warehouse->created_at }}</td>
             </tr>
+           
             <tr>
                 <th>Assign Warehouse Admin</th>
                 
@@ -65,6 +69,7 @@
                 <td><h6><b style="color:green">Warehouse Admin already assigned</b></h6></td>
                 @endif
             </tr>
+            
         </table>
     </div>
 </div>

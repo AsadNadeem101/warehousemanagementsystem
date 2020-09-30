@@ -74,6 +74,9 @@ class PlanSubscriptionUserController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'account_number' => 'required|regex:/^[1-9][0-9]{15}$/',
+        ]);
         $subscriptioncharges = PlanSubscriptionUser::find($id);        
         $subscriptioncharges->account_number = $request->input('account_number');
         $subscriptioncharges->paid_at = $request->input('paid_at');

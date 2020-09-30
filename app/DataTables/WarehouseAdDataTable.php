@@ -2,12 +2,15 @@
 
 namespace App\DataTables;
 
+use App\Model\Warehouse;
 use App\Model\WarehouseAd;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use Auth;
+use App\User;
 
 class WarehouseAdDataTable extends DataTable
 {
@@ -47,8 +50,17 @@ class WarehouseAdDataTable extends DataTable
      */
     public function query(WarehouseAd $model)
     {
+        if(Auth::user()->type == 'super_admin')
+        {
+            return $model->newQuery();
+        }
+        if(Auth::user()->type == 'renter')
+        {
+            $model =WarehouseAd::where('renter_id',Auth::user()->id);
         
-        return $model->newQuery();
+            return $model->newQuery();            
+        }
+
     }
 
     /**

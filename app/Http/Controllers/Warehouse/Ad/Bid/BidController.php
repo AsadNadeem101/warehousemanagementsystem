@@ -47,6 +47,10 @@ class BidController extends Controller
      */
     public function store(Request $request)
     {
+         $request->validate([
+            'bid_amount' => 'required|min:0|max:10000000',
+        ]);
+
         $input = $request->all();
         $warehouse_ad_bid = WarehouseAdBid::create($input);
         Alert::success('Warehouse Bid Ad', 'Data successfully Created');
@@ -141,9 +145,10 @@ class BidController extends Controller
     {
 
         $id = $request->id;
+
         $warehouse_ad_bid = WarehouseAdBid::find($id);
         $warehouse_ad = WarehouseAd::find($warehouse_ad_bid->warehouse_ad_id); 
-      
+        
         $tenant_warehouse = new TenantWarehouse;
         $tenant_warehouse->warehouse_id = $warehouse_ad->warehouse_id;
         $tenant_warehouse->warehouse_ad_id = $warehouse_ad->id;
@@ -151,8 +156,10 @@ class BidController extends Controller
         $tenant_warehouse->tenant_id = $warehouse_ad_bid->tenant_id;
         $start_date = Carbon::now();
         $end_date = Carbon::now();
+
         $end_date = $end_date->add($warehouse_ad->duration, 'month');
         $tenant_warehouse->start_date = $start_date;
+
         $tenant_warehouse->end_date = $end_date;
         $tenant_warehouse->duration = $warehouse_ad->duration;
         $tenant_warehouse->rent = $warehouse_ad_bid->bid_amount;
@@ -179,7 +186,7 @@ class BidController extends Controller
 
         \Log::info($warehouse_marla_remaining);
 
-        $warehouse_ads_delete = WarehouseAd::where('marla','>',$warehouse_marla_remaining)->pluck('id');
+        $warehouse_ads_delete = WarehouseAd::where('marla','>',$warehouse_marla_remaining)->where('warehouse_id',$warehouse_ad->warehouse_id)->pluck('id');
 
         \Log::info($warehouse_ads_delete);
 

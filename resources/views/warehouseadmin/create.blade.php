@@ -10,18 +10,14 @@
 @stop
 
 @section('content')
-
-
-
-@if (count($errors) > 0)
-  <div class="alert alert-danger">
-    <strong>Whoops!</strong> There were some problems with your input.<br><br>
-    <ul>
-       @foreach ($errors->all() as $error)
-         <li>{{ $error }}</li>
-       @endforeach
-    </ul>
-  </div>
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
 @endif
 
 {!! Form::open(array('route' => 'warehouseadmin.store','method'=>'POST')) !!}
@@ -29,27 +25,30 @@
 <div class="row">
    <div class="col-md-6">
         <div class="form-group">
-            <strong><i class="fas fa-file-signature" style="color: #6c757d"></i> &nbsp Name:</strong>
+            <h6> Name:</h6>
             {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control','required' => 'required')) !!}
         </div>
         <div class="form-group">
-            <strong><i class="fas fa-file-signature" style="color: #6c757d"></i> &nbsp CNIC:</strong>
-            {!! Form::text('cnic', null, array('placeholder' => 'CNIC','class' => 'form-control','required' => 'required','field' => 'Unique:cnic',)) !!}
+            <h6> CNIC:</h6>
+            {!! Form::text('cnic', null, array('placeholder' => 'CNIC','class' => 'form-control',)) !!}
         </div>
-
         <div class="form-group">
-            <strong><i class="fas fa-envelope" style="color: #6c757d"></i>&nbsp Email:</strong>
+            <h6> Contact</h6>
+            {!! Form::number('phone', null, array('placeholder' => '03XXXXXXXXX','class' => 'form-control',)) !!}
+        </div>
+        <div class="form-group">
+            <h6> Email:</h6>
             {!! Form::text('email', null, array('placeholder' => 'Email','class' => 'form-control','required' => 'required')) !!}
         </div>
    
         <div class="form-gruop">
-            <strong><i class="fas fa-key"  style="color: #6c757d"></i>&nbsp Password:</strong>
+            <h6> Password:</h6>
             {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control','required' => 'required')) !!}
         </div>
         
          <div class="form-group">
-            <strong><i class="fas fa-key" style="color: #6c757d"></i>&nbsp Confirm Password:</strong>
-            {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control')) !!}
+            <h6>Confirm Password:</h6>
+            {!! Form::password('confirm-password', array('placeholder' => 'Confirm Password','class' => 'form-control','required' => 'required')) !!}
         </div>
    </div>
 </div>

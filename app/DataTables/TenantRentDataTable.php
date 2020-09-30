@@ -2,12 +2,16 @@
 
 namespace App\DataTables;
 
-use App\Model\TenantRent;
+use App\Model\TenantRent; 
+use App\Model\TenantWarehouse;
 use Yajra\DataTables\Html\Button;
 use Yajra\DataTables\Html\Column;
 use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
+use App\Helpers\Helper;
+use Auth;
+use App\User;
 
 class TenantRentDataTable extends DataTable
 {
@@ -31,8 +35,14 @@ class TenantRentDataTable extends DataTable
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function query(TenantRent $model)
-    {
-        return $model->newQuery();
+    {   
+      
+        if(Auth::user()->type == 'tenant')
+        {
+            $tenant_warehouse_id = TenantWarehouse::where('tenant_id',Auth::user()->id)->pluck('id');
+            $model = TenantRent::where('tenant_warehouse_id',$tenant_warehouse_id);
+            return $model->newQuery();            
+        }
     }
 
     /**

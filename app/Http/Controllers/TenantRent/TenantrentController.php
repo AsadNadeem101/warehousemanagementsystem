@@ -72,6 +72,10 @@ class TenantRentController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'account_number' => 'required|regex:/^[1-9][0-9]{15}$/',
+        ]);
+        
         $tenantrent = TenantRent::find($id);
         
         $tenantrent->account_number = $request->input('account_number');

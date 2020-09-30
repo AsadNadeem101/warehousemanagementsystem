@@ -5,6 +5,9 @@ use App\Model\Warehouse;
 use App\Model\Inventory;
 use App\Model\TenantWarehouse;
 use App\Model\WarehouseAd;
+use App\Model\PLan;
+use App\Model\Service;
+use App\Model\Employee;
 use App\User;
 class Helper
 {
@@ -21,7 +24,7 @@ class Helper
     public static function warehouseadIdToTitle($id)
     {
         $warehousead = WarehouseAd::find($id);
-        return $warehousead->room;
+        return $warehousead->title;
     }
     public static function tenantWarehouseIdToStartTime($id)
     {
@@ -46,5 +49,20 @@ class Helper
         $remaining = $in - $out;
 
         return $remaining;
+    }
+    public static function PlanIdToName($id)
+    {
+        $plan_name = Plan::find($id);
+        return $plan_name->name;
+    }
+    public static function ServiceIdToName($id)
+    {
+        $service_name=Service::where('id',$id)->value('name');
+        return $service_name;    
+    }
+    public static function employeeIdToName($id)
+    {
+        $employee_name=Employee::where('id',$id)->value('name');
+        return $employee_name;  
     }
 }

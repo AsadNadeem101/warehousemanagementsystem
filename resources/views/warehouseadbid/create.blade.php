@@ -7,12 +7,21 @@
 @stop
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 	{!! Form::open(['route' => 'warehouseadbid.store','method' => 'post']) !!}
 		{!! Form::token(); !!}
 	    <div class="row">
 	    	<div class="col-md-6">
 	    		<h6>Bid Amount</h6>
-	    		{!! Form::text('bid_amount',null,['class' => 'form-control','placeholder' => 'BID AMOUNT']); !!}
+	    		{!! Form::text('bid_amount',null,['class' => 'form-control','placeholder' => 'BID AMOUNT','min' => '1', 'required','max' => '10000000']); !!}
 	    	</div>	    	
 	    </div>
 	    <br>

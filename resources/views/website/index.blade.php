@@ -71,7 +71,7 @@
                         <!-- Main Title -->
                         <h1>Browse <span class="heading-color"> Featured</span> Ads</h1>
                         <!-- Short Description -->
-                        <p class="heading-text">Eu delicata rationibus usu. Vix te putant utroque, ludus fabellas duo eu, his dico ut debet consectetuer.</p>
+                        <p class="heading-text">Featured Ads</p>
                      </div>
                   </div>
                   <!-- Middle Content Box -->
@@ -94,7 +94,7 @@
                                  <div class="category-grid-box">
                                     <!-- Ad Img -->
                                     <div class="category-grid-img">
-                                      <img alt="" src="ad-images/1599220181.png" title="">
+                                      <img alt="" src="{{asset($warehouse_ad_featured->adImage()->first()->path)}}" title="">
                                        <!-- User Review -->
                                        <span class="ad-status"> Featured </span>
                                        <!-- View Details -->
@@ -170,16 +170,10 @@
                               <div class="col-md-3 col-sm-5 col-xs-12 grid-style no-padding">
                                  <!-- Image Box -->                      
                                  <div class="img-box" style="height:186px">
-                               
-                                     <img alt="" src="ad-images/1599220181.png" title="">
+                                     <img alt="" src="{{asset($ad->adImage()->first()->path)}}" title="">
                                     <div class="total-images"><strong>8</strong> photos </div>
-                                    
                                  </div>
                                  <!-- User Preview -->
-                                
-                                 
-                               
-
                               </div>
                               <div class="col-md-9 col-sm-7 col-xs-12">
                                 
