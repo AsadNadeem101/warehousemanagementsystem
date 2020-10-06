@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'View Today Attendance')
 
 @section('content_header')
     <h1>View Today Attendance</h1>

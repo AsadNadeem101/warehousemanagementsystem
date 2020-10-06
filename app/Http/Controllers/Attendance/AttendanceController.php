@@ -94,6 +94,7 @@ class AttendanceController extends Controller
     public function viewattendancedetail(Request $request)
     {
         $attendanceObj = Attendance::where('employee_id',$request->id)->paginate(10);
+       
         return view('Attendance.viewAttendanceDetail')->with('attendances',$attendanceObj);
     }
 

@@ -1,4 +1,4 @@
-<?php
+        <?php
 
 namespace App\Http\Controllers\Warehouse;
 
@@ -40,10 +40,6 @@ class WarehouseAdminController extends Controller
      */
     public function store(Request $request)
     {
-          $this->validate($request, [
-
-
-        ]);
           $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',

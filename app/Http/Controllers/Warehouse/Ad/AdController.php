@@ -156,40 +156,6 @@ class AdController extends Controller
     }
     public function adIndex()
     {
-       // $ware_house=Warehouse::first();
-
-       // $ware_house_ad=$ware_house->warehouseAds()->first();
-
-       // $ware_house_ad_image=$ware_house_ad->adImages()->first();
-
-       // $ware_house_ads=$ware_house->warehouseAds;
-
-       // $ware_house_ad_image=$ware_house_ad->adImages()->first();
-
-       // dd($ware_house_ads);
-
-
-       // [
-       //      'ware_houses' => [
-       //              'ware_house_ads' => [
-       //                      'ware_house_ad_image' => [
-
-       //                      ]
-       //              ]
-       //      ]
-
-       // ]
-
-
-       // foreach ($ware_houses as $ware_house) {
-       //      foreach ($ware_house->warehouseAds as $ware_house_ad) {
-       //          foreach ($ware_house_ad->adImages as $ad_image) {
-       //              echo $ad_image->path
-       //          }
-       //      }
-       //  }
-
-
         $plan_subscription = PlanSubscriptionUser::where('payment_status','paid')->where('paid','>',0)->where('system_verification','verified') ->pluck('warehouse_ad_id');
        
         if ($plan_subscription->isEmpty())
@@ -210,11 +176,7 @@ class AdController extends Controller
 
     public function showOnWeb(Request $request)
     {
-
         $ad = WarehouseAd::find($request->ad_id);
-        // $ad = DB::table('warehouse_ads')
-                // ->join('warehouses', 'warehouse_ads.warehouse_id', '=', 'warehouses.id')
-                // ->get();
         return view('website.ad_detail',compact('ad'));
     }
 }

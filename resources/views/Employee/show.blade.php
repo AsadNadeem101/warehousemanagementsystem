@@ -48,6 +48,8 @@
                 <th>Created at</th>
                 <td>{{ $employee->created_at }}</td>
             </tr>
+            @if($attendence_exist != null)
+           
             <tr>
                 <th>View Attendence Detail</th>
                 
@@ -55,6 +57,7 @@
                     <a href="/viewattendancedetail/{{$employee->id}}"><button type="button" class="btn btn-primary">Detail</button></a> 
                 </td>
             </tr>
+            @endif
         </table>
     </div>
 </div>
