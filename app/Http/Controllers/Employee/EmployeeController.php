@@ -54,7 +54,9 @@ class EmployeeController extends Controller
         ]);
 
         $input = $request->all();
-        Employee::create($input);
+        $employer = Employee::create($input);
+
+        $employer->assignRole('warehouse_admin');
 
         Alert::success('Employee', 'Data successfully created');
         return redirect()->route('employee.index');
