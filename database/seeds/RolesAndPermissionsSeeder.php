@@ -65,8 +65,6 @@ class RolesAndPermissionsSeeder extends Seeder
 			    ['name'=>'employee_delete'],
 
 			    ['name'=>'mark_attendance'],  
-			   
-			   
 			    ['name'=>'employeepayroll'],
 		    ],
 		    
